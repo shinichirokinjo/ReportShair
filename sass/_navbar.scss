@@ -4,10 +4,16 @@
   top: 0;
   left: 0;
   right: 0;
+  height: 51px;
   background: #000 url('../img/navbar.png') repeat-x 0 0;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+     -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+          box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  z-index: 99;
+  .inner {
+    margin: 0 auto;
+    width: 1024px;
+  }
   .logo {
     float: left;
     display: block;
@@ -24,15 +30,31 @@
   }
   .nav {
     position: relative;
-    & > li {
-      display: block;
-      float: left;
-      & > a {
-        text: {
-          decoration: none;
-          shadow: 0 -1px 0 rgba(0,0,0,.25);
-        };
+    .navlist {
+      border-left: solid 1px #222;
+      & > li {
+        float: left;
+        display: block;
+        border-left: solid 1px #555;
+        border-right: solid 1px #222;
+        & > a {
+          display: block;
+          padding: 0 15px;
+          line-height: 51px;
+          text: {
+            decoration: none;
+            shadow: 0 -1px 0 rgba(0,0,0,.25);
+          };
+          font-size: 20px;
+          color: #FFF;
+        }
       }
+      &.pull {
+        float: right;
+      }
+    }
+    .dropdown {
+
     }
   }
   .btn {

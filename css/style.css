@@ -1,1 +1,135 @@
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,b,i,small,strong,sub,sup,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}nav ul{list-style:none}ol,ul{list-style:none}nav ol,nav ul{list-style-image:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}img{border:0;-ms-interpolation-mode:bicubic}article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{display:block}audio:not([controls]){display:none}[hidden]{display:none}.navbar{overflow:visible;position:fixed;top:0;left:0;right:0;background:#000 url("../img/navbar.png") repeat-x 0 0;-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);-moz-box-shadow:0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);box-shadow:0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1)}.navbar .logo{float:left;display:block;width:240px;height:51px}.navbar .logo a{display:block;overflow:hidden;width:240px;height:51px;background:url("../img/logo.png") no-repeat 0 0;text-indent:-1000em}.navbar .nav{position:relative}.navbar .nav>li{display:block;float:left}.navbar .nav>li>a{text-decoration:none;text-shadow:0 -1px 0 rgba(0,0,0,0.25)}.navbar .btn{display:inline-block}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, b, i, small, strong, sub, sup, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+nav ul {
+  list-style: none; }
+
+ol, ul {
+  list-style: none; }
+  nav ol, nav ul {
+    list-style-image: none; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none; }
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  display: block; }
+
+audio:not([controls]) {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+.visual {
+  position: fixed !important;
+  display: none; }
+  .visual .item .panel {
+    position: absolute;
+    padding: 20px;
+    bottom: 50px;
+    width: 400px;
+    background: rgba(0, 0, 0, 0.7); }
+
+.mc-image {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.navbar {
+  overflow: visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 51px;
+  background: black url("../img/navbar.png") repeat-x 0 0;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  z-index: 99; }
+  .navbar .inner {
+    margin: 0 auto;
+    width: 1024px; }
+  .navbar .logo {
+    float: left;
+    display: block;
+    width: 240px;
+    height: 51px; }
+    .navbar .logo a {
+      display: block;
+      overflow: hidden;
+      width: 240px;
+      height: 51px;
+      background: url("../img/logo.png") no-repeat 0 0;
+      text-indent: -1000em; }
+  .navbar .nav {
+    position: relative; }
+    .navbar .nav .navlist {
+      border-left: solid 1px #222; }
+      .navbar .nav .navlist > li {
+        float: left;
+        display: block;
+        border-left: solid 1px #555;
+        border-right: solid 1px #222; }
+        .navbar .nav .navlist > li > a {
+          display: block;
+          padding: 0 15px;
+          line-height: 51px;
+          text-decoration: none;
+          text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+          font-size: 20px;
+          color: #FFF; }
+      .navbar .nav .navlist.pull {
+        float: right; }
+  .navbar .btn {
+    display: inline-block; }
+
+#overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 110; }
+
+#overlay-popup {
+  position: fixed;
+  margin-left: -30%;
+  top: 100px;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  background: #FFF;
+  -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 111; }

@@ -4,37 +4,77 @@
 <meta charset="utf-8" />
 <title>ReportShair</title>
 <link rel="stylesheet" href="../css/style.css" media="screen" />
-<link rel="stylesheet" href="./study1.css" media="screen" />
+<link rel="stylesheet" href="./mock1.css" media="screen" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../js/jquery.cycle.js"></script>
+<script src="../js/jquery.easing.js"></script>
+<script src="../js/jquery.maximage.js"></script>
+<script src="../js/app.js"></script>
 </head>
 
 <body>
 <div class="header navbar">
   <div class="inner">
     <div class="logo">
-      <a href="">ReportShair</a>
+      <a href="#" title="ReportShair">ReportShair</a>
     </div>
     <nav class="nav">
-      <ul>
+      <ul class="navlist">
         <li><a href="">Events</a></li>
         <li><a href="">Reports</a></li>
       </ul>
     </nav>
-    <nav>
-      <ul>
-        <li><a href="./login.html">Login</a></li>
+    <nav class="nav">
+      <ul class="navlist pull">
+        <li><a class="login" href="/login">Login</a></li>
       </ul>
     </nav>
   </div>
 </div>
+<div id="maximage" class="visual carousel">
+  <div class="item">
+    <img src="../img/visual-1.jpeg" />
+    <div class="panel">
+      <h2>Let’s make a Your party Report!</h2>
+      <p></p>
+      <div class="buttons"></div>
+    </div>
+  </div>
+  <div class="item">
+    <img src="../img/visual-2.jpeg" />
+    <div class="panel"></div>
+  </div>
+  <div class="item">
+    <img src="../img/visual-3.jpeg" />
+    <div class="panel"></div>
+  </div>
+</div>
+<script type="text/javascript">
+// RS.Carousel.init();
+$(function() {
+  $('#maximage').maximage({
+    cycleOptions: {
+      slideResize: 0,
+      fx: 'fade',
+      speed: 1000,
+      timeout: 6000,
+    },
+    onFirstImageLoaded: function() {
+      jQuery('#maximage').fadeIn('fast');
+    }
+  });
+});
+</script>
 <div class="container">
-  <div class="visual"></div>
   <div class="inner">
     <div class="content"></div>
     <aside class="sidebar"></aside>
   </div>
 </div>
 <div class="footer">
-  <div class="inner"></div>
+  <div class="inner">
+    <p class="copyright">&copy; 2012 ReportShair.</p>
+  </div>
 </div>
 </body>
 </html>
