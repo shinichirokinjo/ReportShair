@@ -132,7 +132,10 @@ var RS = RS || {};
 
       this.$popup.show();
     },
-    close: function() {}
+    close: function() {},
+    hide: function() {
+      this.$popup.hide();
+    }
   });
 })(jQuery, RS);
 

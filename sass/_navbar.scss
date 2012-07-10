@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 51px;
+  height: 45px;
   background: #000 url('../img/navbar.png') repeat-x 0 0;
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
      -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
@@ -18,12 +18,12 @@
     float: left;
     display: block;
     width: 240px;
-    height: 51px;
+    height: 45px;
     a {
       display: block;
       overflow: hidden;
       width: 240px;
-      height: 51px;
+      height: 45px;
       background: url('../img/logo.png') no-repeat 0 0;
       text-indent: -1000em;
     }
@@ -31,22 +31,34 @@
   .nav {
     position: relative;
     .navlist {
+      float: left;
+      display: inline-block;
+      height: 45px;
+      background: url('../img/navbar.png') 0 -45px repeat-x;
       border-left: solid 1px #222;
       & > li {
         float: left;
         display: block;
-        border-left: solid 1px #555;
-        border-right: solid 1px #222;
+        margin-right: 1px;
+        background: url('../img/navbar.png') 0 0 repeat-x;
         & > a {
           display: block;
           padding: 0 15px;
-          line-height: 51px;
+          height: 45px;
+          line-height: 45px;
           text: {
             decoration: none;
-            shadow: 0 -1px 0 rgba(0,0,0,.25);
+            shadow: 0 -1px 1px rgba(0,0,0,.8);
           };
-          font-size: 20px;
+          font: {
+            family: "myriad-pro-1", "myriad-pro-2", sans-serif;
+            size: 16px;
+            weight: 600;
+          };
           color: #FFF;
+          &:hover {
+            background-position: -90px;
+          }
         }
       }
       &.pull {

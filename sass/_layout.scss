@@ -1,6 +1,7 @@
 .visual {
   position: fixed !important;
   display: none;
+  z-index: 2;
   .item {
     .panel {
       position: absolute;

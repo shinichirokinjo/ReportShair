@@ -1,0 +1,80 @@
+.panel {
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  width: 100px;
+  height: 100px;
+  background: #FFF;
+}
+body {
+  position: relative;
+}
+.container {
+  position: relative;
+  padding-top: 77px;
+  z-index: 10;
+}
+.home .container {
+  padding-top: 320px;
+}
+.container .inner {
+  margin: 0 auto;
+  padding: 10px 12px;
+  width: 1000px;
+  background: rgba(255,255,255,.9);
+  z-index: 10;
+}
+.content {
+  float: left;
+  width: 740px;
+}
+.box {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 360px;
+  background: #FFF;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 1px rgba(0,0,0,.15);
+          box-shadow: 0 1px 1px rgba(0,0,0,.15);
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+.box.beta {
+  margin-right: 0;
+}
+.box .image {
+  width: 360px;
+  height: 240px;
+}
+.box .image img {
+  display: block;
+}
+.box .image .primary {
+  float: left;
+  width: 240px;
+  height: 240px;
+}
+.box .image .secondary {
+  float: right;
+  width: 120px;
+  height: 240px;
+}
+.box .bar {
+  padding: 7px;
+}
+.sidebar {
+  float: right;
+  width: 240px;
+}
+.footer {
+  position: relative;
+  z-index: 10;
+}
+.footer .inner {
+  margin: 10px auto 0;
+  padding: 10px 0;
+  width: 1024px;
+  background: rgba(255,255,255,.9);
+}
