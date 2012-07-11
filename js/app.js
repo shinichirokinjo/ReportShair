@@ -132,8 +132,10 @@ var RS = RS || {};
         this.add(blob);
       }
 
+      var $container = $("<div>").attr('id', 'overlay');
 
-
+      this.$bg = $("<div>").attr('id', 'overlay-bg').appendTo($container);
+      this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
 
       this.$close = createCloseButton().appendTo(this.$popup);
 
@@ -158,15 +160,8 @@ var RS = RS || {};
         return false;
       }
 
-      var $container = $("<div>").attr('id', 'overlay');
-
       this.attachKeydownHandler();
       this.attachResizeHandler();
-
-      this.$bg = $("<div>").attr('id', 'overlay-bg').appendTo($container);
-      this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
-
-      $container.appendTo(document.body);
     },
     close: function() {},
     hide: function() {
