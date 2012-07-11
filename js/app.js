@@ -119,18 +119,54 @@ var RS = RS || {};
   $.extend(O, {
     $bg: null,
     $popup: null,
-    create: function() {},
-    open: function() {
+    $close: null,
+
+    open: function(blob, type, options) {
       var overlay = this;
 
+      if (type == 'image') {
+
+      } else if(type == 'ajax') {
+
+      } else {
+        this.add(blob);
+      }
+
+
+
+
+      this.$close = createCloseButton().appendTo(this.$popup);
+
+      $container.appendTo(document.body);
+
+      this.$popup.show();
+
+      function createLoading() {
+        return $('<div id="overlay-loading"></div>');
+      }
+
+      function createCloseButton() {
+        return $('<a href="#"></a>').addClass('close').click(function() {
+          overlay.close.call(overlay);
+          return false;
+        });
+      }
+    },
+    create: function() {
+      var overlay = this;
+      if (this.$content) {
+        return false;
+      }
+
       var $container = $("<div>").attr('id', 'overlay');
+
+      this.attachKeydownHandler();
+      this.attachResizeHandler();
 
       this.$bg = $("<div>").attr('id', 'overlay-bg').appendTo($container);
       this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
 
       $container.appendTo(document.body);
-
-      this.$popup.show();
     },
     close: function() {},
     hide: function() {
@@ -138,10 +174,3 @@ var RS = RS || {};
     }
   });
 })(jQuery, RS);
-
-$(function() {
-  $(".login").click(function() {
-    RS.Overlay.open();
-    return false;
-  });
-});

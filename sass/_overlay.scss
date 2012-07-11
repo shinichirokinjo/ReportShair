@@ -14,14 +14,28 @@
 }
 #overlay-popup {
   position: fixed;
-  margin-left: -30%;
+  margin-left: -400px;
   top: 100px;
   left: 50%;
-  width: 60%;
-  height: 60%;
+  width: 800px;
+  height: 400px;
   background: #FFF;
-  -webkit-box-shadow: 0 4px 16px rgba(0,0,0,.4);
-     -moz-box-shadow: 0 4px 16px rgba(0,0,0,.4);
-          box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,.5);
+     -moz-box-shadow: 0 3px 10px rgba(0,0,0,.5);
+          box-shadow: 0 3px 10px rgba(0,0,0,.5);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
   z-index: 111;
+  .close {
+    position: absolute;
+    display: block;
+    top: 7px;
+    right: 7px;
+    width: 21px;
+    height: 21px;
+    background: url('../img/close.png') 0 0 no-repeat;
+    cursor: pointer;
+    z-index: 112;
+  }
 }

@@ -1,10 +1,8 @@
 .panel {
-  position: absolute;
-  top: 60px;
-  right: 60px;
-  width: 100px;
-  height: 100px;
-  background: #FFF;
+
+}
+a {
+  color: #333;
 }
 body {
   position: relative;
@@ -17,16 +15,36 @@ body {
 .home .container {
   padding-top: 320px;
 }
+.headline {
+  position: absolute;
+  display: block;
+  margin-left: -400px;
+  top: 100px;
+  left: 50%;
+  z-index: 11;
+}
 .container .inner {
   margin: 0 auto;
-  padding: 10px 12px;
+  padding: 10px 12px 0;
   width: 1000px;
-  background: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.8);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+     -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+          box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   z-index: 10;
 }
 .content {
   float: left;
   width: 740px;
+}
+.contentHead {
+  margin-bottom: 24px;
+}
+.contentHead h1,
+.contentHead h2 {
+  text-shadow: 0 -1px -1px rgba(255,255,255,.8);
+  font-size: 32px;
+  font-weight: bold;
 }
 .box {
   float: left;
@@ -34,9 +52,9 @@ body {
   margin-bottom: 20px;
   width: 360px;
   background: #FFF;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.15);
-     -moz-box-shadow: 0 1px 1px rgba(0,0,0,.15);
-          box-shadow: 0 1px 1px rgba(0,0,0,.15);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+          box-shadow: 0 1px 2px rgba(0,0,0,.3);
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -56,13 +74,26 @@ body {
   width: 240px;
   height: 240px;
 }
+.box .image .primary img {
+  -webkit-border-top-left-radius: 3px;
+     -moz-border-top-left-radius: 3px;
+          border-top-left-radius: 3px;
+}
 .box .image .secondary {
   float: right;
   width: 120px;
   height: 240px;
 }
+.box .image .secondary img:first-child {
+  -webkit-border-top-right-radius: 3px;
+     -moz-border-top-right-radius: 3px;
+          border-top-right-radius: 3px;
+}
 .box .bar {
   padding: 7px;
+}
+.box .bar h2 {
+  margin-bottom: 5px;
 }
 .sidebar {
   float: right;

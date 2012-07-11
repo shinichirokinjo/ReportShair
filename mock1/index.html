@@ -16,7 +16,7 @@
 <div class="header navbar">
   <div class="inner">
     <div class="logo">
-      <a href="#" title="ReportShair">ReportShair</a>
+      <a href="./index.html" title="ReportShair">ReportShair</a>
     </div>
     <nav class="nav">
       <ul class="navlist">
@@ -35,9 +35,8 @@
   <div class="item">
     <img src="../img/visual-1.jpeg" />
     <div class="panel">
-      <h2>Let’s make a Your party Report!</h2>
+      <h2></h2>
       <p></p>
-      <div class="buttons"></div>
     </div>
   </div>
   <div class="item">
@@ -70,13 +69,22 @@ $(function() {
     }
   });
 });
+$(function() {
+  $(".login").click(function() {
+    RS.Overlay.open('#loginForm', 'ajax');
+    return false;
+  });
+});
 </script>
+<img class="headline" src="../img/headline.png" width="800px" height="77px" />
 <div class="container">
   <div class="inner clearfix">
     <div class="content">
-      <h2>Show other Report</h2>
+      <div class="contentHead">
+        <h1>Show other Report</h1>
+      </div>
       <section class="clearfix">
-        <article class="box">
+        <article class="box"><a href="./report.html">
           <div class="image">
             <div class="primary">
               <img src="../img/event-1-p.png" width="240px" height="240px" />
@@ -87,11 +95,11 @@ $(function() {
             </div>
           </div>
           <div class="bar">
-            <h3>RedTrash</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.</p>
+            <div class="barIcon"></div>
+            <div class="barTitle">RedTrash</div>
           </div>
-        </article>
-        <article class="box beta">
+        </a></article>
+        <article class="box beta"><a href="./report.html">
           <div class="image">
             <div class="primary">
               <img src="../img/event-1-p.png" width="240px" height="240px" />
@@ -102,11 +110,11 @@ $(function() {
             </div>
           </div>
           <div class="bar">
-            <h3>RedTrash</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.</p>
+            <div class="barIcon"></div>
+            <div class="barTitle">Bigbeach fes 2012</div>
           </div>
-        </article>
-        <article class="box">
+        </a></article>
+        <article class="box"><a href="./report.html">
           <div class="image">
             <div class="primary">
               <img src="../img/event-1-p.png" width="240px" height="240px" />
@@ -117,25 +125,10 @@ $(function() {
             </div>
           </div>
           <div class="bar">
-            <h3>RedTrash</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.</p>
+            <div class="barIcon"></div>
+            <div class="barTitle">Metamorphose2012</div>
           </div>
-        </article>
-        <article class="box beta">
-          <div class="image">
-            <div class="primary">
-              <img src="../img/event-1-p.png" width="240px" height="240px" />
-            </div>
-            <div class="secondary">
-              <img src="../img/event-1-s.png" width="120px" height="120px" />
-              <img src="../img/event-1-t.png" width="120px" height="120px" />
-            </div>
-          </div>
-          <div class="bar">
-            <h3>RedTrash</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.</p>
-          </div>
-        </article>
+        </a></article>
       </section>
     </div>
     <aside class="sidebar"></aside>
