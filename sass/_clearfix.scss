@@ -1,7 +1,4 @@
 @mixin clearfix {
-  @if $support-ie6 or $support-ie7 {
-    *zoom: 1;
-  }
   &:before,
   &:after {
     display: table;
