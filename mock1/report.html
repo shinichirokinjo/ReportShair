@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ReportShair</title>
+<link rel="stylesheet" href="../css/style.css" media="screen" />
+<link rel="stylesheet" href="./mock1.css" media="screen" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../js/app.js"></script>
+</head>
+
+<body class="report">
+<div class="header navbar">
+  <div class="inner">
+    <div class="logo">
+      <a href="./index.html" title="ReportShair">ReportShair</a>
+    </div>
+    <nav class="nav">
+      <ul class="navlist">
+        <li><a href="">Events</a></li>
+        <li><a href="">Reports</a></li>
+      </ul>
+    </nav>
+    <nav class="nav">
+      <ul class="navlist pull">
+        <li><a class="login" href="/login">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<script type="text/javascript">
+// RS.Carousel.init();
+$(function() {
+  $(".login").click(function() {
+    RS.Overlay.open('#loginForm', 'ajax');
+    return false;
+  });
+});
+</script>
+<div class="container">
+  <div class="wrap inner">
+    <div class="reportHead">
+      <div class="coverPhoto" style="background: url('../img/report-visual.jpeg') no-repeat center center;"></div>
+      <div class="reportInfo">
+        <div class="eventInfo">
+          <h1>RedTrash</h1>
+          <div class="organizer">
+            <ul>
+              <li><a hre=""><img src="../img/avatar.png" width="50px" height="50px" /></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="eventDescription">
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor maurisDonec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris</p>
+        </div>
+        <div class="eventMap">
+          <iframe width="220" height="000" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.jp/?ie=UTF8&amp;hq=&amp;hnear=%E5%90%89%E7%A5%A5%E5%AF%BA%E9%A7%85%EF%BC%88%E6%9D%B1%E4%BA%AC%EF%BC%89&amp;ll=35.702811,139.579804&amp;spn=0.04872,0.104628&amp;t=m&amp;z=14&amp;brcurrent=3,0x6018ee3c43ae4239:0xe47dd9a62c18ffae,1&amp;output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="contentBody">
+        <article class="event clearfix">
+          <div class="image">
+            <div class="primary">
+              <img src="../img/report-1-p.png" width="480px" height="480px" />
+            </div>
+            <div class="secondary">
+              <img src="../img/report-1-s.png" width="240px" height="240px" />
+              <img src="../img/report-1-t.png" width="240px" height="240px" />
+            </div>
+          </div>
+          <div class="info">
+            <div class="card">
+              <div class="avatar"><a href="">
+                <img src="../img/avatar.png" width="100px" height="100px" />
+              </a></div>
+              <div class="info">
+                <ul>
+                  <li></li>
+                </ul>
+                <button class="btn">Follow</button>
+              </div>
+              <div class="username">
+                <h2><a href="">Username</a></h2>
+              </div>
+            </div>
+            <div class="memo">
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,tortor mauris</p>
+            </div>
+          </div>
+        </article>
+        <article class="event clearfix">
+          <div class="image">
+            <div class="pin">
+              <img src="../img/report-2-p.png" width="720px" height="480px" />
+            </div>
+          </div>
+          <div class="info">
+            <div class="card">
+              <div class="avatar"><a href="">
+                <img src="../img/avatar.png" width="100px" height="100px" />
+              </a></div>
+              <div class="info">
+                <ul>
+                  <li></li>
+                </ul>
+                <button class="btn">Follow</button>
+              </div>
+              <div class="username">
+                <h2><a href="">Username</a></h2>
+              </div>
+            </div>
+            <div class="memo">
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,tortor mauris</p>
+            </div>
+          </div>
+        </article>
+        <article class="event clearfix">
+          <div class="image">
+            <div class="primary">
+              <img src="../img/report-3-p.png" width="480px" height="480px" />
+            </div>
+            <div class="secondary">
+              <img src="../img/report-3-s.png" width="240px" height="240px" />
+              <img src="../img/report-3-t.png" width="240px" height="240px" />
+            </div>
+          </div>
+          <div class="info">
+            <div class="card">
+              <div class="avatar"><a href="">
+                <img src="../img/avatar.png" width="100px" height="100px" />
+              </a></div>
+              <div class="info">
+                <ul>
+                  <li></li>
+                </ul>
+                <button class="btn">Follow</button>
+              </div>
+              <div class="username">
+                <h2><a href="">Username</a></h2>
+              </div>
+            </div>
+            <div class="memo">
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,tortor mauris</p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="contentFoot">
+        <section></section>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrap footer">
+  <div class="col grid-18">
+    <ul>
+      <li>Terms</li>
+      <li>Policy</li>
+    </ul>
+  </div>
+  <div class="col grid-6">
+    <p class="copyright">&copy; 2012 ReportShair.</p>
+  </div>
+</div>
+</body>
+</html>
