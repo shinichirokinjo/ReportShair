@@ -1,0 +1,10 @@
+.DS_Store
+
+*~
+*.sass-cache
+*.sublime-project
+*.sublime-workspace
+*.sw[op]
+
+Thumbs.db
+

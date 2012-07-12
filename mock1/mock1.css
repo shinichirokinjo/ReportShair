@@ -1,0 +1,268 @@
+.panel {
+
+}
+a {
+  color: #333;
+}
+body {
+  position: relative;
+  background: #EEE url('../img/body.png') repeat 0 0;
+}
+.container {
+  position: relative;
+  margin-bottom: 24px;
+  padding-top: 77px;
+  z-index: 10;
+}
+.home .container {
+  padding-top: 320px;
+}
+.headline {
+  position: absolute;
+  display: block;
+  margin-left: -400px;
+  top: 100px;
+  left: 50%;
+  z-index: 11;
+}
+.container .inner {
+  padding-top: 24px;
+  background: rgba(255,255,255,.8);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+     -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+          box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  z-index: 10;
+}
+.contentHead {
+  margin-bottom: 24px;
+}
+.contentHead h1,
+.contentHead h2 {
+  text-shadow: 0 -1px -1px rgba(255,255,255,.8);
+  font-size: 32px;
+  font-weight: bold;
+}
+.box {
+  margin-bottom: 16px;
+  background: #FFF;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+          box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+.box .image {
+  width: 360px;
+  height: 240px;
+}
+.box .image img {
+  display: block;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+.box .bar {
+  padding: 7px;
+}
+.box .bar h2 {
+  margin-bottom: 5px;
+}
+.reportHead {
+  margin-bottom: 20px;
+  width: 960px;
+  background: #FFF;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+          box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.reportHead .coverPhoto {
+  overflow: hidden;
+  width: 960px;
+  height: 420px;
+  background-color: #EEE;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.reportHead .reportInfo {
+  padding: 10px;
+  height: 100px;
+}
+.eventInfo,
+.eventDescription,
+.eventMap {
+  float: left;
+}
+.eventInfo {
+  margin-right: 10px;
+  width: 300px;
+}
+.organizer {
+  padding-top: 7px;
+}
+.eventDescription {
+  margin-right: 10px;
+  width: 400px;
+}
+.eventMap {
+  width: 220px;
+  height: 100px;
+  background: #EEE;
+}
+.event {
+  overflow: hidden;
+  margin-bottom: 20px;
+  width: 960px;
+  height: 480px;
+  background: #FFF;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.3);
+          box-shadow: 0 1px 2px rgba(0,0,0,.3);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.event .image {
+  float: left;
+  width: 720px;
+  height: 480px;
+}
+.event .image img {
+  display: block;
+}
+.event .image .primary {
+  float: left;
+  width: 480px;
+  height: 480px;
+}
+.event .image .primary img {
+  -webkit-border-top-left-radius: 5px;
+     -moz-border-top-left-radius: 5px;
+          border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+     -moz-border-bottom-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+}
+.event .image .pin {
+
+}
+.event .image .pin img {
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.event .image .secondary {
+  float: right;
+  width: 240px;
+  height: 480px;
+}
+.event .image .secondary img:first-child {
+  -webkit-border-top-right-radius: 5px;
+     -moz-border-top-right-radius: 5px;
+          border-top-right-radius: 5px;
+}
+.event .image .secondary img:last-child {
+  -webkit-border-bottom-right-radius: 5px;
+     -moz-border-bottom-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+}
+.event .info {
+  float: right;
+  padding: 10px;
+  width: 220px;
+}
+.card {
+  margin-bottom: 10px;
+  background: #F6F6F6;
+  -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 10px rgba(0,0,0,.15);
+          box-shadow: 0 1px 10px rgba(0,0,0,.15);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.card .avatar {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+.card .avatar img {
+  -webkit-border-top-left-radius: 5px;
+     -moz-border-top-left-radius: 5px;
+          border-top-left-radius: 5px;
+}
+.card .info {
+  float: right;
+  position: relative;
+  padding: 10px;
+  width: 100px;
+  height: 80px;
+}
+.card .info .btn {
+  position: absolute;
+  display: inline-block;
+  padding: 5px 0;
+  bottom: 5px;
+  width: 100px;
+  line-height: 1.6;
+  background-image: -webkit-linear-gradient(top,#EEE,#DDD);
+  background-image:    -moz-linear-gradient(top,#EEE,#DDD);
+  background-image:     -ms-linear-gradient(top,#EEE,#DDD);
+  background-image:      -o-linear-gradient(top,#EEE,#DDD);
+  background-image:         linear-gradient(top,#EEE,#DDD);
+  border: 1px solid #DDD;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  text-align: center;
+  text-shadow: 0 1px 0 #FFF;
+  font-weight: bold;
+  color: #222;
+}
+.card .username {
+  clear: both;
+  padding: 7px;
+  background-image: -webkit-linear-gradient(top,#ECECEC,#F9F9F9);
+  background-image:    -moz-linear-gradient(top,#ECECEC,#F9F9F9);
+  background-image:     -ms-linear-gradient(top,#ECECEC,#F9F9F9);
+  background-image:      -o-linear-gradient(top,#ECECEC,#F9F9F9);
+  background-image:         linear-gradient(top,#ECECEC,#F9F9F9);
+  border-top: solid 1px #DFDFDF;
+}
+.card .username a {
+  text-decoration: none;
+}
+.card .username h2 {
+  font-size: 14px;
+}
+.memo {
+  padding: 10px;
+  -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 10px rgba(0,0,0,.15);
+          box-shadow: 0 1px 10px rgba(0,0,0,.15);
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+.memo p {
+  text-shadow: 0 1px -1px #FFF;
+  color: #222;
+}
+.footer {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: rgba(255,255,255,.8);
+  z-index: 10;
+}
+.footer ul li {
+  display: inline;
+  margin-right: .7em;
+}
+.footer .copyright {
+  text-align: right;
+}
