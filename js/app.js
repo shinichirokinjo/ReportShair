@@ -2,8 +2,42 @@ var RS = RS || {};
 
 (function($, RS) {
   var DEBUG = false;
+  var VERSION = "20120713-v0.0.1";
+
+  var A = RS.Alert = {};
+  $.extend(A, {
+
+  });
 
   var B = RS.Browser = {};
+  $.extend(B, {
+    isIE: navigator.userAgent.indexOf('MSIE') != -1,
+    isIE6 : navigator.userAgent.indexOf('MSIE 6.') != -1,
+    isIE7 : navigator.userAgent.indexOf('MSIE 7.') != -1,
+    isIE8 : navigator.userAgent.indexOf('MSIE 8.') != -1,
+    isIE8 : navigator.userAgent.indexOf('MSIE 8.') != -1,
+    isIE9 : navigator.userAgent.indexOf('MSIE 9.') != -1,
+    isMozilla: navigator.userAgent.indexOf('Mozilla') != -1 && !/compatible|WebKit/.test(navigator.userAgent),
+    isOpera: !!window.opera,
+    isSafari: navigator.userAgent.indexOf('WebKit') != -1 && navigator.userAgent.indexOf('Chrome/') == -1,
+    isChrome : navigator.userAgent.indexOf('Chrome/') != -1,
+    isFirefox : navigator.userAgent.indexOf('Firefox/') != -1,
+    isDSi : navigator.userAgent.indexOf('Nintendo DSi') != -1,
+    is3DS : navigator.userAgent.indexOf('Nintendo 3DS') != -1,
+    isWii : navigator.userAgent.indexOf('Nintendo Wii') != -1,
+    isAndroid : navigator.userAgent.indexOf('Android') != -1,
+    isIPhone : (navigator.userAgent.indexOf('iPod;') != -1 || navigator.userAgent.indexOf('iPhone;') != -1 || navigator.userAgent.indexOf('iPhone Simulator;') != -1),
+    isIPad : navigator.userAgent.indexOf('iPad') != -1,
+    version: {
+      string: (/(?:Firefox\/|MSIE |Opera\/|Chrome\/|Version\/)([\d.]+)/.exec(navigator.userAgent) || []).pop(),
+      valueOf: function() {
+        return parseFloat(this.string)
+      },
+      toString: function() {
+        return this.string
+      }
+    }
+  });
 
   var C = RS.Carousel = {};
   $.extend(C, {
@@ -125,9 +159,18 @@ var RS = RS || {};
       var overlay = this;
 
       if (type == 'image') {
-
+        var image = document.createElement('img');
+        var $image = $(image);
       } else if(type == 'ajax') {
-
+        $('<div>').load(blob, options, function(response, status, xhr) {
+          if (xhr.status == 401) {
+            overlay.close();
+            window.location.href = "/login";
+          } else {
+            overlay.hideLoading();
+            overlay.add($(this));
+          }
+        });
       } else {
         this.add(blob);
       }
@@ -154,18 +197,41 @@ var RS = RS || {};
         });
       }
     },
+    close: function() {},
     create: function() {
       var overlay = this;
       if (this.$content) {
         return false;
       }
 
+      var $container = $('<div>').attr('id', 'overlay');
+
       this.attachKeydownHandler();
       this.attachResizeHandler();
+
+      this.$bg = $('<div>').attr('id', 'overlay-bg').appendTo($container);
+      this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
     },
-    close: function() {},
+    add: function($blob, animate) {
+      var $content = this.$content.show();
+      var $popup = this.$popup.show();
+    },
+    center: function() {},
+    scale: function() {},
     hide: function() {
       this.$popup.hide();
+    },
+    // -------------------------------------
+    // Event handlers
+    // -------------------------------------
+    attachResizeHandler: function() {
+
+    },
+    attachKeydownHandler: function() {
+
+    },
+    attachClickHandlers: function() {
+
     }
   });
 })(jQuery, RS);

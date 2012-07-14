@@ -9,6 +9,7 @@
 <script src="../js/jquery.cycle.js"></script>
 <script src="../js/jquery.easing.js"></script>
 <script src="../js/jquery.maximage.js"></script>
+<script src="../js/jquery.movingboxes.js"></script>
 <script src="../js/app.js"></script>
 </head>
 
@@ -79,41 +80,55 @@ $(function() {
 <img class="headline" src="../img/headline.png" width="800px" height="77px" />
 <div class="container">
   <div class="wrap inner">
-    <div class="content col grid-18">
+    <div class="content col grid-24">
       <div class="contentHead">
         <h1>Show other Report</h1>
       </div>
-      <section class="row">
-        <article class="box col grid-9"><a href="./report.html">
-          <div class="image">
-            <img src="../img/report-1.png" width="344px" height="248px" />
-          </div>
-          <div class="bar">
-            <div class="barIcon"></div>
-            <div class="barTitle">RedTrash</div>
-          </div>
-        </a></article>
-        <article class="box col grid-9"><a href="./report.html">
-          <div class="image">
-            <img src="../img/report-2.png" width="344px" height="248px" />
-          </div>
-          <div class="bar">
-            <div class="barIcon"></div>
-            <div class="barTitle">Bigbeach fes 2012</div>
+      <section id="slider-two" class="row">
+        <article class="col grid-9" style="margin-right: 10px;"><a href="./report.html">
+          <div class="box">
+            <div class="image">
+              <img src="../img/report-1.png" width="344px" height="248px" />
+            </div>
+            <div class="bar">
+              <div class="barIcon"></div>
+              <div class="barTitle">RedTrash</div>
+            </div>
           </div>
         </a></article>
-        <article class="box col grid-9"><a href="./report.html">
-          <div class="image">
-            <img src="../img/report-3.png" width="344px" height="248px" />
+        <article class="col grid-9" style="margin-right: 10px;"><a href="./report.html">
+          <div class="box">
+            <div class="image">
+              <img src="../img/report-2.png" width="344px" height="248px" />
+            </div>
+            <div class="bar">
+              <div class="barIcon"></div>
+              <div class="barTitle">Bigbeach fes 2012</div>
+            </div>
           </div>
-          <div class="bar">
-            <div class="barIcon"></div>
-            <div class="barTitle">Metamorphose2012</div>
+        </a></article>
+        <article class="col grid-9"><a href="./report.html">
+          <div class="box">
+            <div class="image">
+              <img src="../img/report-3.png" width="344px" height="248px" />
+            </div>
+            <div class="bar">
+              <div class="barIcon"></div>
+              <div class="barTitle">Metamorphose2012</div>
+            </div>
           </div>
         </a></article>
       </section>
+<script type="text/javascript">
+$(function() {
+  $('#slider-two').movingBoxes({
+    startPanel   : 2,
+    reducedSize  : 1,
+    buildNav     : false
+  });
+});
+</script>
     </div>
-    <aside class="sidebar col grid-6"></aside>
   </div>
 </div>
 <div class="wrap footer">
