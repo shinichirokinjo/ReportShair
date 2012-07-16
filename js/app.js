@@ -155,6 +155,10 @@ var RS = RS || {};
     $popup: null,
     $close: null,
 
+    defaults: {
+      
+    },
+
     open: function(blob, type, options) {
       var overlay = this;
 

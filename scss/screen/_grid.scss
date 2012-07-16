@@ -1,0 +1,38 @@
+.wrap {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    left: 8px;
+    right: 8px;
+  }
+  width: 1008px;
+  @include clearfix;
+}
+.row {
+  margin: {
+    left: -12px;
+    right: -12px;
+  }
+  @include clearfix;
+}
+.col {
+  float: left;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+@function grid($n) {
+  $grid: 0px;
+  @if ($n == 1) {
+    $grid: $grid-width;
+  } @else {
+    $grid: ($grid-width * $n) + ($gutter-width * ($n - 1));
+  }
+  @return $grid;
+}
+@for $n from 1 to ($grid-columns + 1) {
+  .grid-#{$n} {
+    width: grid($n);
+  }
+}
