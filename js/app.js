@@ -168,10 +168,6 @@ var RS = RS || {};
     $elements: null,
     $loading: null,
 
-    settings: {
-      loadingImage: ''
-    },
-
     open: function(blob, type, options) {
       var overlay = this;
       overlay.busy = true;
@@ -226,6 +222,10 @@ var RS = RS || {};
       this.attachResizeHandler();
 
       this.$bg = $('<div>').attr('id', 'overlay-bg').appendTo($container);
+      this.$bg.click(function() {
+        overlay.close.call(overlay);
+      });
+
       this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
 
       this.$content = $('<div>').addClass('overlay-content').appendTo(this.$popup);
@@ -251,6 +251,14 @@ var RS = RS || {};
       this.$bg = null;
       this.$popup = null;
       this.$content = null;
+      this.$close = null;
+      this.$elements = null;
+      this.$loading = null;
+
+      this.closeCallback = null;
+
+      $(document).unbind('.overlay');
+      $(window).unbind('.overlay');
 
       $('#overlay').remove();
     },
@@ -299,16 +307,8 @@ var RS = RS || {};
     },
     attachKeydownHandler: function() {
       function keydownHandler(event) {
-        switch (event.keyCode) {
-          case 27:
-            // Esc
-            this.close(); break;
-          case 37:
-            // Left
-            this.previous(); break;
-          case 39:
-            // Right
-            this.next(); break;
+        if (event.keyCode == 27) {
+          this.close();
         }
       }
 
