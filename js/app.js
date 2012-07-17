@@ -1,15 +1,16 @@
 var RS = RS || {};
 
 (function($, RS) {
-  var DEBUG = false;
-  var VERSION = "20120713-v0.0.1";
+  var ENV = 'develop', // production
+      DEBUG = false,
+      VERSION = "20120713-v0.0.1";
 
   var A = RS.Alert = {};
   $.extend(A, {
-
+    // アラート
   });
 
-  var B = RS.Browser = {};
+  var B = RS.Browser = {}; // ユーティリティに持っていく
   $.extend(B, {
     isIE: navigator.userAgent.indexOf('MSIE') != -1,
     isIE6 : navigator.userAgent.indexOf('MSIE 6.') != -1,
@@ -41,6 +42,7 @@ var RS = RS || {};
 
   var C = RS.Carousel = {};
   $.extend(C, {
+    // トップページの背景画像のギャラリー
     $controls: null,
     $items: null,
     $length: 0,
@@ -149,22 +151,35 @@ var RS = RS || {};
     }
   });
 
+  var D = RS.Dropdown = {};
+  $.extend(D, {
+
+  });
+
   var O = RS.Overlay = {};
   $.extend(O, {
+    // モーダルビュー
+    busy: false,
+    closeCallback: null,
+
     $bg: null,
     $popup: null,
     $close: null,
+    $elements: null,
+    $loading: null,
 
-    defaults: {
-      
+    settings: {
+      loadingImage: ''
     },
 
     open: function(blob, type, options) {
       var overlay = this;
+      overlay.busy = true;
+
+      var created = this.create(type);
 
       if (type == 'image') {
-        var image = document.createElement('img');
-        var $image = $(image);
+        //
       } else if(type == 'ajax') {
         $('<div>').load(blob, options, function(response, status, xhr) {
           if (xhr.status == 401) {
@@ -175,34 +190,31 @@ var RS = RS || {};
             overlay.add($(this));
           }
         });
+      } else if(type == 'div') {
+        overlay.add($(blob));
       } else {
         this.add(blob);
       }
 
-      var $container = $("<div>").attr('id', 'overlay');
-
-      this.$bg = $("<div>").attr('id', 'overlay-bg').appendTo($container);
-      this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
-
-      this.$close = createCloseButton().appendTo(this.$popup);
-
-      $container.appendTo(document.body);
-
       this.$popup.show();
-
-      function createLoading() {
-        return $('<div id="overlay-loading"></div>');
-      }
-
-      function createCloseButton() {
-        return $('<a href="#"></a>').addClass('close').click(function() {
-          overlay.close.call(overlay);
-          return false;
-        });
-      }
     },
-    close: function() {},
-    create: function() {
+    close: function() {
+      var cb = this.closeCallback;
+      if (cb && !cb()) {
+        return;
+      }
+
+      this.destroy();
+
+      return false;
+    },
+    add: function(blob) {
+      var $content = this.$content.show();
+      var $popup = this.$popup.show();
+
+      blob.appendTo($content.empty()).show();
+    },
+    create: function(type) {
       var overlay = this;
       if (this.$content) {
         return false;
@@ -215,27 +227,101 @@ var RS = RS || {};
 
       this.$bg = $('<div>').attr('id', 'overlay-bg').appendTo($container);
       this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
+
+      this.$content = $('<div>').addClass('overlay-content').appendTo(this.$popup);
+
+      this.$close = createCloseButton().appendTo(this.$popup);
+
+      $container.appendTo(document.body);
+
+      return true;
+
+      function createLoading() {
+        return $('<div id="overlay-loading"></div>');
+      }
+
+      function createCloseButton() {
+        return $('<a href="#"></a>').addClass('close').click(function() {
+          overlay.close.call(overlay);
+          return false;
+        });
+      }
     },
-    add: function($blob, animate) {
-      var $content = this.$content.show();
-      var $popup = this.$popup.show();
+    destroy: function() {
+      this.$bg = null;
+      this.$popup = null;
+      this.$content = null;
+
+      $('#overlay').remove();
     },
-    center: function() {},
-    scale: function() {},
+    center: function() {
+      // 現段階ではCSS側で制御する
+    },
+    scale: function() {
+      // 現段階ではCSS側で制御する
+    },
     hide: function() {
       this.$popup.hide();
+    },
+    go: function(step) {
+      if (this.busy) {
+        return;
+      }
+
+      var newIndex = (this.currentIndex + step) % this.$elements.length;
+      var $element = this.$elements.eq(newIndex);
+      $element.trigger('click');
+    },
+    previous: function() {
+      this.go(-1);
+      return false;
+    },
+    next: function() {
+      this.go(1);
+      return false;
+    },
+    showLoading: function() {
+      this.$loading.show();
+    },
+    hideLoading: function() {
+      this.$loading.hide();
     },
     // -------------------------------------
     // Event handlers
     // -------------------------------------
     attachResizeHandler: function() {
+      function resizeHandler(event) {
+        this.scale(event);
+        this.center(event);
+      }
 
+      $(window).bind('resize.overlay', $.proxy(resizeHandler, this));
     },
     attachKeydownHandler: function() {
+      function keydownHandler(event) {
+        switch (event.keyCode) {
+          case 27:
+            // Esc
+            this.close(); break;
+          case 37:
+            // Left
+            this.previous(); break;
+          case 39:
+            // Right
+            this.next(); break;
+        }
+      }
 
+      $(document).bind('keydown.overlay', $.proxy(keydownHandler, this));
     },
-    attachClickHandlers: function() {
+    attachClickHandlers: function($elements, optionsArray, fn) {
+      this.$elements = $elements;
 
+      $elements.click($.proxy(clickHandler, this));
+
+      function clickHandler(event) {
+        var target = event.currentTarget;
+      }
     }
   });
 })(jQuery, RS);
