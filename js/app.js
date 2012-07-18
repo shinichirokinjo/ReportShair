@@ -10,36 +10,6 @@ var RS = RS || {};
     // アラート
   });
 
-  var B = RS.Browser = {}; // ユーティリティに持っていく
-  $.extend(B, {
-    isIE: navigator.userAgent.indexOf('MSIE') != -1,
-    isIE6 : navigator.userAgent.indexOf('MSIE 6.') != -1,
-    isIE7 : navigator.userAgent.indexOf('MSIE 7.') != -1,
-    isIE8 : navigator.userAgent.indexOf('MSIE 8.') != -1,
-    isIE8 : navigator.userAgent.indexOf('MSIE 8.') != -1,
-    isIE9 : navigator.userAgent.indexOf('MSIE 9.') != -1,
-    isMozilla: navigator.userAgent.indexOf('Mozilla') != -1 && !/compatible|WebKit/.test(navigator.userAgent),
-    isOpera: !!window.opera,
-    isSafari: navigator.userAgent.indexOf('WebKit') != -1 && navigator.userAgent.indexOf('Chrome/') == -1,
-    isChrome : navigator.userAgent.indexOf('Chrome/') != -1,
-    isFirefox : navigator.userAgent.indexOf('Firefox/') != -1,
-    isDSi : navigator.userAgent.indexOf('Nintendo DSi') != -1,
-    is3DS : navigator.userAgent.indexOf('Nintendo 3DS') != -1,
-    isWii : navigator.userAgent.indexOf('Nintendo Wii') != -1,
-    isAndroid : navigator.userAgent.indexOf('Android') != -1,
-    isIPhone : (navigator.userAgent.indexOf('iPod;') != -1 || navigator.userAgent.indexOf('iPhone;') != -1 || navigator.userAgent.indexOf('iPhone Simulator;') != -1),
-    isIPad : navigator.userAgent.indexOf('iPad') != -1,
-    version: {
-      string: (/(?:Firefox\/|MSIE |Opera\/|Chrome\/|Version\/)([\d.]+)/.exec(navigator.userAgent) || []).pop(),
-      valueOf: function() {
-        return parseFloat(this.string)
-      },
-      toString: function() {
-        return this.string
-      }
-    }
-  });
-
   var C = RS.Carousel = {};
   $.extend(C, {
     // トップページの背景画像のギャラリー

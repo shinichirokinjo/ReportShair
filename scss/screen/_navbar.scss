@@ -62,5 +62,20 @@
         float: right;
       }
     }
+    .user {
+      padding: 3px 7px 3px;
+      img {
+        float: left;
+        display: inline-block;
+        padding: 5px 0 4px;
+      }
+      .username {
+        float: right;
+        margin-left: 50px;
+        padding: 15px 0 15px 7px;
+        font-size: 15px;
+        line-height: 15px;
+      }
+    }
   }
 }
