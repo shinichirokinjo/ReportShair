@@ -8,6 +8,9 @@ var RS = RS || {};
   var A = RS.Alert = {};
   $.extend(A, {
     // アラート
+    showMsg: function(msg) {
+      console.log(msg);
+    }
   });
 
   var C = RS.Carousel = {};
@@ -131,18 +134,24 @@ var RS = RS || {};
     // モーダルビュー
     busy: false,
     closeCallback: null,
+    type: null,
 
     $bg: null,
     $popup: null,
     $close: null,
     $elements: null,
     $loading: null,
+    $blob: null,
 
     open: function(blob, type, options) {
       var overlay = this;
       overlay.busy = true;
 
-      var created = this.create(type);
+      this.type = type;
+
+      if ( ! this.create(type)) {
+        return;
+      }
 
       if (type == 'image') {
         //
@@ -150,14 +159,15 @@ var RS = RS || {};
         $('<div>').load(blob, options, function(response, status, xhr) {
           if (xhr.status == 401) {
             overlay.close();
-            window.location.href = "/login";
+            return;
           } else {
             overlay.hideLoading();
             overlay.add($(this));
           }
         });
       } else if(type == 'div') {
-        overlay.add($(blob));
+        this.$blob = $(blob);
+        overlay.add(this.$blob);
       } else {
         this.add(blob);
       }
@@ -174,11 +184,11 @@ var RS = RS || {};
 
       return false;
     },
-    add: function(blob) {
+    add: function($blob) {
       var $content = this.$content.show();
       var $popup = this.$popup.show();
 
-      blob.appendTo($content.empty()).show();
+      $blob.appendTo($content.empty()).show();
     },
     create: function(type) {
       var overlay = this;
@@ -200,6 +210,10 @@ var RS = RS || {};
 
       this.$content = $('<div>').addClass('overlay-content').appendTo(this.$popup);
 
+      if (type == 'image' || type == 'ajax') {
+        this.$loading = createLoading().appendTo($container);
+      }
+
       this.$close = createCloseButton().appendTo(this.$popup);
 
       $container.appendTo(document.body);
@@ -218,6 +232,9 @@ var RS = RS || {};
       }
     },
     destroy: function() {
+      if (this.type == 'div') {
+        this.$blob.appendTo(document.body);
+      }
       this.$bg = null;
       this.$popup = null;
       this.$content = null;
@@ -225,6 +242,7 @@ var RS = RS || {};
       this.$elements = null;
       this.$loading = null;
 
+      this.type = null;
       this.closeCallback = null;
 
       $(document).unbind('.overlay');
