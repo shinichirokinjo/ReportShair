@@ -233,6 +233,7 @@ var RS = RS || {};
     },
     destroy: function() {
       if (this.type == 'div') {
+        this.$blob.css({display: 'none'});
         this.$blob.appendTo(document.body);
       }
       this.$bg = null;

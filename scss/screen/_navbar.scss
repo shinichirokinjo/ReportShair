@@ -57,6 +57,41 @@
             background-position: -90px;
           }
         }
+        ul {
+          position: absolute;
+          display: none;
+          padding: 5px 0 0;
+          top: 45px;
+          right: 0;
+          width: 120px;
+          background: #353535;
+          border: 1px solid #424242;
+        }
+        &:hover {
+          & > a {
+            background-position: 0 -135px;
+          }
+          ul {
+            display: block;
+            li {
+              display: block;
+              border-bottom: solid 1px #444;
+              a {
+                display: block;
+                padding: 5px 15px;
+                line-height: 20px;
+                text-decoration: none;
+                color: #dedede;
+                &:hover {
+                  background-color: #000;
+                }
+              }
+              &:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+        }
       }
       &.pull {
         float: right;
@@ -64,17 +99,27 @@
     }
     .user {
       padding: 3px 7px 3px;
-      img {
+      @include clearfix();
+      .userimage {
         float: left;
-        display: inline-block;
-        padding: 5px 0 4px;
+        display: block;
+        padding: 5px 0 0 10px;
+        img {
+          display: block;
+          width: 36px;
+          height: 36px;
+        }
       }
       .username {
         float: right;
-        margin-left: 50px;
-        padding: 15px 0 15px 7px;
+        padding: 15px 10px 15px 0;
         font-size: 15px;
         line-height: 15px;
+        color: #FFF;
+        a {
+          text-decoration: none;
+          color: #FFF;
+        }
       }
     }
   }

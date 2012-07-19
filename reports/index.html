@@ -188,18 +188,11 @@
     <p class="copyright">&copy; 2012 ReportShair.</p>
   </div>
 </footer>
-<div id="loginForm" style="display: none;">
-  <h2>Login</h2>
-</div>
 <div id="createReportForm" style="display: none;">
   <h2>Create new report!</h2>
 </div>
 <script type="text/javascript">
 $(function() {
-  $(".loginBtn").click(function() {
-    RS.Overlay.open('#loginForm', 'div');
-    return false;
-  });
   $(".createBtn").click(function() {
     RS.Overlay.open('#createReportForm', 'div');
     return false;

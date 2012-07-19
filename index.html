@@ -108,9 +108,6 @@
     <p class="copyright">&copy; 2012 ReportShair.</p>
   </div>
 </footer>
-<div id="loginForm" style="display: none;">
-  <p>Login</p>
-</div>
 <div id="createReportForm" style="display: none;">
   <h2>Create new report!</h2>
 </div>
@@ -130,10 +127,6 @@ $(function() {
   });
 });
 $(function() {
-  $(".loginBtn").click(function() {
-    RS.Overlay.open('#loginForm', 'div');
-    return false;
-  });
   $(".createBtn").click(function() {
     RS.Overlay.open('#createReportForm', 'div');
     return false;

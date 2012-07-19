@@ -16,16 +16,17 @@
     </div>
     <nav class="nav">
       <ul class="navlist pull">
+        <li><a class="createBtn" href="#">Create Event</a></li>
         <li>
           <span class="user">
-            <span><img src="../img/avatar.png" width="36px" height="36px" alt=""></span>
-            <span class="username">Username</span>
+            <span class="userimage"><img src="../img/avatar.png" width="36px" height="36px" alt=""></span>
+            <span class="username"><a href="./detail.html">Username</a></span>
           </span>
           <ul>
-            <li></li>
+            <li><a href="./settings.html">Settings</a></li>
+            <li><a class="logout" href="../logout.html">Logout</a></li>
           </ul>
         </li>
-        <li><a class="login" href="#">Logout</a></li>
       </ul>
     </nav>
   </div>
@@ -48,7 +49,6 @@
                   <li class="report"><strong>3</strong> Reports</li>
                   <li class="photo"><strong>10</strong> Photos</li>
                 </ul>
-                <button class="followBtn">Follow</button>
               </div>
               <div class="profile">
                 <p>Your description</p>
@@ -131,13 +131,110 @@
     <p class="copyright">&copy; 2012 ReportShair.</p>
   </div>
 </footer>
-<div id="loginForm" style="display: none;">
-  <h2>Login</h2>
+<div id="createReportForm" style="display: none;">
+  <h2>Create new report!</h2>
+  <div class="formBody">
+    <form action="../reports/create.html" method="post">
+      <div style="display: none;">
+        <input type="hidden" name="" value="" />
+      </div>
+
+      <fieldset>
+        <div class="field">
+          <div class="fieldHead">
+            <label for="">Event name</label>
+          </div>
+          <div class="fieldBody">
+            <input type="text" name="" value="" />
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="fieldHead">
+            <label for="">Event description</label>
+          </div>
+          <div class="fieldBody">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="fieldHead">
+            <label for="">Event date</label>
+          </div>
+          <div class="fieldBody">
+            <select name="">
+              <option value="">Select:</option>
+              <option value="">Jan</option>
+              <option value="">Feb</option>
+              <option value="">Mar</option>
+              <option value="">Apr</option>
+              <option value="">May</option>
+              <option value="">Jun</option>
+              <option value="">Jul</option>
+              <option value="">Aug</option>
+              <option value="">Sep</option>
+              <option value="">Oct</option>
+              <option value="">Nov</option>
+              <option value="">Dec</option>
+            </select>
+            <select name="">
+              <option value="">Select:</option>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
+              <option value="">10</option>
+              <option value="">11</option>
+              <option value="">12</option>
+              <option value="">13</option>
+              <option value="">14</option>
+              <option value="">15</option>
+              <option value="">16</option>
+              <option value="">17</option>
+              <option value="">18</option>
+              <option value="">19</option>
+              <option value="">20</option>
+              <option value="">21</option>
+              <option value="">22</option>
+              <option value="">23</option>
+              <option value="">24</option>
+              <option value="">25</option>
+              <option value="">26</option>
+              <option value="">27</option>
+              <option value="">28</option>
+              <option value="">29</option>
+              <option value="">30</option>
+              <option value="">31</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="fieldHead">
+            <label for="">Place</label>
+          </div>
+          <div class="fieldBody">
+            <input type="text" name="" value="" />
+          </div>
+        </div>
+
+        <div class="action">
+          <button>Create</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
 </div>
 <script type="text/javascript">
 $(function() {
-  $(".loginBtn").click(function() {
-    RS.Overlay.open('#loginForm', 'div');
+  $(".createBtn").click(function() {
+    RS.Overlay.open('#createReportForm', 'div');
     return false;
   });
 });
