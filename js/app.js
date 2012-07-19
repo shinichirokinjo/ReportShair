@@ -1,46 +1,21 @@
 var RS = RS || {};
 
 (function($, RS) {
-  var DEBUG = false;
-  var VERSION = "20120713-v0.0.1";
+  var ENV = 'develop', // production
+      DEBUG = false,
+      VERSION = "20120713-v0.0.1";
 
   var A = RS.Alert = {};
   $.extend(A, {
-
-  });
-
-  var B = RS.Browser = {};
-  $.extend(B, {
-    isIE: navigator.userAgent.indexOf('MSIE') != -1,
-    isIE6 : navigator.userAgent.indexOf('MSIE 6.') != -1,
-    isIE7 : navigator.userAgent.indexOf('MSIE 7.') != -1,
-    isIE8 : navigator.userAgent.indexOf('MSIE 8.') != -1,
-    isIE8 : navigator.userAgent.indexOf('MSIE 8.') != -1,
-    isIE9 : navigator.userAgent.indexOf('MSIE 9.') != -1,
-    isMozilla: navigator.userAgent.indexOf('Mozilla') != -1 && !/compatible|WebKit/.test(navigator.userAgent),
-    isOpera: !!window.opera,
-    isSafari: navigator.userAgent.indexOf('WebKit') != -1 && navigator.userAgent.indexOf('Chrome/') == -1,
-    isChrome : navigator.userAgent.indexOf('Chrome/') != -1,
-    isFirefox : navigator.userAgent.indexOf('Firefox/') != -1,
-    isDSi : navigator.userAgent.indexOf('Nintendo DSi') != -1,
-    is3DS : navigator.userAgent.indexOf('Nintendo 3DS') != -1,
-    isWii : navigator.userAgent.indexOf('Nintendo Wii') != -1,
-    isAndroid : navigator.userAgent.indexOf('Android') != -1,
-    isIPhone : (navigator.userAgent.indexOf('iPod;') != -1 || navigator.userAgent.indexOf('iPhone;') != -1 || navigator.userAgent.indexOf('iPhone Simulator;') != -1),
-    isIPad : navigator.userAgent.indexOf('iPad') != -1,
-    version: {
-      string: (/(?:Firefox\/|MSIE |Opera\/|Chrome\/|Version\/)([\d.]+)/.exec(navigator.userAgent) || []).pop(),
-      valueOf: function() {
-        return parseFloat(this.string)
-      },
-      toString: function() {
-        return this.string
-      }
+    // アラート
+    showMsg: function(msg) {
+      console.log(msg);
     }
   });
 
   var C = RS.Carousel = {};
   $.extend(C, {
+    // トップページの背景画像のギャラリー
     $controls: null,
     $items: null,
     $length: 0,
@@ -149,42 +124,101 @@ var RS = RS || {};
     }
   });
 
+  var D = RS.Dropdown = {};
+  $.extend(D, {
+
+  });
+
   var O = RS.Overlay = {};
   $.extend(O, {
+    // モーダルビュー
+    busy: false,
+    closeCallback: null,
+    type: null,
+
     $bg: null,
     $popup: null,
     $close: null,
+    $elements: null,
+    $loading: null,
+    $blob: null,
 
     open: function(blob, type, options) {
       var overlay = this;
+      overlay.busy = true;
+
+      this.type = type;
+
+      if ( ! this.create(type)) {
+        return;
+      }
 
       if (type == 'image') {
-        var image = document.createElement('img');
-        var $image = $(image);
+        //
       } else if(type == 'ajax') {
         $('<div>').load(blob, options, function(response, status, xhr) {
           if (xhr.status == 401) {
             overlay.close();
-            window.location.href = "/login";
+            return;
           } else {
             overlay.hideLoading();
             overlay.add($(this));
           }
         });
+      } else if(type == 'div') {
+        this.$blob = $(blob);
+        overlay.add(this.$blob);
       } else {
         this.add(blob);
       }
 
-      var $container = $("<div>").attr('id', 'overlay');
+      this.$popup.show();
+    },
+    close: function() {
+      var cb = this.closeCallback;
+      if (cb && !cb()) {
+        return;
+      }
 
-      this.$bg = $("<div>").attr('id', 'overlay-bg').appendTo($container);
+      this.destroy();
+
+      return false;
+    },
+    add: function($blob) {
+      var $content = this.$content.show();
+      var $popup = this.$popup.show();
+
+      $blob.appendTo($content.empty()).show();
+    },
+    create: function(type) {
+      var overlay = this;
+      if (this.$content) {
+        return false;
+      }
+
+      var $container = $('<div>').attr('id', 'overlay');
+
+      this.attachKeydownHandler();
+      this.attachResizeHandler();
+
+      this.$bg = $('<div>').attr('id', 'overlay-bg').appendTo($container);
+      this.$bg.click(function() {
+        overlay.close.call(overlay);
+      });
+
       this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
+
+      this.$content = $('<div>').addClass('overlay-content').appendTo(this.$popup);
+
+      if (type == 'image' || type == 'ajax') {
+        this.$loading = createLoading().appendTo($container);
+      }
 
       this.$close = createCloseButton().appendTo(this.$popup);
 
       $container.appendTo(document.body);
 
-      this.$popup.show();
+      return true;
 
       function createLoading() {
         return $('<div id="overlay-loading"></div>');
@@ -197,41 +231,86 @@ var RS = RS || {};
         });
       }
     },
-    close: function() {},
-    create: function() {
-      var overlay = this;
-      if (this.$content) {
-        return false;
+    destroy: function() {
+      if (this.type == 'div') {
+        this.$blob.css({display: 'none'});
+        this.$blob.appendTo(document.body);
       }
+      this.$bg = null;
+      this.$popup = null;
+      this.$content = null;
+      this.$close = null;
+      this.$elements = null;
+      this.$loading = null;
 
-      var $container = $('<div>').attr('id', 'overlay');
+      this.type = null;
+      this.closeCallback = null;
 
-      this.attachKeydownHandler();
-      this.attachResizeHandler();
+      $(document).unbind('.overlay');
+      $(window).unbind('.overlay');
 
-      this.$bg = $('<div>').attr('id', 'overlay-bg').appendTo($container);
-      this.$popup = $('<div>').attr('id', 'overlay-popup').hide().appendTo($container);
+      $('#overlay').remove();
     },
-    add: function($blob, animate) {
-      var $content = this.$content.show();
-      var $popup = this.$popup.show();
+    center: function() {
+      // 現段階ではCSS側で制御する
     },
-    center: function() {},
-    scale: function() {},
+    scale: function() {
+      // 現段階ではCSS側で制御する
+    },
     hide: function() {
       this.$popup.hide();
+    },
+    go: function(step) {
+      if (this.busy) {
+        return;
+      }
+
+      var newIndex = (this.currentIndex + step) % this.$elements.length;
+      var $element = this.$elements.eq(newIndex);
+      $element.trigger('click');
+    },
+    previous: function() {
+      this.go(-1);
+      return false;
+    },
+    next: function() {
+      this.go(1);
+      return false;
+    },
+    showLoading: function() {
+      this.$loading.show();
+    },
+    hideLoading: function() {
+      this.$loading.hide();
     },
     // -------------------------------------
     // Event handlers
     // -------------------------------------
     attachResizeHandler: function() {
+      function resizeHandler(event) {
+        this.scale(event);
+        this.center(event);
+      }
 
+      $(window).bind('resize.overlay', $.proxy(resizeHandler, this));
     },
     attachKeydownHandler: function() {
+      function keydownHandler(event) {
+        if (event.keyCode == 27) {
+          this.close();
+        }
+      }
 
+      $(document).bind('keydown.overlay', $.proxy(keydownHandler, this));
     },
-    attachClickHandlers: function() {
+    attachClickHandlers: function($elements, optionsArray, fn) {
+      this.$elements = $elements;
 
+      $elements.click($.proxy(clickHandler, this));
+
+      function clickHandler(event) {
+        var target = event.currentTarget;
+      }
     }
   });
 })(jQuery, RS);
