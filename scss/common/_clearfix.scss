@@ -1,4 +1,5 @@
 @mixin clearfix {
+  *zoom: 1;
   &:before,
   &:after {
     display: table;
@@ -20,11 +21,4 @@
 }
 .clearfix:after {
   clear: both;
-}
-* html .clearfix {
-  height: 1px;
-  /*¥*//*/
-  height: auto;
-  overflow: hidden;
-  /**/
 }

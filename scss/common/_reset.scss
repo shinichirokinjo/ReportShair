@@ -9,6 +9,7 @@ $html5-elements: "article,aside,canvas,details,figcaption,figure,footer,header,h
   outline: 0;
 }
 
+// Remove most spacing between table cells
 table {
   border: {
     collapse: collapse;
@@ -21,9 +22,6 @@ caption,th,td {
   vertical-align: middle;
 }
 
-nav ul {
-  list-style: none;
-}
 ol,ul {
   list-style: none;
   nav & {
@@ -40,17 +38,18 @@ blockquote,q {
   }
 }
 
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-
+// Corrects block display not defined in IE6/7/8/9 & FF3
 #{$html5-elements} {
   display: block;
+}
+// Corrects inline-block not defined in IE6/7/8 and FF3
+audio,video,canvas {
+  @include inline-block;
 }
 audio:not([controls]) {
   display: none;
 }
+// Ensures content is hidden from all presentations, including screenreaders
 [hidden] {
   display: none;
 }
