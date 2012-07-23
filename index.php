@@ -11,7 +11,7 @@ $user = $facebook->getUser();
 if ($user) {
   try {
     // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
+    $user_profile = $facebook->api('/me', 'GET');
   } catch (FacebookApiException $e) {
     error_log($e);
     $user = null;
@@ -28,7 +28,7 @@ if ($user) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta charset="utf-8" />
 <title>ReportShair</title>
@@ -56,7 +56,11 @@ if ($user) {
     <div class="fb-like" data-href="" data-send="true" data-layout="button_count" data-width="80" data-show-faces="false"></div>
   </div>
   <div class="">
+<?php if ($user): ?>
     <a class="button createBtn" href="./reports/create.php">Create Report</a>
+<?php else: ?>
+    <a class="button createBtn" href="<?php echo $loginUrl; ?>">Create Report(Login)</a>
+<?php endif ?>
   </div>
 </div>
 <div class="container">
@@ -64,6 +68,7 @@ if ($user) {
     <div class="content col grid-24">
       <div class="contentHead">
         <h1>Show other Report</h1>
+        <p>レポートをみる</p>
       </div>
       <div class="contentBody row">
         <article class="col grid-8">
