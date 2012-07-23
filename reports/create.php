@@ -1,3 +1,32 @@
+<?php
+require '../include/facebook.php';
+
+$facebook = new Facebook(array(
+  'appId'  => '261278050649489',
+  'secret' => 'e61b025986cb5dc50e9216d9c803d525',
+));
+
+$user = $facebook->getUser();
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    error_log($e);
+    $user = null;
+  }
+}
+
+$logoutUrl = $loginUrl = NULL;
+
+if ($user) {
+  $logoutUrl = $facebook->getLogoutUrl();
+} else {
+  $loginUrl = $facebook->getLoginUrl();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,32 +34,12 @@
 <title>Create report &lsaquo; ReportShair</title>
 <link rel="stylesheet" href="../css/screen.css" media="screen" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="../js/jquery.editinplace.js"></script>
 <script src="../js/app.js"></script>
 </head>
 
 <body class="report">
-<header class="navbar">
-  <div class="wrap">
-    <div class="logo">
-      <a href="../index.html" title="ReportShair">ReportShair</a>
-    </div>
-    <nav class="nav">
-      <ul class="navlist pull">
-        <li>
-          <span class="user">
-            <span class="userimage"><img src="../img/avatar.png" width="36px" height="36px" alt=""></span>
-            <span class="username"><a href="../users/detail.html">Username</a></span>
-          </span>
-          <ul>
-            <li><a href="../users/settings.html">Settings</a></li>
-            <li><a class="logout" href="../logout.html">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<?php include('../partials/header.php'); ?>
 <div class="container">
   <div class="wrap inner">
     <div class="no-photo reportHead col grid-24">
@@ -39,10 +48,10 @@
       </div>
       <div class="reportInfo">
         <div class="eventInfo">
-          <h1>Metamorphose2012</h1>
+          <h1 id="editme1">Event name</h1>
           <p>XX月YY日</p>
           <div class="organizer">
-            <a href="../users/detail.html"><img src="../img/avatar.png" width="50px" height="50px" /></a>
+            <a href="../users/detail.php"><img src="../img/avatar.png" width="50px" height="50px" /></a>
           </div>
           <div class="eventMeta">
             <ul>
@@ -59,27 +68,6 @@
         </div>
         <div class="eventMap">
           <div id="map" style="background: #EEE; width: 160px; height: 160px;"></div>
-<script type="text/javascript">
-function map_init() {
-  var latlng = new google.maps.LatLng(35.6999, 139.5851);
-  var myOptions = {
-    zoom: 15,
-    center: latlng,
-    mapTypeControl: false,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    navigationControlOptions: google.maps.NavigationControlStyle.ANDROID
-  };
-  var map = new google.maps.Map(document.getElementById("map"), myOptions);
-  var marker = new google.maps.Marker({
-    position: latlng,
-    map: map
-  });
-}
-
-$(function() {
-  map_init();
-});
-</script>
         </div>
       </div>
     </div>
@@ -93,10 +81,19 @@ $(function() {
     </div>
   </div>
 </div>
-<footer class="footer">
-  <div class="wrap inner">
-    <p class="copyright">&copy; 2012 ReportShair.</p>
-  </div>
-</footer>
+<?php include('../partials/footer.php'); ?>
+<script type="text/javascript">
+$(function() {
+  $(".uploadCoverPhoto").click(function() {
+    RS.Overlay.open('./upload.php', 'ajax');
+    return false;
+  });
+  $("#editme1").editInPlace({
+    callback: function(unused, enteredText) {
+      return enteredText;
+    }
+  });
+});
+</script>
 </body>
 </html>
