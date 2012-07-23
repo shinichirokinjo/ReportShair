@@ -19,16 +19,40 @@
   position: absolute;
   display: block;
   margin-left: -400px;
-  top: 90px;
+  top: 150px;
   left: 50%;
   z-index: 7;
   img {
     display: block;
   }
+  p {
+    position: absolute;
+    left: 28px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+  }
+  .share {
+    position: absolute;
+    top: 110px;
+    left: 30px;
+    height: 20px;
+    .twitter-follow-button {
+      overflow: hidden;
+      float: left;
+      margin-right: 5px;
+      width: 140px;
+      height: 20px;
+    }
+    .fb-like {
+      float: left;
+      width: 150px;
+    }
+  }
   .button {
     position: absolute;
     padding: 12px 36px;
-    top: 90px;
     right: 20px;
     border-color: #CCEE85 #CCEE85 #348E0A;
     -webkit-border-radius: 7px;
@@ -55,7 +79,7 @@
   padding-top: 77px;
   z-index: 5;
   .home & {
-    padding-top: 320px;
+    padding-top: 450px;
   }
   .inner {
     padding-top: 24px;

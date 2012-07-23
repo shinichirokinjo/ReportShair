@@ -10,18 +10,7 @@
 </head>
 
 <body class="report">
-<header class="navbar">
-  <div class="wrap">
-    <div class="logo">
-      <a href="./index.html" title="ReportShair">ReportShair</a>
-    </div>
-    <nav class="nav">
-      <ul class="navlist pull">
-        <li><a class="loginBtn" href="#">Login</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<?php include('./partials/header-basic.php'); ?>
 <div class="container">
   <div class="wrap inner">
     <div class="content col grid-24">
@@ -34,10 +23,6 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-  <div class="wrap inner">
-    <p class="copyright">&copy; 2012 ReportShair.</p>
-  </div>
-</footer>
+<?php include('./partials/footer.php'); ?>
 </body>
 </html>
