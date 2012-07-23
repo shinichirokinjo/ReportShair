@@ -10,28 +10,7 @@
 </head>
 
 <body class="report">
-<header class="navbar">
-  <div class="wrap">
-    <div class="logo">
-      <a href="../index.html" title="ReportShair">ReportShair</a>
-    </div>
-    <nav class="nav">
-      <ul class="navlist pull">
-        <li><a class="createBtn" href="#">Create Event</a></li>
-        <li>
-          <span class="user">
-            <span class="userimage"><img src="../img/avatar.png" width="36px" height="36px" alt=""></span>
-            <span class="username"><a href="../users/detail.html">Username</a></span>
-          </span>
-          <ul>
-            <li><a href="../users/settings.html">Settings</a></li>
-            <li><a class="logout" href="../logout.html">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<?php include('../partials/header-loggedin.php'); ?>
 <div class="container">
   <div class="wrap inner">
     <div class="reportHead col grid-24">
@@ -189,11 +168,7 @@ $(function() {
     </div>
   </div>
 </div>
-<footer class="footer">
-  <div class="wrap inner">
-    <p class="copyright">&copy; 2012 ReportShair.</p>
-  </div>
-</footer>
+<?php include('../partials/footer.php'); ?>
 <div id="createReportForm" style="display: none;">
   <h2>Create new report!</h2>
   <div class="formBody">

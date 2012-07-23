@@ -12,18 +12,7 @@
 </head>
 
 <body class="home">
-<header class="navbar">
-  <div class="wrap">
-    <div class="logo">
-      <a href="./index.html" title="ReportShair">ReportShair</a>
-    </div>
-    <nav class="nav">
-      <ul class="navlist pull">
-        <li><a class="loginBtn" href="#">Login</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<?php include('./partials/header-basic.php'); ?>
 <div id="maximage">
   <img src="./img/visual-1.jpeg" />
   <img src="./img/visual-2.jpeg" />
@@ -32,11 +21,9 @@
 <div id="fb-root"></div>
 <div class="headline">
   <img src="./img/headline.png" width="800px" height="77px" />
-  <div class="">
-<!--
+  <div class="share">
     <a class="twitter-follow-button" href="https://twitter.com/reportshair" data-count="horizontal" data-show-count="false" data-width="130" data-lang="en">Follow @reportshair</a>
     <div class="fb-like" data-href="http://www.tokuda109.jp/" data-send="true" data-layout="button_count" data-width="80" data-show-faces="false"></div>
--->
   </div>
   <div class="">
     <a class="button createBtn" href="./reports/create.html">Create Report</a>
@@ -52,50 +39,50 @@
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="./img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="./img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="./img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="./img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="./img/report-3.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="./img/report-3.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Metamorphose2012</a>
+              <a href="./reports/detail.php">Metamorphose2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="./img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="./img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="./img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="./img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
@@ -103,15 +90,11 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-  <div class="wrap inner">
-    <p class="copyright">&copy; 2012 ReportShair.</p>
-  </div>
-</footer>
+<?php include('./partials/footer.php'); ?>
 <div id="createReportForm" style="display: none;">
   <h2>Create new report!</h2>
   <div class="formBody">
-    <form action="./reports/create.html" method="post">
+    <form action="./reports/create.php" method="post">
       <div style="display: none;">
         <input type="hidden" name="" value="" />
       </div>
@@ -231,7 +214,6 @@ $(function() {
 });
 </script>
 <script type="text/javascript">
-/*
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -240,7 +222,6 @@ $(function() {
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=264745936880153";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-*/
 </script>
 </body>
 </html>
