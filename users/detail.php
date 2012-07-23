@@ -44,7 +44,7 @@ if ($user) {
     <aside class="sidebar col grid-8">
       <div class="widget">
         <div class="widgetHead">
-          <h1>Username</h1>
+          <h1><?php echo $user_profile['username']; ?></h1>
         </div>
         <div class="widgetBody">
           <div class="info">
@@ -56,10 +56,12 @@ if ($user) {
                 <ul>
                   <li class="report"><strong>3</strong> Reports</li>
                   <li class="photo"><strong>10</strong> Photos</li>
+                  <li class="facebook"><a href="<?php echo $user_profile['link']; ?>" target="_blank"></a></li>
                 </ul>
               </div>
               <div class="profile">
-                <p>Your description</p>
+                <p><?php echo $user_profile['quotes']; ?></p>
+                <p><?php print_r($user_profile); ?></p>
               </div>
             </div>
           </div>

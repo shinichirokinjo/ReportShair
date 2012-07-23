@@ -34,7 +34,7 @@ if ($user) {
 <title>Create report &lsaquo; ReportShair</title>
 <link rel="stylesheet" href="../css/screen.css" media="screen" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="../js/jquery.editinplace.js"></script>
 <script src="../js/app.js"></script>
 </head>
 
@@ -48,7 +48,7 @@ if ($user) {
       </div>
       <div class="reportInfo">
         <div class="eventInfo">
-          <h1>Metamorphose2012</h1>
+          <h1 id="editme1">Event name</h1>
           <p>XX月YY日</p>
           <div class="organizer">
             <a href="../users/detail.php"><img src="../img/avatar.png" width="50px" height="50px" /></a>
@@ -68,27 +68,6 @@ if ($user) {
         </div>
         <div class="eventMap">
           <div id="map" style="background: #EEE; width: 160px; height: 160px;"></div>
-<script type="text/javascript">
-function map_init() {
-  var latlng = new google.maps.LatLng(35.6999, 139.5851);
-  var myOptions = {
-    zoom: 15,
-    center: latlng,
-    mapTypeControl: false,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    navigationControlOptions: google.maps.NavigationControlStyle.ANDROID
-  };
-  var map = new google.maps.Map(document.getElementById("map"), myOptions);
-  var marker = new google.maps.Marker({
-    position: latlng,
-    map: map
-  });
-}
-
-$(function() {
-  map_init();
-});
-</script>
         </div>
       </div>
     </div>
@@ -103,5 +82,18 @@ $(function() {
   </div>
 </div>
 <?php include('../partials/footer.php'); ?>
+<script type="text/javascript">
+$(function() {
+  $(".uploadCoverPhoto").click(function() {
+    RS.Overlay.open('./upload.php', 'ajax');
+    return false;
+  });
+  $("#editme1").editInPlace({
+    callback: function(unused, enteredText) {
+      return enteredText;
+    }
+  });
+});
+</script>
 </body>
 </html>
