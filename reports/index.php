@@ -1,3 +1,32 @@
+<?php
+require '../include/facebook.php';
+
+$facebook = new Facebook(array(
+  'appId'  => '261278050649489',
+  'secret' => 'e61b025986cb5dc50e9216d9c803d525',
+));
+
+$user = $facebook->getUser();
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    error_log($e);
+    $user = null;
+  }
+}
+
+$logoutUrl = $loginUrl = NULL;
+
+if ($user) {
+  $logoutUrl = $facebook->getLogoutUrl();
+} else {
+  $loginUrl = $facebook->getLoginUrl();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +38,7 @@
 </head>
 
 <body class="report">
-<?php include('../partials/header-basic.php'); ?>
+<?php include('../partials/header.php'); ?>
 <div class="container">
   <div class="wrap inner">
     <div class="content col grid-24">
@@ -21,150 +50,150 @@
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Metamorphose2012</a>
+              <a href="./reports/detail.php">Metamorphose2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Metamorphose2012</a>
+              <a href="./reports/detail.php">Metamorphose2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Metamorphose2012</a>
+              <a href="./reports/detail.php">Metamorphose2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Metamorphose2012</a>
+              <a href="./reports/detail.php">Metamorphose2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">RedTrash</a>
+              <a href="./reports/detail.php">RedTrash</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Bigbeach fes 2012</a>
+              <a href="./reports/detail.php">Bigbeach fes 2012</a>
             </div>
           </div>
         </article>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+              <a href="./reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
             </div>
             <div class="meta">
-              <a href="./reports/detail.html">Metamorphose2012</a>
+              <a href="./reports/detail.php">Metamorphose2012</a>
             </div>
           </div>
         </article>
@@ -173,16 +202,5 @@
   </div>
 </div>
 <?php include('../partials/footer.php'); ?>
-<div id="createReportForm" style="display: none;">
-  <h2>Create new report!</h2>
-</div>
-<script type="text/javascript">
-$(function() {
-  $(".createBtn").click(function() {
-    RS.Overlay.open('#createReportForm', 'div');
-    return false;
-  });
-});
-</script>
 </body>
 </html>

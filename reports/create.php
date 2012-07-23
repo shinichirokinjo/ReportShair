@@ -1,3 +1,32 @@
+<?php
+require '../include/facebook.php';
+
+$facebook = new Facebook(array(
+  'appId'  => '261278050649489',
+  'secret' => 'e61b025986cb5dc50e9216d9c803d525',
+));
+
+$user = $facebook->getUser();
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    error_log($e);
+    $user = null;
+  }
+}
+
+$logoutUrl = $loginUrl = NULL;
+
+if ($user) {
+  $logoutUrl = $facebook->getLogoutUrl();
+} else {
+  $loginUrl = $facebook->getLoginUrl();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +39,7 @@
 </head>
 
 <body class="report">
-<?php include('../partials/header-loggedin.php'); ?>
+<?php include('../partials/header.php'); ?>
 <div class="container">
   <div class="wrap inner">
     <div class="no-photo reportHead col grid-24">
@@ -22,7 +51,7 @@
           <h1>Metamorphose2012</h1>
           <p>XX月YY日</p>
           <div class="organizer">
-            <a href="../users/detail.html"><img src="../img/avatar.png" width="50px" height="50px" /></a>
+            <a href="../users/detail.php"><img src="../img/avatar.png" width="50px" height="50px" /></a>
           </div>
           <div class="eventMeta">
             <ul>

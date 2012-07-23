@@ -1,3 +1,32 @@
+<?php
+require '../include/facebook.php';
+
+$facebook = new Facebook(array(
+  'appId'  => '261278050649489',
+  'secret' => 'e61b025986cb5dc50e9216d9c803d525',
+));
+
+$user = $facebook->getUser();
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    error_log($e);
+    $user = null;
+  }
+}
+
+$logoutUrl = $loginUrl = NULL;
+
+if ($user) {
+  $logoutUrl = $facebook->getLogoutUrl();
+} else {
+  $loginUrl = $facebook->getLoginUrl();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +38,7 @@
 </head>
 
 <body class="report">
-<?php include('../partials/header-loggedin.php'); ?>
+<?php include('../partials/header.php'); ?>
 <div class="container">
   <div class="wrap inner">
     <aside class="sidebar col grid-8">
@@ -20,7 +49,7 @@
         <div class="widgetBody">
           <div class="info">
             <div class="card">
-              <div class="avatar"><a href="../users/detail.html">
+              <div class="avatar"><a href="../users/detail.php">
                 <img src="../img/avatar.png" width="100px" height="100px" />
               </a></div>
               <div class="meta">
@@ -43,60 +72,60 @@
           <article class="col grid-8">
             <div class="box">
               <div class="image">
-                <a href="../reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
               </div>
               <div class="meta">
-                <a href="../reports/detail.html">RedTrash</a>
+                <a href="../reports/detail.php">RedTrash</a>
               </div>
             </div>
           </article>
           <article class="col grid-8">
             <div class="box">
               <div class="image">
-                <a href="../reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
               </div>
               <div class="meta">
-                <a href="../reports/detail.html">Bigbeach fes 2012</a>
+                <a href="../reports/detail.php">Bigbeach fes 2012</a>
               </div>
             </div>
           </article>
           <article class="col grid-8">
             <div class="box">
               <div class="image">
-                <a href="../reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
               </div>
               <div class="meta">
-                <a href="../reports/detail.html">Metamorphose2012</a>
+                <a href="../reports/detail.php">Metamorphose2012</a>
               </div>
             </div>
           </article>
           <article class="col grid-8">
             <div class="box">
               <div class="image">
-                <a href="../reports/detail.html"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
               </div>
               <div class="meta">
-                <a href="../reports/detail.html">RedTrash</a>
+                <a href="../reports/detail.php">RedTrash</a>
               </div>
             </div>
           </article>
           <article class="col grid-8">
             <div class="box">
               <div class="image">
-                <a href="../reports/detail.html"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
               </div>
               <div class="meta">
-                <a href="../reports/detail.html">Bigbeach fes 2012</a>
+                <a href="../reports/detail.php">Bigbeach fes 2012</a>
               </div>
             </div>
           </article>
           <article class="col grid-8">
             <div class="box">
               <div class="image">
-                <a href="../reports/detail.html"><img src="../img/report-3.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
               </div>
               <div class="meta">
-                <a href="../reports/detail.html">Metamorphose2012</a>
+                <a href="../reports/detail.php">Metamorphose2012</a>
               </div>
             </div>
           </article>
@@ -106,113 +135,5 @@
   </div>
 </div>
 <?php include('../partials/footer.php'); ?>
-<div id="createReportForm" style="display: none;">
-  <h2>Create new report!</h2>
-  <div class="formBody">
-    <form action="../reports/create.html" method="post">
-      <div style="display: none;">
-        <input type="hidden" name="" value="" />
-      </div>
-
-      <fieldset>
-        <div class="field">
-          <div class="fieldHead">
-            <label for="">Event name</label>
-          </div>
-          <div class="fieldBody">
-            <input type="text" name="" value="" />
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="fieldHead">
-            <label for="">Event description</label>
-          </div>
-          <div class="fieldBody">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="fieldHead">
-            <label for="">Event date</label>
-          </div>
-          <div class="fieldBody">
-            <select name="">
-              <option value="">Select:</option>
-              <option value="">Jan</option>
-              <option value="">Feb</option>
-              <option value="">Mar</option>
-              <option value="">Apr</option>
-              <option value="">May</option>
-              <option value="">Jun</option>
-              <option value="">Jul</option>
-              <option value="">Aug</option>
-              <option value="">Sep</option>
-              <option value="">Oct</option>
-              <option value="">Nov</option>
-              <option value="">Dec</option>
-            </select>
-            <select name="">
-              <option value="">Select:</option>
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-              <option value="">6</option>
-              <option value="">7</option>
-              <option value="">8</option>
-              <option value="">9</option>
-              <option value="">10</option>
-              <option value="">11</option>
-              <option value="">12</option>
-              <option value="">13</option>
-              <option value="">14</option>
-              <option value="">15</option>
-              <option value="">16</option>
-              <option value="">17</option>
-              <option value="">18</option>
-              <option value="">19</option>
-              <option value="">20</option>
-              <option value="">21</option>
-              <option value="">22</option>
-              <option value="">23</option>
-              <option value="">24</option>
-              <option value="">25</option>
-              <option value="">26</option>
-              <option value="">27</option>
-              <option value="">28</option>
-              <option value="">29</option>
-              <option value="">30</option>
-              <option value="">31</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="fieldHead">
-            <label for="">Place</label>
-          </div>
-          <div class="fieldBody">
-            <input type="text" name="" value="" />
-          </div>
-        </div>
-
-        <div class="action">
-          <button>Create</button>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-</div>
-<script type="text/javascript">
-$(function() {
-  $(".createBtn").click(function() {
-    RS.Overlay.open('#createReportForm', 'div');
-    return false;
-  });
-});
-</script>
 </body>
 </html>
