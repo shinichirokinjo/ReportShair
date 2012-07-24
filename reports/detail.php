@@ -112,10 +112,10 @@ $(function() {
                   <li class="report"><strong>3</strong> Reports</li>
                   <li class="photo"><strong>10</strong> Photos</li>
                 </ul>
-                <button class="followBtn">Follow</button>
+                <!-- <button class="followBtn">Follow</button> -->
               </div>
               <div class="username">
-                <h2><a href="">Username</a></h2>
+                <h2><a href="./users/detail.php">Username</a></h2>
               </div>
             </div>
             <div class="memo">
@@ -142,10 +142,10 @@ $(function() {
                   <li class="report"><strong>3</strong> Reports</li>
                   <li class="photo"><strong>10</strong> Photos</li>
                 </ul>
-                <button class="followBtn">Follow</button>
+                <!-- <button class="followBtn">Follow</button> -->
               </div>
               <div class="username">
-                <h2><a href="">Username</a></h2>
+                <h2><a href="./users/detail.php">Username</a></h2>
               </div>
             </div>
             <div class="memo">
@@ -173,10 +173,10 @@ $(function() {
                   <li class="report"><strong>3</strong> Reports</li>
                   <li class="photo"><strong>10</strong> Photos</li>
                 </ul>
-                <button class="followBtn">Follow</button>
+                <!-- <button class="followBtn">Follow</button> -->
               </div>
               <div class="username">
-                <h2><a href="">Username</a></h2>
+                <h2><a href="./users/detail.php">Username</a></h2>
               </div>
             </div>
             <div class="memo">

@@ -161,6 +161,7 @@ var RS = RS || {};
             overlay.close();
             return;
           } else {
+            console.log($(this));
             overlay.hideLoading();
             overlay.add($(this));
           }
@@ -185,6 +186,7 @@ var RS = RS || {};
       return false;
     },
     add: function($blob) {
+      console.log($blob);
       var $content = this.$content.show();
       var $popup = this.$popup.show();
 

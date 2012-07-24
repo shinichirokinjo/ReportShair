@@ -4,27 +4,20 @@
 <meta charset="utf-8" />
 <title>ダイアログ</title>
 <!-- STYLE -->
-<link type="text/css" rel="stylesheet" href="<?=base_url('static/css/dashboard.min.css')?>" />
+<link rel="stylesheet" href="../css/screen.css" media="screen" />
 <!-- SCRIPT -->
-<script src="<?=base_url('static/js/jquery/jquery.min.js')?>"></script>
-<script type="text/javascript" src="<?=base_url('static/js/plupload/plupload.js')?>"></script>
-<script type="text/javascript" src="<?=base_url('static/js/plupload/plupload.flash.js')?>"></script>
-<script type="text/javascript" src="<?=base_url('static/js/plupload/plupload.html5.js')?>"></script>
-<script type="text/javascript" src="<?=base_url('static/js/plupload/plupload.html4.js')?>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+<script src="../js/plupload/plupload.js"></script>
+<script src="../js/plupload/plupload.gears.js"></script>
+<script src="../js/plupload/plupload.silverlight.js"></script>
+<script src="../js/plupload/plupload.flash.js"></script>
+<script src="../js/plupload/plupload.browserplus.js"></script>
+<script src="../js/plupload/plupload.html5.js"></script>
+<script src="../js/plupload/plupload.html4.js"></script>
 </head>
 
 <body class="dialog">
-<div id="headArea">
-  <div class="dialogHeader">
-    <ul>
-      <li class="current"><a href="/dashboard/media/dialog?tab=upload">アップロード</a></li>
-<!--
-      <li><a href="/dashboard/media/dialog?tab=media">メディアから選択</a></li>
--->
-    </ul>
-  </div>
-</div>
-
 <div id="bodyArea">
   <div id="uploader" class="dialogContent">
     <h2>自分のコンピューターから<a href="/dashboard/media/">メディア</a>にファイルを追加する</h2>
@@ -34,28 +27,21 @@
     <p class="runtime"></p>
   </div>
 </div>
-<?php
-$CI =& get_instance();
-
-$name = $CI->security->get_csrf_token_name();
-$hash = $CI->security->get_csrf_hash();
-?>
 <script type="text/javascript">
 var uploaderInit, imageArea;
 uploaderInit = {
   "runtimes": "html5,flash,html4",
   "browse_button": "pickerBtn",
   "container": "uploader",
-  "url": "\/dashboard\/media\/upload",
-  "flash_swf_url": "\/static\/js\/plupload\/plupload.flash.swf",
+  // "url": "/dashboard/media/upload",
+  "flash_swf_url": "/js/plupload/plupload.flash.swf",
   "filters": [
     {title: "Image files", extensions: "jpg,gif,png"}
   ],
-  "max_file_size": "3mb",
+  "max_file_size": "5mb",
   "multipart": true,
   "multipart_params": {
-    "<?=$name?>": "<?=$hash?>",
-    "key": "<?=$key?>"
+    "key": "test"
   }
 };
 
@@ -64,11 +50,11 @@ function uploadStart() {
 }
 
 function uploadProgress(up, file) {
-  
+
 }
 
 function fileUploading(up, file) {
-  
+
 }
 
 function uploadSuccess(fileObj, serverData) {
@@ -111,10 +97,10 @@ function uploadError(fileObj, errorCode, message, uploader) {
 }
 
 function uploadSizeError(up, file, over100mb) {
-  
+
 }
 
-$(function($) {
+$(function() {
   uploader_init = function() {
     uploader = new plupload.Uploader(uploaderInit);
 
@@ -138,7 +124,7 @@ $(function($) {
     });
 
     uploader.bind('BeforeUpload', function(up, file) {
-      
+
     });
 
     uploader.bind('UploadFile', function(up, file) {
@@ -163,7 +149,7 @@ $(function($) {
   }
 
   if (typeof(uploaderInit) == 'object') {
-  	uploader_init();
+    uploader_init();
   }
 });
 </script>

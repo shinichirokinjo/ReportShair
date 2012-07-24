@@ -41,7 +41,7 @@ if ($user) {
 <?php include('../partials/header.php'); ?>
 <div class="container">
   <div class="wrap inner">
-    <aside class="sidebar col grid-8">
+    <aside class="sidebar col grid-6">
       <div class="widget">
         <div class="widgetHead">
           <h1><?php echo $user_profile['username']; ?></h1>
@@ -68,66 +68,42 @@ if ($user) {
         </div>
       </div>
     </aside>
-    <div class="content col grid-16">
+    <div class="content col grid-18">
       <div class="contentBody">
-        <section class="row">
-          <article class="col grid-8">
-            <div class="box">
+        <section>
+          <article>
+            <div class="box clearfix">
               <div class="image">
-                <a href="../reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-1-p.png" width="480px" height="480px" /></a>
               </div>
-              <div class="meta">
-                <a href="../reports/detail.php">RedTrash</a>
+              <div class="info">
+                <div class="card">
+                  <div class="meta">
+                    <ul>
+                      <li class="report"><strong>3</strong> Reports</li>
+                      <li class="photo"><strong>10</strong> Photos</li>
+                    </ul>
+                    <!-- <button class="followBtn">Follow</button> -->
+                  </div>
+                </div>
               </div>
             </div>
           </article>
-          <article class="col grid-8">
-            <div class="box">
+          <article>
+            <div class="box clearfix">
               <div class="image">
-                <a href="../reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
+                <a href="../reports/detail.php"><img src="../img/report-1-p.png" width="480px" height="480px" /></a>
               </div>
-              <div class="meta">
-                <a href="../reports/detail.php">Bigbeach fes 2012</a>
-              </div>
-            </div>
-          </article>
-          <article class="col grid-8">
-            <div class="box">
-              <div class="image">
-                <a href="../reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
-              </div>
-              <div class="meta">
-                <a href="../reports/detail.php">Metamorphose2012</a>
-              </div>
-            </div>
-          </article>
-          <article class="col grid-8">
-            <div class="box">
-              <div class="image">
-                <a href="../reports/detail.php"><img src="../img/report-1.png" width="312px" height="207px" /></a>
-              </div>
-              <div class="meta">
-                <a href="../reports/detail.php">RedTrash</a>
-              </div>
-            </div>
-          </article>
-          <article class="col grid-8">
-            <div class="box">
-              <div class="image">
-                <a href="../reports/detail.php"><img src="../img/report-2.png" width="312px" height="207px" /></a>
-              </div>
-              <div class="meta">
-                <a href="../reports/detail.php">Bigbeach fes 2012</a>
-              </div>
-            </div>
-          </article>
-          <article class="col grid-8">
-            <div class="box">
-              <div class="image">
-                <a href="../reports/detail.php"><img src="../img/report-3.png" width="312px" height="207px" /></a>
-              </div>
-              <div class="meta">
-                <a href="../reports/detail.php">Metamorphose2012</a>
+              <div class="info">
+                <div class="card">
+                  <div class="meta">
+                    <ul>
+                      <li class="report"><strong>3</strong> Reports</li>
+                      <li class="photo"><strong>10</strong> Photos</li>
+                    </ul>
+                    <!-- <button class="followBtn">Follow</button> -->
+                  </div>
+                </div>
               </div>
             </div>
           </article>

@@ -107,19 +107,25 @@
      -moz-border-radius: 5px;
           border-radius: 5px;
   .image {
-    width: 312px;
-    height: 207px;
+    float: left;
+    width: 480px;
+    a {
+      display: block;
+      width: 480px;
+      height: 480px;
+    }
     img {
       -webkit-border-radius: 5px;
          -moz-border-radius: 5px;
               border-radius: 5px;
     }
   }
-  .meta {
-    padding: 7px;
-    a {
-      text-decoration: none;
-      color: #3B9B0F;
+  .info {
+    width: 224px;
+    .card {
+      .meta {
+        float: none;
+      }
     }
   }
 }
@@ -424,7 +430,7 @@
 .widgetBody {
   .info {
     padding: 0;
-    width: 312px;
+    width: 228px;
     .card {
       .meta {
         width: 192px;
