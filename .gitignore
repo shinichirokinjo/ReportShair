@@ -1,10 +1,16 @@
 .DS_Store
 
 *~
+*.diff
+*.log
 *.sass-cache
 *.sublime-project
 *.sublime-workspace
 *.sw[op]
+*.vi
 
 Thumbs.db
+
+app/Config/
+app/tmp/
 
