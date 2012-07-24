@@ -8,3 +8,6 @@
 
 Thumbs.db
 
+app/Config/
+app/tmp/
+
