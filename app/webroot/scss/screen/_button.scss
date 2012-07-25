@@ -1,0 +1,24 @@
+.btn {
+  display: inline-block;
+  margin: 0 auto 20px;
+  padding: 5px 15px;
+  vertical-align: middle;
+  line-height: 1.6;
+  @include border-radius(5px);
+  color: #FFF;
+  cursor: pointer;
+  &:hover {
+
+  }
+  &:focus {
+
+  }
+  &.active,
+  &:active {
+
+  }
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+  }
+}

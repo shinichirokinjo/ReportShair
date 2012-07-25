@@ -45,3 +45,7 @@
     @return 278;
   }
 }
+
+@function static_url($path) {
+  @return $static-relative-path + $path;
+}

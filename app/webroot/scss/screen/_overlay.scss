@@ -15,7 +15,7 @@
   margin-top: -15px;
   width: 30px;
   height: 30px;
-  background: rgba(0,0,0,.6) url('../img/loading.gif') center center no-repeat;
+  background: url(static_url('img/loading.gif')) center center no-repeat;
   z-index: 109;
 }
 #overlay-popup {
@@ -26,12 +26,8 @@
   width: 960px;
   height: 70%;
   background: #FFF;
-  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,.5);
-     -moz-box-shadow: 0 3px 10px rgba(0,0,0,.5);
-          box-shadow: 0 3px 10px rgba(0,0,0,.5);
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
+  @include box-shadow(0 3px 10px rgba(0,0,0,.5));
+  @include border-radius(5px);
   z-index: 111;
   .close {
     position: absolute;
@@ -40,7 +36,7 @@
     right: 7px;
     width: 21px;
     height: 21px;
-    background: url('../img/close.png') 0 0 no-repeat;
+    background: url(static_url('img/close.png')) 0 0 no-repeat;
     cursor: pointer;
     z-index: 112;
   }

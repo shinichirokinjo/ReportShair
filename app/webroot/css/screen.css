@@ -1,0 +1,154 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, b, i, small, strong, sub, sup, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+ol, ul {
+  list-style: none; }
+  nav ol, nav ul {
+    list-style-image: none; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none; }
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  display: block; }
+
+audio, video, canvas {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+audio:not([controls]) {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+.clearfix {
+  *zoom: 1;
+  /* IE < 8 */ }
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: ""; }
+
+.clearfix:after {
+  clear: both; }
+
+body {
+  position: relative;
+  background: #eeeeee url("../img/body.png") repeat 0 0; }
+
+.hidden {
+  display: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+.navbar {
+  overflow: visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45px;
+  background: black url("../img/navbar.png") repeat-x 0 0;
+  z-index: 90; }
+  .navbar .logo {
+    display: block;
+    width: 240px;
+    height: 45px; }
+    .navbar .logo a {
+      display: block;
+      overflow: hidden;
+      width: 240px;
+      height: 45px;
+      background: url("../img/logo.png") no-repeat 0 0;
+      text-indent: -1000em; }
+  .navbar .nav {
+    position: relative; }
+    .navbar .nav .navlist {
+      float: left;
+      display: inline-block;
+      height: 45px;
+      border-left: solid 1px #222;
+      background: url("../img/navbar.png") repeat-x 0 -45px; }
+      .navbar .nav .navlist > li {
+        float: left; }
+
+.btn {
+  display: inline-block;
+  margin: 0 auto 20px;
+  padding: 5px 15px;
+  vertical-align: middle;
+  line-height: 1.6;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer; }
+  .btn.disabled, .btn[disabled] {
+    cursor: default; }
+
+#overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 110; }
+
+#overlay-loading {
+  position: fixed;
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  background: url("../img/loading.gif") center center no-repeat;
+  z-index: 109; }
+
+#overlay-popup {
+  position: fixed;
+  margin-left: -480px;
+  top: 100px;
+  left: 50%;
+  width: 960px;
+  height: 70%;
+  background: #FFF;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  z-index: 111; }
+  #overlay-popup .close {
+    position: absolute;
+    display: block;
+    top: 7px;
+    right: 7px;
+    width: 21px;
+    height: 21px;
+    background: url("../img/close.png") 0 0 no-repeat;
+    cursor: pointer;
+    z-index: 112; }
+
+.overlay-content {
+  overflow: auto;
+  padding: 20px; }
