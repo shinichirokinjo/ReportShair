@@ -1,0 +1,36 @@
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+@mixin background-image() {
+  background-image: -webkit-linear-gradient(top,#FFF,#F1F1F1);
+  background-image:    -moz-linear-gradient(top,#FFF,#F1F1F1);
+  background-image:     -ms-linear-gradient(top,#FFF,#F1F1F1);
+  background-image:      -o-linear-gradient(top,#FFF,#F1F1F1);
+  background-image:         linear-gradient(top,#FFF,#F1F1F1);
+}
+
+@mixin background-size() {
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+@mixin border-radius($radius) {
+  @if type-of($radius) == 'number' {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+  } @else {
+    @warn "$radius is not number. see screen/_mixin.scss";
+  }
+}
+
+@mixin box-shadow() {
+  -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 1px 10px rgba(0,0,0,.2);
+          box-shadow: 0 1px 10px rgba(0,0,0,.2);
+}

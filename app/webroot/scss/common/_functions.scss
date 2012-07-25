@@ -1,0 +1,47 @@
+// Return the percent font size
+// http://yuilibrary.com/yui/docs/cssfonts/
+@function percent-font-size($pixel) {
+  @if $pixel == 10 {
+    @return 77;
+  } @else if $pixel == 11 {
+    @return 85;
+  } @else if $pixel == 12 {
+    @return 93;
+  } @else if $pixel == 13 {
+    @return 100;
+  } @else if $pixel == 14 {
+    @return 108;
+  } @else if $pixel == 15 {
+    @return 116;
+  } @else if $pixel == 16 {
+    @return 123.1;
+  } @else if $pixel == 17 {
+    @return 131;
+  } @else if $pixel == 18 {
+    @return 138;
+  } @else if $pixel == 19 {
+    @return 146.5;
+  } @else if $pixel == 20 {
+    @return 153.9;
+  } @else if $pixel == 21 {
+    @return 161.6;
+  } @else if $pixel == 22 {
+    @return 167;
+  } @else if $pixel == 23 {
+    @return 174;
+  } @else if $pixel == 24 {
+    @return 182;
+  } @else if $pixel == 25 {
+    @return 189;
+  } @else if $pixel == 26 {
+    @return 197;
+  } @else if $pixel == 27 {
+    @return 205;
+  } @else if $pixel == 30 {
+    @return 230;
+  } @else if $pixel == 32 {
+    @return 246;
+  } @else if $pixel == 36 {
+    @return 278;
+  }
+}
