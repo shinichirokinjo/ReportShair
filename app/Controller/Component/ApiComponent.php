@@ -8,8 +8,9 @@
   * @license MIT
   */
 App::uses('FacebookApi', 'Facebook.Lib');
+
 class ApiComponent extends Object {
-  
+
   /**
     * Allow direct access to the facebook API
     * @link http://wiki.developers.facebook.com/index.php/Main_Page
@@ -23,7 +24,5 @@ class ApiComponent extends Object {
   public function initialize($controller){
     $this->FB = new FacebookApi();
   }
-  
-  
 }
 ?>

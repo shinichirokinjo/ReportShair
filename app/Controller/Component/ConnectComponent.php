@@ -12,8 +12,9 @@
 */
 App::uses('FB', 'Facebook.Lib');
 App::uses('FacebookInfo', 'Facebook.Lib');
+
 class ConnectComponent extends Component {
-	
+
 	/**
 	* uid is the Facebook ID of the connected Facebook user, or null if not connected
 	*/
@@ -248,3 +249,4 @@ class ConnectComponent extends Component {
 		$this->errors[] = __($msg, true);
 	}
 }
+?>
