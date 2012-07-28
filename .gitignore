@@ -3,11 +3,15 @@
 *~
 *.diff
 *.log
+
 *.sass-cache
 *.sublime-project
 *.sublime-workspace
 *.sw[op]
 *.vi
+
+.project
+.settings/*
 
 Thumbs.db
 
