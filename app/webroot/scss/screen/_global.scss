@@ -1,6 +1,6 @@
 body {
   position: relative;
-  background: #EEE url('../img/body.png') repeat 0 0;
+  background: #EEE url(static_url('img/global/body.png')) repeat 0 0;
 }
 .hidden {
   display: none;

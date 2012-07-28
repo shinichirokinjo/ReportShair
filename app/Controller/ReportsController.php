@@ -8,11 +8,11 @@ class ReportsController extends AppController {
 	public $uses = array();
 
 	public function index() {
-		
+		$this->set('body_class', 'reports');
 	}
 
-	public function view() {
-		
+	public function view($username = null) {
+		$this->set('body_class', 'reports');
 	}
 }
 ?>

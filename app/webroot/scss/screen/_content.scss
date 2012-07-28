@@ -1,0 +1,82 @@
+.content {
+  margin-bottom: 10px;
+}
+
+// .home
+
+#maximage {
+  position: fixed !important;
+  display: none;
+  z-index: -1;
+}
+.mc-image {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+.visual {
+  position: absolute;
+  display: block;
+  margin-left: -400px;
+  top: 150px;
+  left: 50%;
+  width: 800px;
+  z-index: 7;
+  .headline {
+    margin-bottom: 15px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.8);
+    font-size: 55px;
+    font-weight: bold;
+    color: #FFF;
+  }
+  .leadline {
+    text-shadow: 0 1px 1px rgba(0,0,0,.8);
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFF;
+  }
+  .share {
+    position: absolute;
+    top: 105px;
+    height: 20px;
+    .twitter-follow-button {
+      overflow: hidden;
+      float: left;
+      margin-right: 5px;
+      width: 140px;
+      height: 20px;
+    }
+    .fb-like {
+      float: left;
+      width: 150px;
+    }
+  }
+  .visualButton {
+    position: absolute;
+    top: 90px;
+    right: 30px;
+    .button {
+      padding: 12px 36px;
+      border-color: #CCEE85 #CCEE85 #348E0A;
+      @include border-radius(7px);
+      background-color: #0074CC;
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9DDE15), to(#3B9B0F));
+      background-image: -webkit-linear-gradient(top, #9DDE15, #3B9B0F);
+      background-image:    -moz-linear-gradient(top, #9DDE15, #3B9B0F);
+      background-image:     -ms-linear-gradient(top, #9DDE15, #3B9B0F);
+      background-image:      -o-linear-gradient(top, #9DDE15, #3B9B0F);
+      background-image:         linear-gradient(top, #9DDE15, #3B9B0F);
+      background-repeat: repeat-x;
+      text-decoration: none;
+      text-shadow: 0 -1px 0 rgba(59,155,15,.5);
+      font-size: 20px;
+      font-weight: bold;
+      color: #FFF;
+    }
+  }
+}

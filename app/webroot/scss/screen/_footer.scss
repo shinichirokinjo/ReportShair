@@ -1,0 +1,17 @@
+.footer {
+  z-index: 10;
+  .wrap {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgba(255,255,255,.8);
+  }
+  .footernav {
+    li {
+      display: inline;
+      margin-right: .5em;
+    }
+  }
+  .copyright {
+    text-align: right;
+  }
+}
