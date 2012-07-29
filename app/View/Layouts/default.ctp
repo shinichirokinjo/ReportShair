@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<html>
 <head>
 <meta charset="utf-8" />
 <title><?=$title_for_layout?></title>
@@ -8,6 +8,7 @@
 <meta name="robots" content="index,follow" />
 <meta name="language" content="en" />
 <!-- LINK -->
+<link rel="canonical" href="<?=$canonical?>" />
 <link rel="shortcut icon" href="/img/favicon.ico" />
 <link rel="stylesheet" href="/css/screen.css" media="screen" />
 <!-- SCRIPT -->
@@ -17,9 +18,7 @@
 <body class="<?=$body_class?>">
 <?=$this->element('header')?>
 
-<?php if($body_class == 'home'): ?>
-<?=$this->element('visual')?>
-<?php endif; ?>
+<?php if ($body_class == 'home') echo $this->element('visual'); ?>
 
 <div class="container">
   <div class="wrap inner">
@@ -28,6 +27,5 @@
 </div><!-- .container -->
 
 <?=$this->element('footer')?>
-<?php echo $this->Facebook->init(); ?>
 </body>
 </html>

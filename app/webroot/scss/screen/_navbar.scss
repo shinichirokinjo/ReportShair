@@ -7,6 +7,10 @@
   height: 45px;
   background: #000 url(static_url('img/global/navbar.png')) repeat-x 0 0;
   z-index: 90;
+  .wrap {
+    padding-left: -8px;
+    padding-right: -8px;
+  }
 }
 .nav {
   position: relative;

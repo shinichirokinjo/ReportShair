@@ -7,6 +7,7 @@
 #maximage {
   position: fixed !important;
   display: none;
+  width: 100%;
   z-index: -1;
 }
 .mc-image {
@@ -30,7 +31,7 @@
   .headline {
     margin-bottom: 15px;
     text-shadow: 0 1px 1px rgba(0,0,0,.8);
-    font-size: 55px;
+    font-size: 50px;
     font-weight: bold;
     color: #FFF;
   }

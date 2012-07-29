@@ -33,8 +33,8 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-	public $helpers = array('Facebook.Facebook');
+	public $helpers = array('Html', 'Form');
 
-	public $components = array('Facebook.Connect');
+	public $components = array();
 }
 ?>

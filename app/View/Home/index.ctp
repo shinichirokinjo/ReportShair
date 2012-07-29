@@ -4,35 +4,18 @@
         <p>レポートをみる</p>
       </div>
       <div class="contentBody row">
+<?php foreach($reports as $report): ?>
         <article class="col grid-8">
           <div class="box">
             <div class="image">
-              <a href="./reports/detail.php"><img src="./img/report-1.png" width="312px" height="207px" /></a>
+              <img src="./img/report-1.png" width="312px" height="207px" />
             </div>
             <div class="meta">
-              <a href="./reports/detail.php">RedTrash</a>
+              <?=$this->Html->link($report['Report']['title'], array('controller' => 'reports', 'action' => 'view', $report['Report']['id']))?>
+
             </div>
           </div>
         </article>
-        <article class="col grid-8">
-          <div class="box">
-            <div class="image">
-              <a href="./reports/detail.php"><img src="./img/report-2.png" width="312px" height="207px" /></a>
-            </div>
-            <div class="meta">
-              <a href="./reports/detail.php">Bigbeach fes 2012</a>
-            </div>
-          </div>
-        </article>
-        <article class="col grid-8">
-          <div class="box">
-            <div class="image">
-              <a href="./reports/detail.php"><img src="./img/report-3.png" width="312px" height="207px" /></a>
-            </div>
-            <div class="meta">
-              <a href="./reports/detail.php">Metamorphose2012</a>
-            </div>
-          </div>
-        </article>
+<?php endforeach; ?>
       </div>
     </div>

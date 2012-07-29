@@ -2,7 +2,7 @@
   <div class="wrap">
     <h1 class="logo"><a href="/" title="ReportShair">ReportShair</a></h1>
     <nav class="nav">
-<?php if ($user = $this->Connect->registrationData()): ?>
+<?php $var = False; if ($var): ?>
       <ul class="navlist pull">
         <li><a href="" title="">Create Report</a></li>
         <li class="usernav">
@@ -18,7 +18,7 @@
       </ul>
 <?php else: ?>
     <ul class="navlist pull">
-      <li><a href="<?=$this->Facebook->login(array('perms' => 'email,publish_stream'))?>" title="">Login</a></li>
+      <li><a href="" title="">Login</a></li>
     </ul>
 <?php endif; ?>
     </nav>
