@@ -5,16 +5,18 @@
       </div>
       <div class="contentBody row">
 <?php foreach($reports as $report): ?>
-        <article class="col grid-8">
-          <div class="box">
-            <div class="image">
-              <img src="./img/report-1.png" width="312px" height="207px" />
+        <article class="boxitem col grid-8">
+          <a href="/reports/<?=$report['Report']['id']?>" title="<?=$report['Report']['title']?>">
+            <div class="boxitem-background" style="background: url('/img/content/boxitem.png') no-repeat center center;">
+              <div class="boxitem-gradient">
+                <h2 class="boxitem-title"><?=$report['Report']['title']?></h2>
+                <div class="boxitem-meta">
+                  <span class="date"><?=$report['Report']['date']?></span>
+                </div>
+                <p class="boxitem-description"><?=$report['Report']['body']?></p>
+              </div>
             </div>
-            <div class="meta">
-              <?=$this->Html->link($report['Report']['title'], array('controller' => 'reports', 'action' => 'view', $report['Report']['id']))?>
-
-            </div>
-          </div>
+          </a>
         </article>
 <?php endforeach; ?>
       </div>
