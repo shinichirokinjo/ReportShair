@@ -4,6 +4,7 @@
         <p>レポートをみる</p>
       </div>
       <div class="contentBody row">
+<?php if(isset($reports)): ?>
 <?php foreach($reports as $report): ?>
         <article class="boxitem col grid-8">
           <a href="/reports/<?=$report['Report']['id']?>" title="<?=$report['Report']['title']?>">
@@ -19,5 +20,13 @@
           </a>
         </article>
 <?php endforeach; ?>
+<?php else: ?>
+        <section>
+          <p>レポートはまだありません</p>
+        </section>
+<?php endif; ?>
+      </div>
+      <div class="contentFoot">
+        <a href="/reports/" class="moreButton">もっと見る</a>
       </div>
     </div>

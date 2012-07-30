@@ -12,7 +12,7 @@
     <div class="fb-like" data-href="http://reportshair.com/" data-send="true" data-layout="button_count" data-width="80" data-show-faces="false"></div>
   </div>
   <div class="visualButton">
-    <a class="button" href="">Create Report</a>
+    <a class="button" href="/reports/add">Create Report</a>
   </div>
 </div>
 <script src="/js/jquery/jquery.cycle.js"></script>

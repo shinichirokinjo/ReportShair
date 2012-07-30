@@ -23,10 +23,12 @@ class ReportsController extends AppController {
 	public function view($id = null) {
 		$this->Report->id = $id;
 
-		$this->set('report', $this->Report->read());
+		$report = $this->Report->read();
+
+		$this->set('report', $report);
 
 		$this->set('canonical', 'http://reportshair.com/reports/'.$id);
-		$this->set('title_for_layout', 'Report name &lsaquo; ReportShair');
+		$this->set('title_for_layout', $report['Report']['title'].' &lsaquo; ReportShair');
 	}
 
 	public function add() {
@@ -37,17 +39,17 @@ class ReportsController extends AppController {
 			if ($this->Report->save($this->request->data)) {
 				$this->redirect(array('action'=>'index'));
 			} else {
-				
+
 			}
 		}
 	}
 
-	public function edit() {
-		
+	public function edit($id = null) {
+
 	}
 
-	public function delete() {
-		
+	public function delete($id = null) {
+
 	}
 }
 ?>
