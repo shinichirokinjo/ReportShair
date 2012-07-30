@@ -1,0 +1,12 @@
+// Remove most spacing between table cells
+table {
+  border: {
+    collapse: collapse;
+    spacing: 0;
+  }
+}
+caption,th,td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
