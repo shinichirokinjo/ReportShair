@@ -140,14 +140,40 @@
     background-color: #DDD;
     .button {
       position: absolute;
-      margin-left: -110px;
+      margin-left: -176px;
       top: 78px;
       left: 50%;
+      width: 280px;
+      text-align: center;
     }
   }
 }
 .reportInfo {
-  padding: 10px 0;
+  padding: 10px;
+  input {
+    width: 100%;
+  }
+  .fieldLeftBox {
+    float: left;
+    width: 300px;
+  }
+  .fieldRightBox {
+    float: right;
+    width: 630px;
+  }
+  .field {
+    textarea {
+      width: 97%;
+      height: 100px;
+    }
+  }
+  .eventNameField {
+    padding: 5px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+  }
 }
 .editInPlace-active {
 

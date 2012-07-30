@@ -1,0 +1,70 @@
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible;
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  box-sizing: border-box;
+  *width: 13px;
+  *height: 13px;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+.field {
+  margin-bottom: 10px;
+  input,
+  select,
+  textarea {
+    display: inline-block;
+    padding: 3px;
+    height: 20px;
+    line-height: 20px;
+    border: solid 1px #DDD;
+    @include border-radius(3px);
+    font-size: 14px;
+  }
+  input,
+  textarea {
+    &:focus {
+      border: solid 1px #AAA;
+      @include box-shadow(0 0 3px rgba(0,0,0,.25));
+    }
+  }
+}
