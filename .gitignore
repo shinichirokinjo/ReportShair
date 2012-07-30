@@ -3,14 +3,20 @@
 *~
 *.diff
 *.log
+
 *.sass-cache
 *.sublime-project
 *.sublime-workspace
 *.sw[op]
 *.vi
 
+.project
+.settings/*
+
 Thumbs.db
 
-app/Config/
+app/Config/core.php
+app/Config/database.php
+app/Config/email.php
 app/tmp/
 
