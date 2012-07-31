@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `size` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `width` int(5) UNSIGNED NOT NULL DEFAULT '0',
   `height` int(5) UNSIGNED NOT NULL DEFAULT '0',
-  `created` int(11) UNSIGNED NOT NULL,
-  `modified` int(11) UNSIGNED NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` datetime NOT NULL,
   PRIMARY KEY `id` (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
