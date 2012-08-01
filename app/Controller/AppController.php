@@ -21,6 +21,7 @@
  */
 
 App::uses('Controller', 'Controller');
+App::uses('FB', 'Facebook.Lib');
 App::uses('FacebookInfo', 'Facebook.Lib');
 
 /**
@@ -46,20 +47,25 @@ class AppController extends Controller {
 				'Form' => array(
 					'fields' => array('username' => 'email')
 				)
-			),
-			'authorize' => 'Controller'
-		//	'authorizedActions' => array('index','view')
+			)
 		),
 		'DebugKit.Toolbar', // デバッグツールバー
 		'Facebook.Connect' => array('model' => 'User'), // FBで認証されているかの状態を持っている
 		'Session'
 	);
 
+	// public $authenticate = array('Form');
+
 	public function beforeFilter() {
 		$this->Auth->allow('*');
+
+		$this->set('fbLoginURL', FB::getLoginUrl(array(
+			'redirect_uri' => 'http://localhost/users/callback',
+			'scope' => 'email,publish_stream,user_location,user_birthday,user_interests,user_likes'
+		)));
+
 		// $this->set('user', $this->Auth->user());
-		$this->set('fbuser', $this->Connect->user());
-		$this->set('registrationData', $this->Connect->registrationData());
+		// $this->set('fbuser', $this->Connect->user());
 	}
 }
 ?>
