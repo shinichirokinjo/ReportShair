@@ -31,13 +31,26 @@ class UsersController extends AppController {
 	 * この関数でユーザーの登録やログインの処理を行う
 	 */
 	public function callback() {
+		// TODO: 普通にURLでアクセスすることができるのでFBからのコールバック以外は弾く処理が必要
+
 		// アクセストークンをセッションに格納
 		$access_token = FB::getAccessToken();
 		SessionComponent::write('access_token', $access_token);
 
-		// 既に登録されているかチェックする
+		$facebook_id = FB::getUser();
 
-		$this->redirect('/');
+		$user = $this->User->findByFacebookId($facebook_id);
+
+		// 既に登録されているかチェックする
+		if ($user) {
+			SessionComponent::write('loggedin', True);
+
+			$this->redirect('/');
+		} else {
+			// ユーザー登録画面へ
+
+			$this->redirect('/users/regist');
+		}
 	}
 
 	/**
@@ -50,6 +63,7 @@ class UsersController extends AppController {
 	}
 
 	public function logout() {
+		$this->Sesion->destroy();
 		$this->Auth->logout();
 	}
 }

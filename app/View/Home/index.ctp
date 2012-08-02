@@ -4,8 +4,6 @@
         <p>レポートをみる</p>
       </div>
       <div class="contentBody row">
-        <p><?=$access_token?></p>
-        <p><?php print_r($fbuser); ?></p>
 <?php if(isset($reports)): ?>
 <?php foreach($reports as $report): ?>
         <article class="boxitem col grid-8">

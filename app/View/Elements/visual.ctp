@@ -12,7 +12,11 @@
     <div class="fb-like" data-href="http://reportshair.com/" data-send="true" data-layout="button_count" data-width="80" data-show-faces="false"></div>
   </div>
   <div class="visualButton">
+<?php if ($loggedin): ?>
     <a class="button" href="/reports/add">Create Report</a>
+<?php else: ?>
+    <a class="button" href="<?=$fbLoginURL?>" title="Login with Facebook">Create Report</a>
+<?php endif; ?>
   </div>
 </div>
 <script src="/js/jquery/jquery.cycle.js"></script>
