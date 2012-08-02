@@ -70,7 +70,7 @@ class AppController extends Controller {
 		$this->Auth->allow('*');
 
 		$this->set('fbLoginURL', FB::getLoginUrl(array(
-			'redirect_uri' => 'http://localhost/users/callback',
+			'redirect_uri' => 'http://localhost:8888/users/callback',
 			'scope' => 'email,publish_stream,user_location,user_birthday,user_interests,user_likes'
 		)));
 
