@@ -14,7 +14,7 @@ class SettingsController extends AppController {
 	}
 
 	public function index() {
-		
+		$this->set('canonical', 'http://reportshair.com/settings/');
 	}
 
 	public function account() {

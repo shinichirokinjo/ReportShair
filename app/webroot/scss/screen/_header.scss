@@ -15,18 +15,22 @@
 .usernav {
   padding: 3px 7px;
   @include clearfix();
+  & > a {
+    padding: 0 !important;
+    height: 39px  !important;
+  }
   .userimage {
     float: left;
+    overflow: hidden;
     display: block;
-    padding: 5px 0 0 10px;
     img {
       display: block;
     }
   }
   .username {
     float: right;
-    padding: 15px 10px 15px 0;
-    line-height: 15px;
+    padding: 0 3px 0 8px;
+    line-height: 36px;
     font-size: 15px;
     color: #FFF;
   }

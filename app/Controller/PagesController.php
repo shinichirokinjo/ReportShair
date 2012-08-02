@@ -10,6 +10,7 @@ class PagesController extends AppController {
 	public $helpers = array();
 
 	public function beforeFilter() {
+		parent::beforeFilter();
 		$this->set('body_class', 'pages');
 	}
 
