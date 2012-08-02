@@ -6,8 +6,8 @@
       <ul class="navlist pull">
         <li><a href="/reports/add" title="Create new report">Create Report</a></li>
         <li class="usernav">
-          <a href="" title="Username">
-            <img class="userimage" src="" width="36px" height="36px" alt="<?=$this->Session->read('Auth.User.username')?>'s avatar" />
+          <a href="/users/<?=$this->Session->read('Auth.User.username')?>" title="Username">
+            <img class="userimage" src="https://graph.facebook.com/<?=$this->Session->read('Auth.User.username')?>/picture" width="36px" height="36px" alt="<?=$this->Session->read('Auth.User.username')?>'s avatar" />
             <span class="username"><?=$this->Session->read('Auth.User.username')?></span>
           </a>
           <ul>

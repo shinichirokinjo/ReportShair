@@ -15,7 +15,7 @@
 <?php if ($loggedin): ?>
     <a class="button" href="/reports/add">Create Report</a>
 <?php else: ?>
-    <a class="button" href="<?=$fbLoginURL?>" title="Login with Facebook">Create Report</a>
+    <a class="button" href="<?=$fbLoginURL?>" title="Login with Facebook">Login with Facebook</a>
 <?php endif; ?>
   </div>
 </div>
