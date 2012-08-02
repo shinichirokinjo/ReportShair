@@ -20,10 +20,14 @@ class UsersController extends AppController {
 	}
 
 	public function view($username = null) {
-		$this->set('username', $username);
+		if ($username == null) {
+			//
+		}
+		$user = $this->User->findByUsername($username);
+		$this->set('user', $user);
 
 		$this->set('canonical', 'http://reportshair.com/users/'.$username);
-		$this->set('title_for_layout', 'Username &lsaquo; ReportShair');
+		$this->set('title_for_layout', $user['User']['username'].' &lsaquo; ReportShair');
 	}
 
 	/**

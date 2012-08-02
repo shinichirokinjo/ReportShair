@@ -10,11 +10,10 @@
           <a href="/reports/<?=$report['Report']['id']?>" title="<?=$report['Report']['title']?>">
             <div class="boxitem-background" style="background: url('/img/content/boxitem.png') no-repeat center center;">
               <div class="boxitem-gradient">
-                <h2 class="boxitem-title"><?=$report['Report']['title']?></h2>
+                <h2 class="boxitem-title"><?=$report['Report']['title']." @ ".$report['Report']['place']?></h2>
                 <div class="boxitem-meta">
                   <span class="date"><?=$report['Report']['date']?></span>
                 </div>
-                <p class="boxitem-description"><?=$report['Report']['body']?></p>
               </div>
             </div>
           </a>
