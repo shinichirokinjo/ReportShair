@@ -13,10 +13,12 @@
 	Router::connect('/reports/*', array('controller' => 'reports', 'action' => 'view'));
 
 	Router::connect('/users/', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/users/callback', array('controller' => 'users', 'action' => 'callback'));
+	Router::connect('/users/regist', array('controller' => 'users', 'action' => 'regist'));
 	Router::connect('/users/*', array('controller' => 'users', 'action' => 'view'));
 
 	/**
-	 * Load all plugin routes.  See the CakePlugin documentation on 
+	 * Load all plugin routes.  See the CakePlugin documentation on
 	 * how to customize the loading of plugin routes.
 	 */
 	CakePlugin::routes();

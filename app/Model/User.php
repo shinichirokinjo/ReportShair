@@ -3,12 +3,19 @@ App::uses('AppModel', 'Model');
 
 class User extends AppModel {
 
-	/**
-	 * Display field
-	 *
-	 * @var string
-	 */
-	public $displayField = 'id';
+	public $name = 'User';
 
+	public $validate = array(
+		'username' => array(
+            'alphaNumeric' => array(
+                'rule' => 'alphaNumeric'
+            ),
+            'notEmpty' => array(
+                'rule' => 'notEmpty'
+            )
+        ),
+		'email' => 'email',
+		'facebook_id' => array()
+	);
 }
 ?>

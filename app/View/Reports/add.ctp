@@ -1,5 +1,9 @@
     <div class="report content col grid-24">
       <form action="" method="post">
+        <div style="display: hidden;">
+          <input type="hidden" name="user_id" value="<?=$this->Session->read('Auth.User.id')?>" />
+        </div>
+
         <header class="reportHead noPhoto">
           <div class="coverPhoto">
             <a class="button uploadCoverPhoto" href="#" title="カバー写真のアップロード">カバー写真のアップロード</a>
@@ -27,7 +31,7 @@
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
-                  </select>月 
+                  </select>月
                   <select name="data[Report][day]">
                     <option value="">日</option>
                     <option value="1">1</option>

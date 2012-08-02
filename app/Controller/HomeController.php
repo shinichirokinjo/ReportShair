@@ -7,6 +7,8 @@ class HomeController extends AppController {
 
 	public $uses = array('Report');
 
+	public $helpers = array();
+
 	public $components = array();
 
 	public function index() {
