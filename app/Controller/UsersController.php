@@ -51,24 +51,19 @@ class UsersController extends AppController {
 
 			$this->redirect('/');
 		} else {
-			// ユーザー登録画面へ
-
-			$this->redirect('/users/regist');
-		}
-	}
-
-	/**
-	 * Facebookで初めて認証する場合に残りの情報の登録を行う
-	 */
-	public function regist() {
-		if ($this->request->is('post')) {
-			//
+			
 		}
 	}
 
 	public function logout() {
+		if ( ! SessionComponent::read('loggedin')) {
+			// TODO: 不正なアクセスなので警告を表示するために
+			//       フラッシュメッセージをセットする
+			$this->redirect('/');
+			exit;
+		}
+
 		$this->Sesion->destroy();
-		$this->Auth->logout();
 	}
 }
 ?>

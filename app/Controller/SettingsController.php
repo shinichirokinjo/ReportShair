@@ -15,6 +15,13 @@ class SettingsController extends AppController {
     }
 
     public function index() {
+    	if ( ! SessionComponent::read('loggedin')) {
+    		// TODO: 不正なアクセスなので警告を表示するために
+			//       フラッシュメッセージをセットする
+			$this->redirect('/');
+			exit;
+		}
+
     	if ($this->request->is('post')) {
     		if ($this->User->updateAll($this->request->data)) {
     			$this->redirect('/settings/');
