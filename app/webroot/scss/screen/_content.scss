@@ -26,21 +26,26 @@
 
 // .home
 
-#maximage {
-  position: fixed !important;
-  display: none;
+#bgimage {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: auto;
+  min-width: 1024px;
+  min-height: 100%;
   z-index: -1;
-}
-.mc-image {
-  width: 100%;
-  height: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+  }
 }
 .visual {
   position: absolute;
@@ -147,9 +152,26 @@
       text-align: center;
     }
   }
+  .image {
+    width: 984px;
+    height: 420px;
+    background-position: center;
+    @include background-size();
+  }
 }
 .reportInfo {
   padding: 10px;
+  .thumb {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    @include background-size();
+    a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
   input {
     width: 100%;
   }
