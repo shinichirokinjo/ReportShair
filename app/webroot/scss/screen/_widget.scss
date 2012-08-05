@@ -1,3 +1,28 @@
 .sidebar {
   margin-bottom: 10px;
 }
+.widget {
+  .widgetHead {
+    
+  }
+  .widgetBody {
+    
+  }
+  .widgetFoot {
+    
+  }
+}
+// TODO: _content.scssの.reportInfoの.thumbと統合
+.widget {
+  .thumb {
+    width: 120px;
+    height: 120px;
+    background-position: center;
+    @include background-size();
+    a {
+      display: block;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

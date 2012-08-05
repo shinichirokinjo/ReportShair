@@ -201,10 +201,17 @@
         }
       }
     }
-    .info {
+    .event {
       float: right;
       padding: 10px;
       width: 232px;
+      .eventName {
+        margin-bottom: 10px;
+        a {
+          text-shadow: 0 1px 0 rgba(255,255,255,.8);
+          color: #222;
+        }
+      }
     }
   }
 }
