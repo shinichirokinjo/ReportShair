@@ -159,6 +159,55 @@
     @include background-size();
   }
 }
+.reportList {
+  .reportBox {
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 320px;
+    background: #FFF;
+    @include box-shadow(0 1px 2px rgba(0,0,0,.3));
+    @include border-radius(5px);
+    .image {
+      float: left;
+      width: 480px;
+      height: 320px;
+      .primary,
+      .secondary {
+        height: 320px;
+        background-position: center;
+      }
+      .primary {
+        float: left;
+        width: 320px;
+        @include background-size();
+      }
+      .secondary {
+        float: right;
+        width: 160px;
+        span {
+          display: block;
+          width: 160px;
+          height: 160px;
+          &:first-child {
+            -webkit-border-top-right-radius: 5px;
+               -moz-border-top-right-radius: 5px;
+                    border-top-right-radius: 5px;
+          }
+          &:last-child {
+            -webkit-border-bottom-right-radius: 5px;
+               -moz-border-bottom-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+          }
+        }
+      }
+    }
+    .info {
+      float: right;
+      padding: 10px;
+      width: 232px;
+    }
+  }
+}
 .reportInfo {
   padding: 10px;
   .thumb {

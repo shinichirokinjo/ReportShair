@@ -15,11 +15,20 @@ class SettingsController extends AppController {
     }
 
     public function index() {
-        $this->set('canonical', 'http://reportshair.com/settings/');
-    }
-
-    public function account() {
-        $this->set('canonical', 'http://reportshair.com/settings/account');
+    	if ($this->request->is('post')) {
+    		if ($this->User->updateAll($this->request->data)) {
+    			$this->redirect('/settings/');
+    		} else {
+    			
+    		}
+		} else {
+			$username = SessionComponent::read('Auth.User.username');
+			
+			$user = $this->User->findByUsername($username);
+			$this->set('user', $user);
+			
+			$this->set('canonical', 'http://reportshair.com/settings/');
+		}
     }
 }
 ?>
