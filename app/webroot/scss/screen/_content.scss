@@ -6,23 +6,6 @@
   .contentBody {}
   .contentFoot {}
 }
-.report {
-  .reportHead {
-    margin-bottom: 20px;
-    @include box-shadow(0 1px 2px rgba(0,0,0,.3));
-    @include border-radius(5px);
-    background-color: #FFF;
-  }
-  .reportBody {}
-  .reportFoot {
-    height: 100px;
-  }
-}
-.page {
-  .pageHead {}
-  .pageBody {}
-  .pageFoot {}
-}
 
 // .home
 
@@ -129,10 +112,9 @@
 // coverphoto
 
 .coverPhoto {
-  position: relative;
   overflow: hidden;
+  margin: 0 12px 18px;
   width: 984px;
-  height: 420px;
   @include border-radius(5px);
   .noPhoto & {
     height: 200px;
@@ -148,8 +130,10 @@
     }
   }
   .image {
+    position: relative;
     width: 984px;
     height: 420px;
+    background-color: #000;
     background-position: center;
     @include background-size();
     @include border-radius(5px);
@@ -185,7 +169,37 @@
   }
 }
 
-
+.reportMeta {
+  width: 984px;
+  background: #F1F1F1;
+  -webkit-border-bottom-left-radius: 5px;
+     -moz-border-bottom-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+     -moz-border-bottom-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+  @include clearfix();
+  .metaOrganizer,
+  .metaPhotos,
+  .metaWent,
+  .metaHashtag {
+    float: left;
+    padding: 10px 0;
+    width: 246px;
+    background-image: -webkit-linear-gradient(top,#262626,#060606);
+    background-image:    -moz-linear-gradient(top,#262626,#060606);
+    background-image:     -ms-linear-gradient(top,#262626,#060606);
+    background-image:      -o-linear-gradient(top,#262626,#060606);
+    background-image:         linear-gradient(top,#262626,#060606);
+    p {
+      text-align: center;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+      font-size: 21px;
+      font-weight: bold;
+      color: #FFF;
+    }
+  }
+}
 
 .reportList {
   .reportBox {
@@ -257,7 +271,54 @@
     }
   }
 }
-
+.reportComment {
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 320px;
+  background: #FFF;
+  @include box-shadow(0 1px 2px rgba(0,0,0,.3));
+  @include border-radius(5px);
+  .image {
+    float: left;
+    width: 480px;
+    height: 320px;
+    .pin {
+      width: 480px;
+      height: 320px;
+      @include background-size();
+      @include border-radius(5px);
+    }
+    .primary,
+    .secondary {
+      height: 320px;
+      background-position: center;
+    }
+    .primary {
+      float: left;
+      width: 320px;
+      @include background-size();
+    }
+    .secondary {
+      float: right;
+      width: 160px;
+      span {
+        display: block;
+        width: 160px;
+        height: 160px;
+        &:first-child {
+          -webkit-border-top-right-radius: 5px;
+             -moz-border-top-right-radius: 5px;
+                  border-top-right-radius: 5px;
+        }
+        &:last-child {
+          -webkit-border-bottom-right-radius: 5px;
+             -moz-border-bottom-right-radius: 5px;
+                  border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+}
 .reportForm {
   padding: 10px;
   input {
