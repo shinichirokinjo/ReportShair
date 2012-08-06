@@ -26,14 +26,46 @@
     <aside class="sidebar col grid-6">
       <div class="widget">
         <header class="widgetHead">
-          <h4>Went</h4>
+          <h4>Went (XX Peoples)</h4>
         </header>
         <div class="widgetBody">
-          <ul>
-            <li><a href="" title=""></a></li>
-            <li><a href="" title=""></a></li>
-            <li><a href="" title=""></a></li>
-            <li><a href="" title=""></a></li>
+          <ul class="wentList">
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/<?=$report['User']['username']?>/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/serima/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/shin.kinjo/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/<?=$report['User']['username']?>/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/serima/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/shin.kinjo/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/<?=$report['User']['username']?>/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/serima/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/shin.kinjo/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/<?=$report['User']['username']?>/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/serima/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
+            <li><a href="/users/<?=$report['User']['username']?>" title="<?=$report['User']['username']?>">
+              <img src="https://graph.facebook.com/shin.kinjo/picture" width="40px" height="40px" alt="<?=$report['User']['username']?>" />
+            </a></li>
           </ul>
         </div>
       </div>
