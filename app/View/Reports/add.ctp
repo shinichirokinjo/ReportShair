@@ -8,7 +8,7 @@
           <div class="coverPhoto">
             <a id="uploadCoverPhoto" class="button" href="#" title="カバー写真のアップロード">カバー写真のアップロード</a>
           </div>
-          <div class="reportInfo clearfix">
+          <div class="reportForm clearfix">
             <div class="fieldLeftBox">
               <div class="field">
                 <div class="fieldBody">
