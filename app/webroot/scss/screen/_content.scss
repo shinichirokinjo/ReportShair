@@ -41,10 +41,7 @@
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    -webkit-background-size: cover;
-       -moz-background-size: cover;
-         -o-background-size: cover;
-            background-size: cover;
+    @include background-size();
   }
 }
 .visual {
@@ -55,18 +52,18 @@
   left: 50%;
   width: 800px;
   z-index: 7;
-  .headline {
-    margin-bottom: 15px;
+  .headline,
+  .leadline {
     text-shadow: 0 1px 1px rgba(0,0,0,.8);
-    font-size: 50px;
     font-weight: bold;
     color: #FFF;
   }
+  .headline {
+    margin-bottom: 15px;
+    font-size: 50px;
+  }
   .leadline {
-    text-shadow: 0 1px 1px rgba(0,0,0,.8);
     font-size: 15px;
-    font-weight: bold;
-    color: #FFF;
   }
   .share {
     position: absolute;
@@ -93,7 +90,7 @@
 
 // .report
 
-.boxitem {
+.listItem {
   margin-bottom: 24px;
   background: #FFF;
   @include box-shadow(0 1px 3px rgba(0,0,0,.3));
@@ -101,45 +98,43 @@
   a {
     text-decoration: none;
   }
-}
-.boxitem-background {
-  width: 312px;
-  height: 207px;
-  @include border-radius(5px);
-}
-.boxitem-gradient {
-  position: relative;
-  width: 312px;
-  height: 207px;
-  @include border-radius(5px);
-  background-image: url(static_url('img/content/boxitem-gradient.png'));
-}
-.boxitem-title,
-.boxitem span {
-  color: #FFF;
-}
-.boxitem-title {
-  padding: 7px 0 0 7px;
-  text-shadow: 0 1px 3px rgba(0,0,0,.3);
-  font-size: 18px;
-}
-.boxitem-meta {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  span {
-    text-align: right;
-    font-size: 12px;
+  .listItemBG {
+    position: relative;
+    width: 312px;
+    height: 207px;
+    @include border-radius(5px);
+  }
+  header {
+    position: absolute;
+    padding: 5px 7px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.8);
+    -webkit-border-bottom-left-radius: 5px;
+       -moz-border-bottom-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+       -moz-border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+    h1 {
+      text-shadow: 0 1px 0 rgba(0,0,0,.3);
+      font-size: 13px;
+      font-weight: bold;
+      color: #FFF;
+    }
   }
 }
 
+// coverphoto
+
 .coverPhoto {
+  position: relative;
   overflow: hidden;
   width: 984px;
   height: 420px;
   @include border-radius(5px);
   .noPhoto & {
-    position: relative;
     height: 200px;
     @include box-shadow(0 1px 0 rgba(0,0,0,.2));
     background-color: #DDD;
@@ -157,8 +152,41 @@
     height: 420px;
     background-position: center;
     @include background-size();
+    @include border-radius(5px);
+  }
+  .reportHeadline {
+    position: absolute;
+    padding: 5px 7px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.8);
+    header {
+      margin-bottom: 3px;
+      @include clearfix();
+    }
+    h1,h2 {
+      text-shadow: 0 1px 0 rgba(0,0,0,.3);
+      font-size: 16px;
+      font-weight: bold;
+      color: #FFF;
+    }
+    h1 {
+      float: left;
+    }
+    h2 {
+      float: right;
+    }
+  }
+  .description {
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);
+    font-size: 14px;
+    color: #FFF;
   }
 }
+
+
+
 .reportList {
   .reportBox {
     overflow: hidden;
@@ -228,6 +256,10 @@
       height: 50px;
     }
   }
+}
+
+.reportForm {
+  padding: 10px;
   input {
     width: 100%;
   }
@@ -253,17 +285,7 @@
     font-weight: bold;
   }
 }
-.editInPlace-active {
 
-}
-.inplace_form {
-  display: inline-block;
-  padding: 5px;
-  height: 18px;
-  line-height: 18px;
-  border: solid 1px #CCC;
-  font-size: 13px;
-}
 .uploadReportPhoto {
   margin: 10px auto;
 }
