@@ -15,7 +15,9 @@
   margin-top: -15px;
   width: 30px;
   height: 30px;
-  background: url(static_url('img/loading.gif')) center center no-repeat;
+  top: 50%;
+  left: 50%;
+  background: url(static_url('img/overlay/loading.gif')) center center no-repeat;
   z-index: 109;
 }
 #overlay-popup {
@@ -36,7 +38,7 @@
     right: 7px;
     width: 21px;
     height: 21px;
-    background: url(static_url('img/close.png')) 0 0 no-repeat;
+    background: url(static_url('img/overlay/close.png')) 0 0 no-repeat;
     cursor: pointer;
     z-index: 112;
   }

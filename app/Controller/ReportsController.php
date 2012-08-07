@@ -33,8 +33,15 @@ class ReportsController extends AppController {
 	}
 
 	public function add() {
+		if ( ! SessionComponent::read('loggedin')) {
+			// TODO: 不正なアクセスなので警告を表示するために
+			//       フラッシュメッセージをセットする
+			$this->redirect('/');
+			exit;
+		}
+
 		$this->set('canonical', 'http://reportshair.com/reports/add');
-		$this->set('title_for_layout', 'Add report &lsaquo; ReportShair');
+		$this->set('title_for_layout', 'Add Report &lsaquo; ReportShair');
 
 		if ($this->request->is('post')) {
 			if ($this->Report->save($this->request->data)) {
@@ -46,11 +53,28 @@ class ReportsController extends AppController {
 	}
 
 	public function edit($id = null) {
+		if ( ! SessionComponent::read('loggedin')) {
+			// TODO: 不正なアクセスなので警告を表示するために
+			//       フラッシュメッセージをセットする
+			$this->redirect('/');
+			exit;
+		}
 
+		$this->set('canonical', 'http://reportshair.com/reports/edit/'.$id);
+		$this->set('title_for_layout', 'Edit Report &lsaquo; ReportShair');
+
+		if ($this->request->is('post')) {
+			
+		}
 	}
 
 	public function delete($id = null) {
-
+		if ( ! SessionComponent::read('loggedin')) {
+			// TODO: 不正なアクセスなので警告を表示するために
+			//       フラッシュメッセージをセットする
+			$this->redirect('/');
+			exit;
+		}
 	}
 }
 ?>

@@ -6,9 +6,9 @@
 
         <header class="reportHead noPhoto">
           <div class="coverPhoto">
-            <a class="button uploadCoverPhoto" href="#" title="カバー写真のアップロード">カバー写真のアップロード</a>
+            <a id="uploadCoverPhoto" class="button" href="#" title="カバー写真のアップロード">カバー写真のアップロード</a>
           </div>
-          <div class="reportInfo clearfix">
+          <div class="reportForm clearfix">
             <div class="fieldLeftBox">
               <div class="field">
                 <div class="fieldBody">
@@ -90,4 +90,12 @@
           <button type="submit">レポートを作成する</button>
         </footer>
       </form>
+<script type="text/javascript">
+$(function() {
+  $("#uploadCoverPhoto").click(function() {
+    RS.Overlay.open('./upload.php', 'ajax');
+    return false;
+  });
+});
+</script>
     </div><!-- .report -->

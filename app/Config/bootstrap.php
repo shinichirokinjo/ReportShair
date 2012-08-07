@@ -146,6 +146,7 @@ Cache::config('default', array('engine' => 'File'));
 CakePlugin::load('DebugKit');
 CakePlugin::load('Facebook');
 CakePlugin::load('Migrations');
+CakePlugin::load('Utils');
 
 /**
  * You can attach event listeners to the request lifecyle as Dispatcher Filter . By Default CakePHP bundles two filters:
