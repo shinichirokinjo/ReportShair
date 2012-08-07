@@ -200,63 +200,6 @@
     }
   }
 }
-
-.reportList {
-  .reportBox {
-    overflow: hidden;
-    margin-bottom: 20px;
-    height: 320px;
-    background: #FFF;
-    @include box-shadow(0 1px 2px rgba(0,0,0,.3));
-    @include border-radius(5px);
-    .image {
-      float: left;
-      width: 480px;
-      height: 320px;
-      .primary,
-      .secondary {
-        height: 320px;
-        background-position: center;
-      }
-      .primary {
-        float: left;
-        width: 320px;
-        @include background-size();
-      }
-      .secondary {
-        float: right;
-        width: 160px;
-        span {
-          display: block;
-          width: 160px;
-          height: 160px;
-          &:first-child {
-            -webkit-border-top-right-radius: 5px;
-               -moz-border-top-right-radius: 5px;
-                    border-top-right-radius: 5px;
-          }
-          &:last-child {
-            -webkit-border-bottom-right-radius: 5px;
-               -moz-border-bottom-right-radius: 5px;
-                    border-bottom-right-radius: 5px;
-          }
-        }
-      }
-    }
-    .event {
-      float: right;
-      padding: 10px;
-      width: 232px;
-      .eventName {
-        margin-bottom: 10px;
-        a {
-          text-shadow: 0 1px 0 rgba(255,255,255,.8);
-          color: #222;
-        }
-      }
-    }
-  }
-}
 .reportInfo {
   padding: 10px;
   .thumb {
@@ -271,6 +214,99 @@
     }
   }
 }
+
+.reportList {
+  .eventName {
+    margin-bottom: 10px;
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      a {
+        text-shadow: 0 1px 0 rgba(255,255,255,.8);
+        color: #222;
+      }
+    }
+  }
+  .eventMeta {
+    margin-bottom: 10px;
+    li {
+      padding: 2px 0 2px 27px;
+      height: 20px;
+      line-height: 20px;
+      background-position: left center;
+      background-repeat: no-repeat;
+      font-size: 12px;
+      &.date {
+        background-image: url('../img/icon/iconDate.png');
+      }
+      &.photoCount {
+        background-image: url('../img/icon/iconPhoto.png');
+      }
+      &.wentCount {
+        background-image: url('../img/icon/iconWent.png');
+      }
+    }
+  }
+  .eventBody {
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    font-size: 12px;
+  }
+}
+.reportComment {
+  .profile {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    @include clearfix();
+  }
+  .avatar {
+    float: left;
+    width: 40px;
+    height: 40px;
+  }
+  .username {
+    float: right;
+    padding: 13px 6px;
+    width: 180px;
+    line-height: 14px;
+    font-weight: bold;
+    a {
+      color: #003C69;
+    }
+  }
+  .comment {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: solid 1px;
+    border-color: #EEE #DDD #CCC;
+    @include box-shadow(0 1px 10px rgba(0,0,0,.15));
+    background-image: -webkit-linear-gradient(top,#F1F1F1,#E1E1E1);
+    background-image:    -moz-linear-gradient(top,#F1F1F1,#E1E1E1);
+    background-image:     -ms-linear-gradient(top,#F1F1F1,#E1E1E1);
+    background-image:      -o-linear-gradient(top,#F1F1F1,#E1E1E1);
+    background-image:         linear-gradient(top,#F1F1F1,#E1E1E1);
+    @include border-radius(5px);
+    z-index: 6;
+    p {
+      text-shadow: 0 -1px -1px #FFF;
+      font-size: 13px;
+      color: #222;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: -32px;
+      left: 6px;
+      width: 0;
+      height: 0;
+      border-top: 16px solid transparent;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-bottom: 16px solid #F1F1F1;
+    }
+  }
+}
+.reportList,
 .reportComment {
   overflow: hidden;
   margin-bottom: 20px;
@@ -317,6 +353,11 @@
         }
       }
     }
+  }
+  .info {
+    float: right;
+    padding: 10px;
+    width: 232px;
   }
 }
 .reportForm {

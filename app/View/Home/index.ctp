@@ -3,7 +3,7 @@
         <h1>Show other Report</h1>
         <p>レポートをみる</p>
       </header>
-      <div class="reportList contentBody row">
+      <div class="contentBody row">
 <?php if(isset($reports)): ?>
 <?php foreach($reports as $report): ?>
         <article class="listItem col grid-8">

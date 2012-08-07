@@ -81,23 +81,31 @@
             </div>
           </div>
           <div class="info">
-            <div class="card">
-              <div class="avatar"><a></a></div>
-              <p class="username"></p>
+            <div class="profile">
+              <div class="avatar">
+                <a><img src="https://graph.facebook.com/shin.kinjo/picture" width="40px" height="40px" alt="" /></a>
+              </div>
+              <p class="username"><a href="/users/<?=$report['User']['username']?>">shin.kinjo</a></p>
             </div>
-            <div class="comment"></div>
+            <div class="comment">
+              <p>Lorem ipsum dolor sit amet, duo labores graecis salutandi ad, omnis everti persecuti pri ei. Mel et omnis reformidans, sed enim postea eu. Tale erat consulatu ei mei, mei et oblique veritus mentitum, nostrud percipit sententiae qui cu. Ex est ridens integre constituam. Te vel alia laboramus, assueverit deterruisset conclusionemque cum id.</p>
+            </div>
           </div>
         </article>
         <article class="reportComment clearfix">
           <div class="image">
-            <div class="pin" style="background-image: url(/img/content/report-2-p.png);"></div
+            <div class="pin" style="background-image: url(/img/content/report-2-p.png);"></div>
           </div>
           <div class="info">
-            <div class="card">
-              <div class="avatar"><a></a></div>
-              <p class="username"></p>
+            <div class="profile">
+              <div class="avatar">
+                <a><img src="https://graph.facebook.com/serima/picture" width="40px" height="40px" alt="" /></a>
+              </div>
+              <p class="username"><a href="/users/<?=$report['User']['username']?>">serima</a></p>
             </div>
-            <div class="comment"></div>
+            <div class="comment">
+              <p>Lorem ipsum dolor sit amet, duo labores graecis salutandi ad, omnis everti persecuti pri ei. Mel et omnis reformidans, sed enim postea eu. Tale erat consulatu ei mei, mei et oblique veritus mentitum, nostrud percipit sententiae qui cu. Ex est ridens integre constituam. Te vel alia laboramus, assueverit deterruisset conclusionemque cum id.</p>
+            </div>
           </div>
         </article>
         <article class="reportComment clearfix">
@@ -109,11 +117,15 @@
             </div>
           </div>
           <div class="info">
-            <div class="card">
-              <div class="avatar"><a></a></div>
-              <p class="username"></p>
+            <div class="profile">
+              <div class="avatar">
+                <a><img src="https://graph.facebook.com/<?=$report['User']['username']?>/picture" width="40px" height="40px" alt="" /></a>
+              </div>
+              <p class="username"><a href="/users/<?=$report['User']['username']?>"><?=$report['User']['username']?></a></p>
             </div>
-            <div class="comment"></div>
+            <div class="comment">
+              <p>Lorem ipsum dolor sit amet, duo labores graecis salutandi ad, omnis everti persecuti pri ei. Mel et omnis reformidans, sed enim postea eu. Tale erat consulatu ei mei, mei et oblique veritus mentitum, nostrud percipit sententiae qui cu. Ex est ridens integre constituam. Te vel alia laboramus, assueverit deterruisset conclusionemque cum id.</p>
+            </div>
           </div>
         </article>
       </div>

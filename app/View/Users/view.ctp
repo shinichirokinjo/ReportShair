@@ -9,10 +9,10 @@
       </section>
     </aside>
     <div class="content col grid-18">
-      <div class="contentBody reportList">
+      <div class="contentBody">
 <?php if(isset($user)): ?>
 <?php foreach($user['Report'] as $report): ?>
-        <article class="reportBox">
+        <article class="reportList">
           <div class="image">
             <div class="primary" style="background-image: url(/img/content/report-1-p.png);"></div>
             <div class="secondary">
@@ -20,21 +20,17 @@
               <span style="background-image: url(/img/content/report-1-t.png);"></span>
             </div>
           </div>
-          <div class="event">
-            <div class="eventInfo">
-              <h2 class="eventName">
-                <a href="/reports/<?=$report['id']?>" title="<?=$report['title']?>"><?=$report['title']?></a>
-              </h2>
-              <ul>
-                <li class="date"><?=$report['date']?></li>
-                <li class="body"><?=$report['body']?></li>
-              </ul>
+          <div class="info">
+            <div class="eventName">
+              <h2><a href="/reports/<?=$report['id']?>" title="<?=$report['title']?>"><?=$report['title']?></a></h2>
             </div>
-            <div class="eventWent">
-              <h3>Went: 123 Peoples</h3>
-              <ul>
-                <li><a href=""><img src="https://graph.facebook.com/<?=$user['User']['facebook_id']?>/picture" /></a></li>
-              </ul>
+            <ul class="eventMeta">
+              <li class="date"><?=$report['date']?></li>
+              <li class="photoCount"><?=$report['photo_count']?> Photos</li>
+              <li class="wentCount"><?=$report['went_count']?> Peoples</li>
+            </ul>
+            <div class="eventBody">
+              <?=$report['body']?>
             </div>
           </div>
         </article>

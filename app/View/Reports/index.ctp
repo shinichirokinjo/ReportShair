@@ -2,7 +2,7 @@
       <header class="contentHead">
         <h1>レポート一覧</h1>
       </header>
-      <div class="reportList contentBody row">
+      <div class="contentBody row">
 <?php if(isset($reports)): ?>
 <?php foreach($reports as $report): ?>
         <article class="listItem col grid-8">
