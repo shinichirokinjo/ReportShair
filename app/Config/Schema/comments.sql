@@ -1,8 +1,8 @@
-CREATE TABLE IF NOT EXISTS `photos` (
+CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(11) UNSIGNED NOT NULL,
-  `thumb` int(11) DEFAULT NULL,
-  `body` varchar(150) DEFAULT NULL,
+  `thumb` int(11) UNSIGNED DEFAULT NULL,
+  `body` varchar(255) DEFAULT NULL,
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
   PRIMARY KEY `id` (`id`),

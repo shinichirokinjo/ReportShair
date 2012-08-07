@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/css/screen.css" media="screen" />
 <!-- SCRIPT -->
 <script src="/js/jquery/jquery.min.js"></script>
+<script src="/js/app.js"></script>
 <?php if (isset($head_script)) echo $head_script; ?>
 </head>
 

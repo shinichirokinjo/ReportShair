@@ -1,4 +1,4 @@
-<div id="maximage">
+<div id="bgimage" class="carousel">
   <img src="/img/visual/visual-1.jpeg" />
   <img src="/img/visual/visual-2.jpeg" />
   <img src="/img/visual/visual-3.jpeg" />
@@ -19,22 +19,9 @@
 <?php endif; ?>
   </div>
 </div>
-<script src="/js/jquery/jquery.cycle.js"></script>
-<script src="/js/jquery/jquery.easing.js"></script>
-<script src="/js/jquery/jquery.maximage.js"></script>
 <script type="text/javascript">
 $(function() {
-  $('#maximage').maximage({
-    cycleOptions: {
-      slideResize: 0,
-      fx: 'fade',
-      speed: 1000,
-      timeout: 6000,
-    },
-    onFirstImageLoaded: function() {
-      jQuery('#maximage').fadeIn('fast');
-    }
-  });
+  RS.Carousel.initialize();
 });
 </script>
 <script type="text/javascript">
