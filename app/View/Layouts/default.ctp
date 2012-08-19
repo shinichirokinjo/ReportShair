@@ -5,7 +5,7 @@
 <title><?= h($title_for_layout) ?></title>
 <!-- META -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="index,follow" />
+<meta name="robots"   content="index,follow" />
 <meta name="language" content="en" />
 <!-- LINK -->
 <link rel="canonical" href="<?= $canonical ?>" />
@@ -25,7 +25,17 @@
 </script>
 </head>
 
-<body class="<?=$body_class?>">
+<body class="<?= $body_class ?>">
+<? if (ENV_MODE != 'pro') { ?>
+    <script>
+    $(function(){
+        $('#disp-env-code').click(function(){
+            $('.navbar').toggle();
+        });
+    });
+    </script>
+    <div id="disp-env-code" style="top:0;right:30px;width:32px;height:16px;margin:0;padding:12px 5px 5px 5px;text-align:center;color:#FFF;font-weight:bold;font-size:12px;line-height:10px;background-color:#008000;border: solid 2px #fff;border-top:none;position:absolute;z-index:100000;border-bottom-right-radius:5px;border-bottom-left-radius:5px;cursor:pointer;"><?= ENV_MODE ?></div>
+<? } ?>
     <?= $this->element('header'); ?>
     <?= ($body_class == 'home') ? $this->element('visual') : ''; ?>
 

@@ -16,9 +16,9 @@ class HomesController extends AppController
     {
     	$this->set('reports', $this->Report->find('all'));
 
-    	$this->set('canonical', 'http://reportshair.com/');
+    	$this->set('canonical', SITE_URL);
     	$this->set('body_class', 'home');
-    	$this->set('title_for_layout', 'ReportShair');
+    	$this->set('title_for_layout', TITLE);
     }
 }
 ?>

@@ -4,8 +4,8 @@
             <p>レポートをみる</p>
         </header>
         <div class="contentBody row">
-<? if(isset($reports)): ?>
-    <? foreach($reports as $report): ?>
+<? if (isset($reports)): ?>
+    <? foreach ($reports as $report): ?>
             <article class="listItem col grid-8">
                 <a href="/reports/<?= $report['Report']['id']; ?>" title="<?= $report['Report']['title']; ?>">
                     <div class="listItemBG" style="background: url('/img/content/boxitem.png') no-repeat center center;">
@@ -25,7 +25,7 @@
             </section>
 <? endif; ?>
         </div>
-<? if(isset($reports)): ?>
+<? if (isset($reports)): ?>
         <footer class="contentFoot">
             <a href="/reports/" class="moreButton">もっと見る</a>
         </footer>

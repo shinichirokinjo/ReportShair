@@ -7,6 +7,9 @@
     Router::connect('/terms',  array('controller' => 'pages', 'action' => 'terms'));
     Router::connect('/policy', array('controller' => 'pages', 'action' => 'policy'));
 
+    // Auths
+    Router::connect('/logout', array('controller' => 'auths', 'action' => 'logout'));
+
     // Reports
     Router::connect('/reports/',         array('controller' => 'reports', 'action' => 'index'));
     Router::connect('/reports/add',      array('controller' => 'reports', 'action' => 'add'));
