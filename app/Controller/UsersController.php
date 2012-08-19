@@ -59,11 +59,9 @@ class UsersController extends AppController
         // 既に登録されているかチェックする
         if ($user) {
             SessionComponent::write('loggedin', True);
-
-            $this->redirect('/');
         } else {
-            
         }
+        $this->redirect('/');
     }
 
     /**
