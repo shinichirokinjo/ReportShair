@@ -1,20 +1,24 @@
 <?php
 App::uses('AppController', 'Controller');
+class PhotosController extends AppController 
+{
+    public $name    = 'Photos';
+    public $uses    = array();
+    public $helpers = array();
 
-class PhotosController extends AppController {
+    public function beforeFilter() 
+    {
+        parent::beforeFilter();
+    }
 
-	public $name = 'Photos';
-
-	public $uses = array();
-
-	public $helpers = array();
-
-	public function beforeFilter() {
-		parent::beforeFilter();
-	}
-
-	public function upload() {
-		
-	}
+    /**
+     * 画像アップロード
+     *
+     * @access public
+     */
+    public function upload() 
+    {
+        
+    }
 }
 ?>

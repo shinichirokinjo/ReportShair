@@ -1,80 +1,108 @@
 <?php
 App::uses('AppController', 'Controller');
+class ReportsController extends AppController 
+{
+    public $name    = 'Reports';
+    public $uses    = array();
+    public $helpers = array();
 
-class ReportsController extends AppController {
+    public function beforeFilter() 
+    {
+        parent::beforeFilter();
+        $this->set('body_class', 'reports');
+    }
 
-	public $name = 'Reports';
+    /**
+     * 一覧
+     *
+     * @access public
+     */
+    public function index() 
+    {
+        $this->set('reports', $this->Report->find('all'));
 
-	public $uses = array();
+        $this->set('canonical', 'http://reportshair.com/reports/');
+        $this->set('title_for_layout', 'レポート一覧 &lsaquo; ReportShair');
+    }
 
-	public $helpers = array();
+    /**
+     * 詳細
+     *
+     * @access public
+     */
+    public function view($id = null) 
+    {
+        $this->Report->id = $id;
 
-	public function beforeFilter() {
-		parent::beforeFilter();
-		$this->set('body_class', 'reports');
-	}
+        $report = $this->Report->read();
 
-	public function index() {
-		$this->set('reports', $this->Report->find('all'));
+        $this->set('report', $report);
 
-		$this->set('canonical', 'http://reportshair.com/reports/');
-		$this->set('title_for_layout', 'レポート一覧 &lsaquo; ReportShair');
-	}
+        $this->set('canonical', 'http://reportshair.com/reports/'.$id);
+        $this->set('title_for_layout', $report['Report']['title'].' &lsaquo; ReportShair');
+    }
 
-	public function view($id = null) {
-		$this->Report->id = $id;
+    /**
+     * 追加
+     *
+     * @access public
+     */
+    public function add() 
+    {
+        if ( ! SessionComponent::read('loggedin')) {
+            // TODO: 不正なアクセスなので警告を表示するために
+            //       フラッシュメッセージをセットする
+            $this->redirect('/');
+            exit;
+        }
 
-		$report = $this->Report->read();
+        $this->set('canonical', 'http://reportshair.com/reports/add');
+        $this->set('title_for_layout', 'Add Report &lsaquo; ReportShair');
 
-		$this->set('report', $report);
+        if ($this->request->is('post')) {
+            if ($this->Report->save($this->request->data)) {
+                $this->redirect(array('action'=>'index'));
+            } else {
 
-		$this->set('canonical', 'http://reportshair.com/reports/'.$id);
-		$this->set('title_for_layout', $report['Report']['title'].' &lsaquo; ReportShair');
-	}
+            }
+        }
+    }
 
-	public function add() {
-		if ( ! SessionComponent::read('loggedin')) {
-			// TODO: 不正なアクセスなので警告を表示するために
-			//       フラッシュメッセージをセットする
-			$this->redirect('/');
-			exit;
-		}
+    /**
+     * 編集
+     *
+     * @access public
+     */
+    public function edit($id = null) 
+    {
+        if ( ! SessionComponent::read('loggedin')) {
+            // TODO: 不正なアクセスなので警告を表示するために
+            //       フラッシュメッセージをセットする
+            $this->redirect('/');
+            exit;
+        }
 
-		$this->set('canonical', 'http://reportshair.com/reports/add');
-		$this->set('title_for_layout', 'Add Report &lsaquo; ReportShair');
+        $this->set('canonical', 'http://reportshair.com/reports/edit/'.$id);
+        $this->set('title_for_layout', 'Edit Report &lsaquo; ReportShair');
 
-		if ($this->request->is('post')) {
-			if ($this->Report->save($this->request->data)) {
-				$this->redirect(array('action'=>'index'));
-			} else {
+        if ($this->request->is('post')) {
+            
+        }
+    }
 
-			}
-		}
-	}
-
-	public function edit($id = null) {
-		if ( ! SessionComponent::read('loggedin')) {
-			// TODO: 不正なアクセスなので警告を表示するために
-			//       フラッシュメッセージをセットする
-			$this->redirect('/');
-			exit;
-		}
-
-		$this->set('canonical', 'http://reportshair.com/reports/edit/'.$id);
-		$this->set('title_for_layout', 'Edit Report &lsaquo; ReportShair');
-
-		if ($this->request->is('post')) {
-			
-		}
-	}
-
-	public function delete($id = null) {
-		if ( ! SessionComponent::read('loggedin')) {
-			// TODO: 不正なアクセスなので警告を表示するために
-			//       フラッシュメッセージをセットする
-			$this->redirect('/');
-			exit;
-		}
-	}
+    /**
+     * 削除
+     *
+     * @access public
+     */
+    public function delete($id = null) 
+    {
+        if ( ! SessionComponent::read('loggedin')) {
+            // TODO: 不正なアクセスなので警告を表示するために
+            //       フラッシュメッセージをセットする
+            $this->redirect('/');
+            exit;
+        }
+    }
 }
 ?>

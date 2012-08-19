@@ -1,69 +1,86 @@
 <?php
 App::uses('AppController', 'Controller');
+class UsersController extends AppController 
+{
+    public $name    = 'Users';
+    public $uses    = array('User');
+    public $helpers = array();
 
-class UsersController extends AppController {
+    public function beforeFilter() 
+    {
+        parent::beforeFilter();
+        $this->set('body_class', 'users');
+    }
 
-	public $name = 'Users';
+    /**
+     *
+     *
+     * @access public
+     */
+    public function index() 
+    {
+        $this->set('canonical', 'http://reportshair.com/users/');
+        $this->set('title_for_layout', 'User &lsaquo; ReportShair');
+    }
 
-	public $uses = array('User');
+    /**
+     * 
+     *
+     * @access public
+     */
+    public function view($username = null) 
+    {
+        if ($username == null) {
+            //
+        }
+        $user = $this->User->findByUsername($username);
+        $this->set('user', $user);
 
-	public $helpers = array();
+        $this->set('canonical', 'http://reportshair.com/users/'.$username);
+        $this->set('title_for_layout', $user['User']['username'].' &lsaquo; ReportShair');
+    }
 
-	public function beforeFilter() {
-		parent::beforeFilter();
-		$this->set('body_class', 'users');
-	}
+    /**
+     * Facebookで認証が完了したらコールバックで戻ってきて
+     * この関数でユーザーの登録やログインの処理を行う
+     */
+    public function callback() 
+    {
+        // TODO: 普通にURLでアクセスすることができるのでFBからのコールバック以外は弾く処理が必要
 
-	public function index() {
-		$this->set('canonical', 'http://reportshair.com/users/');
-		$this->set('title_for_layout', 'User &lsaquo; ReportShair');
-	}
+        // アクセストークンをセッションに格納
+        $access_token = FB::getAccessToken();
+        SessionComponent::write('access_token', $access_token);
 
-	public function view($username = null) {
-		if ($username == null) {
-			//
-		}
-		$user = $this->User->findByUsername($username);
-		$this->set('user', $user);
+        $facebook_id = FB::getUser();
 
-		$this->set('canonical', 'http://reportshair.com/users/'.$username);
-		$this->set('title_for_layout', $user['User']['username'].' &lsaquo; ReportShair');
-	}
+        $user = $this->User->findByFacebookId($facebook_id);
 
-	/**
-	 * Facebookで認証が完了したらコールバックで戻ってきて
-	 * この関数でユーザーの登録やログインの処理を行う
-	 */
-	public function callback() {
-		// TODO: 普通にURLでアクセスすることができるのでFBからのコールバック以外は弾く処理が必要
+        // 既に登録されているかチェックする
+        if ($user) {
+            SessionComponent::write('loggedin', True);
 
-		// アクセストークンをセッションに格納
-		$access_token = FB::getAccessToken();
-		SessionComponent::write('access_token', $access_token);
+            $this->redirect('/');
+        } else {
+            
+        }
+    }
 
-		$facebook_id = FB::getUser();
+    /**
+     * ログアウト
+     *
+     * @access public
+     */
+    public function logout() 
+    {
+        if ( ! SessionComponent::read('loggedin')) {
+            // TODO: 不正なアクセスなので警告を表示するために
+            //       フラッシュメッセージをセットする
+            $this->redirect('/');
+            exit;
+        }
 
-		$user = $this->User->findByFacebookId($facebook_id);
-
-		// 既に登録されているかチェックする
-		if ($user) {
-			SessionComponent::write('loggedin', True);
-
-			$this->redirect('/');
-		} else {
-			
-		}
-	}
-
-	public function logout() {
-		if ( ! SessionComponent::read('loggedin')) {
-			// TODO: 不正なアクセスなので警告を表示するために
-			//       フラッシュメッセージをセットする
-			$this->redirect('/');
-			exit;
-		}
-
-		$this->Sesion->destroy();
-	}
+        $this->Sesion->destroy();
+    }
 }
 ?>
