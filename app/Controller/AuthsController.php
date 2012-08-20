@@ -25,27 +25,23 @@ class AuthsController extends AppController
     }
 
     /**
-     * Facebookで認証が完了したらコールバックで戻ってきて
-     * この関数でユーザーの登録やログインの処理を行う
+     * Facebookログイン コールバック
      *
      * @access public
      */
     public function callback() 
     {
-        // TODO: 普通にURLでアクセスすることができるのでFBからのコールバック以外は弾く処理が必要
-
-        // アクセストークンをセッションに格納
+        $redirectURL = $this->Session->read('fblogin.ref');
+        if (empty($redirectURL)) {
+            $this->redirect('/');
+        }
+        $this->Session->delete('fblogin.ref');
         $access_token = FB::getAccessToken();
         SessionComponent::write('access_token', $access_token);
-
         $facebook_id = FB::getUser();
-
         $user = $this->User->findByFacebookId($facebook_id);
-
-        // 既に登録されているかチェックする
         if ($user) {
             SessionComponent::write('loggedin', True);
-
             $this->redirect('/');
         } else {
             

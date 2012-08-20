@@ -33,7 +33,8 @@ class AppController extends Controller
     {
         $this->Connect->authUser['User']['username'] = $this->Connect->user('username');
         $this->Connect->authUser['User']['email']    = $this->Connect->user('email');
-
+        // 増井TODO facebook_link情報を登録できるようにしたい, たぶんfacebookからfacebook_linkって項目が引っ張れていない
+//        $this->Connect->authUser['User']['facebook_link'] = $this->Connect->user('facebook_link');
         return true;
     }
 

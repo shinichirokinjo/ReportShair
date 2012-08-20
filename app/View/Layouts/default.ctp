@@ -34,7 +34,7 @@
         });
     });
     </script>
-    <div id="disp-env-code" style="top:0;right:30px;width:32px;height:16px;margin:0;padding:12px 5px 5px 5px;text-align:center;color:#FFF;font-weight:bold;font-size:12px;line-height:10px;background-color:#008000;border: solid 2px #fff;border-top:none;position:absolute;z-index:100000;border-bottom-right-radius:5px;border-bottom-left-radius:5px;cursor:pointer;"><?= ENV_MODE ?></div>
+    <div id="disp-env-code" style="top:0;right:30px;width:32px;height:16px;margin:0;padding:12px 5px 5px 5px;text-align:center;color:#FFF;font-weight:bold;font-size:12px;line-height:10px;background-color:#0000ff;border: solid 2px #fff;border-top:none;position:absolute;z-index:100000;border-bottom-right-radius:5px;border-bottom-left-radius:5px;cursor:pointer;"><?= ENV_MODE ?></div>
 <? } ?>
     <?= $this->element('header'); ?>
     <?= ($body_class == 'home') ? $this->element('visual') : ''; ?>
