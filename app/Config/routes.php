@@ -8,7 +8,9 @@
     Router::connect('/policy', array('controller' => 'pages', 'action' => 'policy'));
 
     // Auths
-    Router::connect('/logout', array('controller' => 'auths', 'action' => 'logout'));
+    Router::connect('/fblogin',          array('controller' => 'auths', 'action' => 'fbLogin'));
+    Router::connect('/fblogin/callback', array('controller' => 'auths', 'action' => 'callback'));
+    Router::connect('/logout',           array('controller' => 'auths', 'action' => 'logout'));
 
     // Reports
     Router::connect('/reports/',         array('controller' => 'reports', 'action' => 'index'));
@@ -19,7 +21,6 @@
 
     // Users
     Router::connect('/users/',         array('controller' => 'users', 'action' => 'index'));
-    Router::connect('/users/callback', array('controller' => 'users', 'action' => 'callback'));
     Router::connect('/users/regist',   array('controller' => 'users', 'action' => 'regist'));
     Router::connect('/users/*',        array('controller' => 'users', 'action' => 'view'));
 

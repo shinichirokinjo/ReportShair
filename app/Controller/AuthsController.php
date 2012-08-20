@@ -12,10 +12,23 @@ class AuthsController extends AppController
         $this->set('body_class', 'users');
     }
 
+    /**
+     * Facebookログイン
+     *
+     * @access public
+     */
+    public function fbLogin() 
+    {
+        $this->Session->write('fblogin.ref', $this->referer());
+        $this->redirect($this->fbLoginURL);
+        exit;
+    }
 
     /**
      * Facebookで認証が完了したらコールバックで戻ってきて
      * この関数でユーザーの登録やログインの処理を行う
+     *
+     * @access public
      */
     public function callback() 
     {

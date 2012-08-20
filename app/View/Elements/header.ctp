@@ -18,7 +18,7 @@
             </ul>
 <? else: ?>
             <ul class="navlist pull">
-                <li><a href="<?= $fbLoginURL ?>" title="Login with Facebook">Login</a></li>
+                <li><a href="/fblogin" title="Login with Facebook">Login</a></li>
             </ul>
 <? endif; ?>
         </nav>
