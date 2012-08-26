@@ -1,0 +1,333 @@
+// =======================================================
+// _reports.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+// =======================================================
+// Report Board
+// =======================================================
+.reportBoard {
+  margin-bottom: 10px;
+  background-color: #FCFCFC;
+  @include border-radius(5px);
+  @include box-shadow(0 0 5px 1px rgba(0,0,0,.1));
+  a {
+    text-decoration: none;
+  }
+  .reports .content .contentBody & {
+    margin-bottom: 0;
+  }
+}
+.coverImage {
+  display: block;
+  overflow: hidden;
+  width: 851px;
+  height: 315px;
+  a {
+    display: block;
+    width: 851px;
+    height: 315px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+    @include border-radius(3px);
+  }
+}
+.reportHeadline {
+  padding: 0 7px;
+  .reportName {
+    margin: 0;
+  }
+}
+.reportInfo {
+  position: relative;
+  @include clearfix;
+  .name {
+    overflow: hidden;
+    float: left;
+    .reportThumb {
+      background: rgba(0,0,0,.3);
+      .reportImage {
+        position: absolute;
+        overflow: hidden;
+        display: block;
+        margin-top: -104px;
+        left: 23px;
+        width: 160px;
+        height: 160px;
+        background: rgba(0,0,0,.3);
+        border: solid 4px #FFF;
+        @include border-radius(3px);
+      }
+    }
+    .reportName {
+      margin: 16px 0 0 206px;
+      font-size: 20px;
+    }
+  }
+  .share {
+    float: right;
+    padding: 20px 0 0 0;
+    .buttons {
+      margin: 0;
+      @include clearfix;
+      li {
+        float: left;
+        height: 21px;
+        list-style: none;
+      }
+    }
+    #___plusone_0 {
+      width: 75px !important;
+    }
+    .twitter-follow-button {
+      width: 144px;
+    }
+    .fb-like {
+      position: relative;
+      width: 150px;
+      height: 21px;
+      span {
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+}
+.reportMeta {
+  margin-top: 21px;
+  padding-bottom: 12px;
+  @include clearfix();
+  .about,
+  .events,
+  .photos,
+  .wents {
+    float: left;
+    position: relative;
+    display: block;
+    margin-right: 7px;
+    height: 80px;
+    cursor: pointer;
+  }
+  .about {
+    width: 455px;
+    background: #F6F6F6;
+    border-top: solid 1px #DDD;
+    border-right: solid 1px #DDD;
+    border-bottom: solid 1px #DDD;
+    -webkit-border-top-right-radius: 3px;
+       -moz-border-top-right-radius: 3px;
+            border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+       -moz-border-bottom-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+    p {
+      margin: 0 0 5px;
+      padding: 0 5px;
+      font-size: 12px;
+    }
+  }
+  .events,
+  .photos,
+  .wents {
+    width: 120px;
+    border: solid 1px #DDD;
+    @include border-radius(3px);
+    font-family: "Helvetica Neue",Helvetica Neue,Helvetica,Arial,sans-serif;
+    .value {
+      margin: 12px 0 4px;
+      line-height: 36px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .legend {
+      margin: 0 0 7px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+    &:hover {
+      border-color: #CCC;
+    }
+  }
+  .events {
+    
+  }
+  .photos {
+    
+  }
+  .wents {
+    
+  }
+}
+// =======================================================
+// Timeline
+// =======================================================
+.timeline {
+  position: relative;
+  .line {
+    position: absolute;
+    left: 105px;
+    width: 4px;
+    height: 100%;
+    background: #AAA;
+  }
+  .inner {
+    padding: 20px 0;
+  }
+}
+.unit {
+  position: relative;
+  margin-bottom: 10px;
+  min-height: 30px;
+  @include clearfix();
+  .spot {
+    position: absolute;
+    top: 5px;
+    left: 100px;
+    width: 8px;
+    height: 8px;
+    background: #222;
+    border: solid 3px #F1F1F1;
+    border-radius: 8px;
+  }
+  .datetime {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 95px;
+    height: 30px;
+    text-align: right;
+    .date,
+    .time,
+    .flag {
+      margin: 0;
+    }
+    .date {
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .time {
+      font-size: 12px;
+    }
+    .flag {
+      display: inline-block;
+      padding: .3em .5em;
+      background: #777;
+      @include border-radius(3px);
+      font-size: 11px;
+      font-weight: bold;
+      color: #FFF;
+    }
+  }
+  .box {
+    margin-left: 120px;
+    padding: 7px;
+    background: #FFF;
+    border: solid 1px #DDD;
+    @include border-radius(5px);
+    @include box-shadow(0 0 5px 1px rgba(0,0,0,.1));
+    @include transition(border-color 0.2s linear);
+    @include transition(box-shadow 0.2s linear);
+    p {
+      margin: 0;
+    }
+    &:hover {
+      border-color: #CCC;
+      @include box-shadow(0 0 5px 1px rgba(0,0,0,.2));
+    }
+  }
+  footer {
+    margin-left: 120px;
+    padding: 3px 0 0;
+    font-size: 11px;
+    color: #999;
+    .avatar {
+      display: inline-block;
+      margin-right: 5px;
+      width: 24px;
+      height: 24px;
+    }
+    .date {
+      display: inline-block;
+      margin: 0;
+      line-height: 24px;
+    }
+  }
+  &.clock {
+    .datetime {
+      top: 0;
+    }
+  }
+}
+.box {
+  .headline {
+    margin: 0 0 7px;
+    font-weight: bold;
+  }
+  &.composeBox {
+    .mentionInput {
+      width: 660px;
+    }
+  }
+  &.eventBox {
+    
+  }
+  &.mapBox {
+    
+  }
+  &.infoBox {
+    
+  }
+  &.photoBox {
+    .photoRow {
+      @include clearfix();
+      .primary,
+      .secondary,
+      .pin,
+      .horizontal {
+        overflow: hidden;
+        float: left;
+        img {
+          float: left;
+          margin: 0;
+        }
+      }
+      .primary {
+        width: 440px;
+        height: 440px;
+      }
+      .secondary {
+        width: 220px;
+        height: 440px;
+      }
+      .pin {
+        width: 660px;
+        height: 440px;
+      }
+      .horizontal {
+        width: 660px;
+        height: 220px;
+      }
+    }
+  }
+  &.discussionBox {
+    
+  }
+  &.wentBox {
+    ul {
+      margin: 0;
+      list-style: none;
+      li {
+        display: inline-block;
+        margin: 0 2px 2px 0;
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+}

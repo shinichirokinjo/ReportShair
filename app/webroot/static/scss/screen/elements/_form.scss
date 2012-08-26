@@ -1,0 +1,64 @@
+// =======================================================
+// _form.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+// =======================================================
+// structured style
+// =======================================================
+form {
+  margin: 0 0 10px;
+}
+fieldset {
+  
+}
+// =======================================================
+// normalized style
+// =======================================================
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 7px;
+  @include border-radius(5px);
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  background-color: #FFF;
+  border: solid 1px #DDD;
+  &:focus {
+    border-color: rgba(0,0,0,.8);
+    outline: 0;
+    outline: thin dotted \9;
+  }
+}

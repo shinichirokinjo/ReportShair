@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+// =======================================================
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+// =======================================================
+// Configuration
+// =======================================================
+
+@import 'screen/variables';
+@import 'common/mixins';
+@import 'common/functions';
+
+// =======================================================
+// Common
+// =======================================================
+
+@import 'common/reset';
+
+@import 'common/clearfix';
+
+// =======================================================
+// Structure
+// =======================================================
+
+@import 'screen/structure/layout';
+
+@import 'screen/structure/content';
+
+@import 'screen/structure/widget';
+
+// =======================================================
+// Base
+// =======================================================
+
+@import 'screen/global';
+
+// =======================================================
+// Elements
+//
+// CakePHPのビューのElementsディレクトリにあるパーツのスタイル
+// =======================================================
+
+@import 'screen/elements/header';
+
+@import 'screen/elements/footer';
+
+@import 'screen/elements/form';
+
+@import 'screen/elements/button';
+
+@import 'screen/elements/overlay';
+
+@import 'screen/elements/carousel';
+
+@import 'screen/elements/toolbar';
+
+// =======================================================
+// Views
+// =======================================================
+
+@import 'screen/views/home';
+
+@import 'screen/views/pages';
+
+@import 'screen/views/reports';
+
+@import 'screen/views/users';

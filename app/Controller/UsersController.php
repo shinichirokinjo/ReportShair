@@ -1,84 +1,59 @@
 <?php
 App::uses('AppController', 'Controller');
-class UsersController extends AppController 
-{
-    public $name    = 'Users';
-    public $uses    = array('User');
-    public $helpers = array();
 
-    public function beforeFilter() 
-    {
-        parent::beforeFilter();
-        $this->set('body_class', 'users');
-    }
+class UsersController extends AppController {
 
-    /**
-     *
-     *
-     * @access public
-     */
-    public function index() 
-    {
-        $this->set('canonical', 'http://reportshair.com/users/');
-        $this->set('title_for_layout', 'User &lsaquo; ReportShair');
-    }
+	public $name = 'Users';
 
-    /**
-     * 
-     *
-     * @access public
-     */
-    public function view($username = null) 
-    {
-        if ($username == null) {
-            //
-        }
-        $user = $this->User->findByUsername($username);
-        $this->set('user', $user);
+	public $uses = array('User');
 
-        $this->set('canonical', 'http://reportshair.com/users/'.$username);
-        $this->set('title_for_layout', $user['User']['username'].' &lsaquo; ReportShair');
-    }
+	public function beforeFilter() {
+		parent::beforeFilter();
 
-    /**
-     * Facebookで認証が完了したらコールバックで戻ってきて
-     * この関数でユーザーの登録やログインの処理を行う
-     */
-    public function callback() 
-    {
-        // TODO: 普通にURLでアクセスすることができるのでFBからのコールバック以外は弾く処理が必要
+		$this->set('body_class', 'users sc');
+	}
 
-        // アクセストークンをセッションに格納
-        $access_token = FB::getAccessToken();
-        SessionComponent::write('access_token', $access_token);
+	public function view($username) {
+		$user = $this->User->find('first', array(
+			'conditions' => array('User.username' => $username)
+		));
 
-        $facebook_id = FB::getUser();
+		$this->set('user', $user);
+		$this->set('title', $user['User']['username'].' &lsaquo; ReportShair');
+	}
 
-        $user = $this->User->findByFacebookId($facebook_id);
+	public function login() {
+		$this->set('title', __('Login').' &lsaquo; ReportShair');
+	}
 
-        // 既に登録されているかチェックする
-        if ($user) {
-            SessionComponent::write('loggedin', True);
-        } else {
-        }
-        $this->redirect('/');
-    }
+	public function logout() {
+		$this->Auth->logout();
+		SessionComponent::destroy();
 
-    /**
-     * ログアウト
-     *
-     * @access public
-     */
-    public function logout() 
-    {
-        if ( ! SessionComponent::read('loggedin')) {
-            // TODO: 不正なアクセスなので警告を表示するために
-            //       フラッシュメッセージをセットする
-            $this->redirect('/');
-            exit;
-        }
+		$this->redirect('/');
+	}
 
-        $this->Sesion->destroy();
-    }
+	public function callback() {
+		// TODO: 普通にURLでアクセスすることができるのでFBからのコールバック以外は弾く処理が必要
+
+		// アクセストークンをセッションに格納
+		$access_token = FB::getAccessToken();
+		SessionComponent::write('access_token', $access_token);
+
+		$facebook_id = FB::getUser();
+
+		$user = $this->User->findByFacebookId($facebook_id);
+
+		if ($user) {
+			// 既にユーザー登録されている場合
+			SessionComponent::write('loggedin', True);
+
+			$this->redirect('/');
+		} else {
+			// 新規でユーザー登録した場合
+			SessionComponent::write('loggedin', True);
+
+			$this->redirect('/');
+		}
+	}
 }
-?>

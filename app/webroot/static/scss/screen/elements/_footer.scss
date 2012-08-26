@@ -1,0 +1,49 @@
+// =======================================================
+// _footer.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+// =======================================================
+// structured style
+// =======================================================
+.footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: solid 1px #E7E7E7;
+}
+.footerNav {
+  float: left;
+  width: 851px;
+}
+.copright {
+  float: right;
+  width: 240px;
+}
+// =======================================================
+// normalized style
+// =======================================================
+.footerNav {
+  & > ul {
+    margin: 0;
+    & > li {
+      display: inline;
+      margin-right: .5em;
+      a {
+        text-shadow: 0 1px 0 rbga(255,255,255,.8);
+        font-size: fs(11, 'percent');
+      }
+    }
+  }
+}
+.copright {
+  float: right;
+  margin: 0;
+  text-shadow: 0 1px 0 rbga(255,255,255,.8);
+  text-align: right;
+  small {
+    font-size: fs(11, 'percent');
+  }
+}

@@ -1,0 +1,76 @@
+.visual {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  width: 100%;
+  height: 500px;
+  background-color: #DDD;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#000000));
+  background-image: -webkit-linear-gradient(top, #222222, #000000);
+  background-image:    -moz-linear-gradient(top, #222222, #000000);
+  background-image:     -ms-linear-gradient(top, #222222, #000000);
+  background-image:      -o-linear-gradient(top, #222222, #000000);
+  background-image:         linear-gradient(top, #222222, #000000);
+  background-repeat: repeat-x;
+  @include box-shadow(inset 0 1px 10px rgba(0,0,0,.7));
+}
+.message {
+  position: absolute;
+  margin-left: -420px;
+  top: 70px;
+  left: 50%;
+  width: 840px;
+  z-index: 7;
+  .headline,
+  .leadline {
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+    color: #FFF;
+  }
+  .headline {
+    margin: 0 0 5px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+  }
+  .leadline {
+    font-size: 18px;
+  }
+}
+.carousel {
+  position: relative;
+  height: 500px;
+}
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  .panelBG {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+  }
+  .panelBox {
+    position: absolute;
+    padding: 10px;
+    left: 30px;
+    bottom: 30px;
+    width: 450px;
+    background: rgba(255,255,255,.5);
+    h2 {
+      margin: 0 0 20px;
+      line-height: 38px;
+      font-size: 38px;
+      font-weight: bold;
+    }
+    p {
+      
+    }
+  }
+}

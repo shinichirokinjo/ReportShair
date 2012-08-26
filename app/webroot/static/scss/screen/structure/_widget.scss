@@ -1,0 +1,269 @@
+// =======================================================
+// _widget.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+// =======================================================
+// structured style
+// =======================================================
+.widget {
+  position: relative;
+  margin-bottom: 10px;
+  background-color: #FFF;
+  @include border-radius(3px);
+  @include box-shadow(0 0 5px 1px rgba(0,0,0,.1));
+  .widgetHead {
+    padding: 7px 7px 5px;
+    border-bottom: solid 1px #EEE;
+  }
+  .widgetBody {
+    
+  }
+  .widgetFoot {
+    padding: .3em .7em;
+    border-top: solid 1px #EEE;
+  }
+}
+// =======================================================
+// normalized style
+// =======================================================
+.widget {
+  ul {
+    margin: 0;
+    padding-left: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+.widgetHead {
+  h4 {
+    line-height: 16px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.6);
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+.widgetBody {
+  ul {
+    li {
+      border-bottom: solid 1px #EEE;
+      a {
+        display: block;
+        padding: 10px 7px;
+        line-height: 12px;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #FFF;
+        font-size: fs(12, 'percent');
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  p {
+    font-size: fs(12, 'percent');
+  }
+}
+.widgetFoot {
+  
+}
+// =======================================================
+// panel style
+// =======================================================
+.adminPanel {
+  .widgetFoot {
+    padding: 0;
+    .adminList {
+      padding-left: 0;
+      @include clearfix();
+      li {
+        float: left;
+        overflow: hidden;
+        width: 80px;
+        height: 32px;
+        background-color: #F1F1F1;
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F6F6F6), to(#F1F1F1));
+        background-image: -webkit-linear-gradient(top, #F6F6F6, #F1F1F1);
+        background-image:    -moz-linear-gradient(top, #F6F6F6, #F1F1F1);
+        background-image:     -ms-linear-gradient(top, #F6F6F6, #F1F1F1);
+        background-image:      -o-linear-gradient(top, #F6F6F6, #F1F1F1);
+        background-image:         linear-gradient(top, #F6F6F6, #F1F1F1);
+        background-repeat: repeat-x;
+        a {
+          display: block;
+          overflow: hidden;
+          width: 80px;
+          height: 32px;
+          line-height: 32px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          text-align: center;
+          text-decoration: none;
+          text-shadow: 0 1px 0 #FFF;
+          font-size: 11px;
+          color: #222;
+        }
+        &.createEvent {
+          a {
+            background-image: url();
+          }
+        }
+        &.editReport {
+          a {
+            background-image: url();
+          }
+        }
+        &:hover {
+          background-color: #E1E1E1;
+          background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E6E6E6), to(#E1E1E1));
+          background-image: -webkit-linear-gradient(top, #E6E6E6, #E1E1E1);
+          background-image:    -moz-linear-gradient(top, #E6E6E6, #E1E1E1);
+          background-image:     -ms-linear-gradient(top, #E6E6E6, #E1E1E1);
+          background-image:      -o-linear-gradient(top, #E6E6E6, #E1E1E1);
+          background-image:         linear-gradient(top, #E6E6E6, #E1E1E1);
+          background-repeat: repeat-x;
+        }
+      }
+    }
+  }
+}
+.adminPanel,
+.wentPanel {
+  .widgetBody {
+    ul {
+      padding-top: 4px;
+      padding-left: 4px;
+      li {
+        display: inline-block;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        width: 32px;
+        height: 32px;
+        border-bottom: none;
+        a {
+          padding: 0;
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}
+.listPanel {
+  .widgetBody {
+    ul {
+      li {
+        .date,
+        .title {
+          display: block;
+        }
+        .date {
+          margin-bottom: .3em;
+          font-size: fs(10, 'percent');
+          color: #777;
+        }
+        .title {
+          font-size: fs(11, 'percent');
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .label {
+          float: right;
+          padding: .3em .6em;
+          line-height: 12px;
+          background: #777;
+          @include border-radius(4px);
+          font-size: 11px;
+          color: #FFF;
+        }
+}
+.userPanel {
+  padding-bottom: 5px;
+  .avatar {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100px;
+  }
+  .account {
+    float: right;
+    width: 130px;
+  }
+  .username {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #EEE;
+  }
+  .socialLink {
+    li {
+      padding-bottom: 3px;
+      height: 24px;
+      a {
+        display: block;
+        padding: 4px 0 4px 30px !important;
+        line-height: 20px !important;
+        text-decoration: none;
+        font-size: 12px;
+      }
+      &.facebook {
+        background: url('/static/img/icon/facebook.png') no-repeat left center;
+      }
+      &.twitter {
+        background: url('/static/img/icon/twitter.png') no-repeat left center;
+      }
+      &.website {
+        background: url('/static/img/icon/website.png') no-repeat left center;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.profilePanel {
+  .widgetBody {
+    padding: 5px;
+  }
+}
+.mapPanel {
+  .widgetBody {
+    
+  }
+}
+// =======================================================
+// list style
+// =======================================================
+.articleList {
+  li {
+    
+  }
+}
+.avatarList {
+  
+}
+.categoryList {
+  li {
+    a {
+      padding-left: 36px !important;
+    }
+    &.music a {
+      background: url('../img/icon/music.png') no-repeat 5px center;
+    }
+    &.party a {
+      background: url('../img/icon/party.png') no-repeat 5px center;
+    }
+    &.study a {
+      background: url('../img/icon/study.png') no-repeat 5px center;
+    }
+  }
+}

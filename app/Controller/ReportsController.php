@@ -1,108 +1,103 @@
 <?php
 App::uses('AppController', 'Controller');
-class ReportsController extends AppController 
-{
-    public $name    = 'Reports';
-    public $uses    = array();
-    public $helpers = array();
 
-    public function beforeFilter() 
-    {
-        parent::beforeFilter();
-        $this->set('body_class', 'reports');
-    }
+class ReportsController extends AppController {
 
-    /**
-     * 一覧
-     *
-     * @access public
-     */
-    public function index() 
-    {
-        $this->set('reports', $this->Report->find('all'));
+	public $name = 'Reports';
 
-        $this->set('canonical', 'http://reportshair.com/reports/');
-        $this->set('title_for_layout', 'レポート一覧 &lsaquo; ReportShair');
-    }
+	public $uses = array('Event', 'Report', 'User');
 
-    /**
-     * 詳細
-     *
-     * @access public
-     */
-    public function view($id = null) 
-    {
-        $this->Report->id = $id;
+	public function beforeFilter() {
+		parent::beforeFilter();
 
-        $report = $this->Report->read();
+		$this->set('body_class', 'reports sc');
+	}
 
-        $this->set('report', $report);
+	public function index() {
+		$reports = $this->Report->find('all', array('conditions' => array('Report.status' => 'publish')));
 
-        $this->set('canonical', 'http://reportshair.com/reports/'.$id);
-        $this->set('title_for_layout', $report['Report']['title'].' &lsaquo; ReportShair');
-    }
+		$this->set('reports', $reports);
+		$this->set('title', __('Latest Reports').' &lsaquo; ReportShair');
+	}
 
-    /**
-     * 追加
-     *
-     * @access public
-     */
-    public function add() 
-    {
-        if ( ! SessionComponent::read('loggedin')) {
-            // TODO: 不正なアクセスなので警告を表示するために
-            //       フラッシュメッセージをセットする
-            $this->redirect('/');
-            exit;
-        }
+	public function feature() {
+		$reports = $this->Report->find('all', array('conditions' => array('Report.status' => 'publish')));
 
-        $this->set('canonical', 'http://reportshair.com/reports/add');
-        $this->set('title_for_layout', 'Add Report &lsaquo; ReportShair');
+		$this->set('reports', $reports);
+		$this->set('title', __('Featured Reports').' &lsaquo; ReportShair');
+	}
 
-        if ($this->request->is('post')) {
-            if ($this->Report->save($this->request->data)) {
-                $this->redirect(array('action'=>'index'));
-            } else {
+	public function category($slug) {
+		$this->set('title', 'Category Name &lsaquo; ReportShair');
+	}
 
-            }
-        }
-    }
+	public function view($slug) {
+		$report = $this->Report->find('first', array(
+			'conditions' => array('Report.slug' => $slug)
+		));
 
-    /**
-     * 編集
-     *
-     * @access public
-     */
-    public function edit($id = null) 
-    {
-        if ( ! SessionComponent::read('loggedin')) {
-            // TODO: 不正なアクセスなので警告を表示するために
-            //       フラッシュメッセージをセットする
-            $this->redirect('/');
-            exit;
-        }
+		$this->set('report', $report);
 
-        $this->set('canonical', 'http://reportshair.com/reports/edit/'.$id);
-        $this->set('title_for_layout', 'Edit Report &lsaquo; ReportShair');
+		$this->set('title', $report['Report']['name'].' &lsaquo; ReportShair');
+	}
 
-        if ($this->request->is('post')) {
-            
-        }
-    }
+	public function add() {
+		$this->set('title', __('Add report').' &lsaquo; ReportShair');
+	}
 
-    /**
-     * 削除
-     *
-     * @access public
-     */
-    public function delete($id = null) 
-    {
-        if ( ! SessionComponent::read('loggedin')) {
-            // TODO: 不正なアクセスなので警告を表示するために
-            //       フラッシュメッセージをセットする
-            $this->redirect('/');
-            exit;
-        }
-    }
+	public function edit($slug) {
+		$this->set('title', __('Edit report').' &lsaquo; ReportShair');
+	}
+
+	public function delete($slug) {
+		$this->set('title', __('Delete report').' &lsaquo; ReportShair');
+	}
+
+	/**
+	 * レポートを作成するダイアログのコンテナだけ表示する。
+	 * Ajaxで呼び出されるがコンテンツはローディングを表示させ、
+	 * dialog_fbpage()を非同期で取得しに行く。
+	 */
+	public function dialog_report() {
+		$this->layout = 'ajax';
+
+		if ( ! $this->request->is('ajax')) {
+			die();
+		} else {
+			$this->set('headline', 'Create Report');
+
+			$this->render('dialog/report');
+		}
+	}
+
+	public function dialog_event() {
+		$this->layout = 'ajax';
+
+		if ( ! $this->request->is('ajax')) {
+			die();
+		} else {
+			$this->set('headline', 'Create Event');
+
+			$this->render('dialog/event');
+		}
+	}
+
+	/**
+	 * FBページの一覧を全て取得する。
+	 * 
+	 * アプリケーションも入ってくるので、一回でページだけを全て取得できるか分からないので再帰処理をして
+	 * FBページのみ一覧にして返す。
+	 */
+	public function dialog_fbpage() {
+		$this->layout = 'ajax';
+
+		if ( ! $this->request->is('ajax')) {
+			die();
+		} else {
+			// FBページを取得する
+			$this->set('account', FB::api('/me/accounts'));
+
+			$this->render('dialog/fbpage');
+		}
+	}
 }
-?>

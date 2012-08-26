@@ -1,0 +1,43 @@
+// =======================================================
+// _content.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+// =======================================================
+// structured style
+// =======================================================
+.content {
+  .contentHead {
+    margin-bottom: 20px;
+  }
+  .contentBody {
+    margin-bottom: 20px;
+    section {
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .contentFoot {
+    
+  }
+}
+// =======================================================
+// normalized style
+// =======================================================
+.contentHead {
+  h1,h2 {
+    margin: 0;
+    padding: 0 7px;
+  }
+}
+.contentBody {
+  
+}
+.contentFoot {
+  
+}

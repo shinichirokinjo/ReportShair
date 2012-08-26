@@ -21,6 +21,7 @@
  */
 
 App::uses('Model', 'Model');
+App::uses('FacebookInfo', 'Facebook.Lib');
 
 /**
  * Application model for Cake.

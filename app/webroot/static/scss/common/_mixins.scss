@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+// =======================================================
+// _mixins.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+//
+// 使いまわすスタイルを定義
+// =======================================================
+
+@mixin inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+@mixin background-size($property) {
+  -webkit-background-size: $property;
+     -moz-background-size: $property;
+       -o-background-size: $property;
+          background-size: $property;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+@mixin transition($property) {
+  -webkit-transition: border-color 250ms ease-in 0;
+     -moz-transition: border-color 250ms ease-in 0;
+       -o-transition: border-color 250ms ease-in 0;
+          transition: border-color 250ms ease-in 0;
+}

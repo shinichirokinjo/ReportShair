@@ -1,26 +1,26 @@
-<header class="navbar">
-    <div class="wrap">
-        <h1 class="logo"><a href="/" title="ReportShair">ReportShair</a></h1>
-        <nav class="nav">
-<? if ($loggedin): ?>
-            <ul class="navlist pull">
-                <li><a href="/reports/add" title="Create new report">Create Report</a></li>
-                <li class="usernav">
-                    <a href="/users/<?= $this->Session->read('Auth.User.username') ?>" title="Username">
-                        <img class="userimage" src="https://graph.facebook.com/<?= $this->Session->read('Auth.User.username') ?>/picture" width="36px" height="36px" alt="<?= $this->Session->read('Auth.User.username') ?>'s avatar" />
-                        <span class="username"><?= h($this->Session->read('Auth.User.username')) ?></span>
-                    </a>
-                    <ul>
-                        <li><a href="/settings/" title="Settings">Settings</a></li>
-                        <li><a href="/logout" title="Logout">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-<? else: ?>
-            <ul class="navlist pull">
-                <li><a href="/fblogin" title="Login with Facebook">Login</a></li>
-            </ul>
-<? endif; ?>
-        </nav>
-    </div>
+<header class="header wrap">
+  <h1 class="logo"><a href="/" title="ReportShair">ReportShair</a></h1>
+  <nav class="navs">
+    <ul class="mainNav">
+      <li class="nav"><a href="/reports/" title="<?=__('View feature reports')?>"><?=__('Feature Reports')?></a></li>
+    </ul>
+  </nav>
+  <nav class="navs pull">
+    <ul class="subNav">
+<?php if ($loggedin): ?>
+      <li class="nav createNav"><a href="#" title="<?=__('Create Report')?>"><?=__('Create Report')?></a></li>
+      <li class="nav userNav">
+        <a href="/users/<?=$this->Session->read('Auth.User.username')?>" style="background-image: url('https://graph.facebook.com/<?=$this->Session->read('Auth.User.username')?>/picture');">
+          <span class="username"><?=$this->Session->read('Auth.User.username')?></span>
+        </a>
+        <ul>
+          <li><a href="/settings/account" title="<?=__('Settings')?>"><?=__('Settings')?></a></li>
+          <li><a href="/logout" title="<?=__('Logout')?>"><?=__('Logout')?></a></li>
+        </ul>
+      </li>
+<?php else: ?>
+      <li class="nav"><a href="<?=$fbLoginURL?>" title="<?=__('Login with Facebook')?>"><?=__('Login')?></a></li>
+<?php endif; ?>
+    </ul><!-- .subNav -->
+  </nav><!-- .navs -->
 </header><!-- .header -->

@@ -1,0 +1,109 @@
+.header {
+  margin-bottom: 50px;
+  padding-top: 10px;
+}
+.logo {
+  float: left;
+  display: inline-block;
+  margin-right: 27px;
+  margin-bottom: 0;
+  width: 240px;
+  a {
+    display: block;
+    overflow: hidden;
+    width: 240px;
+    height: 51px;
+    background: url('/static/img/global/logo.png') no-repeat 0 0;
+    text-indent: -1000em;
+  }
+}
+.navs {
+  float: left;
+  display: inline-block;
+  &.pull {
+    float: right;
+  }
+}
+.mainNav,
+.subNav {
+  margin: 0;
+}
+.mainNav {
+  
+}
+.subNav {
+  
+}
+.nav {
+  float: left;
+  display: block;
+  position: relative;
+  height: 51px;
+  & > a {
+    display: block;
+    padding: 0 15px 0 0;
+    line-height: 51px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 #FFF;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: fs(14, 'percent');
+    font-weight: bold;
+    color: #222;
+  }
+  & > ul {
+    display: none;
+    position: absolute;
+    padding: 0;
+    top: 48px;
+    right: 0;
+    background: #FFFFFF;
+    border-left: solid 1px #EEEEEE;
+    border-bottom: solid 1px #DDDDDD;
+    li {
+      display: block;
+      a {
+        display: block;
+        padding: 7px 15px;
+        line-height: 20px;
+        text-decoration: none;
+        color: #222;
+        &:hover {
+          background-color: #222;
+          color: #FFF;
+        }
+      }
+    }
+  }
+  &:hover {
+    & > a {
+      color: $default-link-color;
+    }
+    &.userNav {
+      & > a {
+        background-color: #FFF;
+        border-bottom: solid 1px #EEEEEE;
+        border-left: solid 1px #EEEEEE;
+      }
+    }
+    & > ul {
+      display: block;
+      max-width: 300px;
+      min-width: 200px;
+      @include box-shadow(0 1px 0 rgba(0,0,0,.2));
+    }
+  }
+  &.userNav {
+    z-index: 10;
+    & > a {
+      display: block;
+      padding-left: 66px;
+      background-position: 15px center;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      border: solid 1px transparent;
+      text-transform: none;
+      font-weight: normal;
+    }
+  }
+}

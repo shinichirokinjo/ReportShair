@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+// =======================================================
+// _layout.scss
+//
+// Copyright 2012 ReportShair
+//
+// @author  Tsuyoshi Tokuda
+// =======================================================
+
+body {
+  background-color: #F7F7F7;
+}
+.wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1120px;
+  @include clearfix();
+}
+.container {
+  margin-bottom: 20px;
+}
+/**
+ * カバー写真にサイズを合わせるので横幅は851pxにする。
+ * サイドバーが240pxなので、全体としては、851+240=1091pxで
+ * 1091pxにマージンを29px確保して1120pxにする。
+ */
+.content {
+  width: 851px;
+}
+.sidebar {
+  width: 240px;
+}
+// 左側にコンテンツ、右側にサイドバー
+body.cs {
+  .content {
+    float: left;
+  }
+  .sidebar {
+    float: right;
+  }
+}
+// 右側にコンテンツ、左側にサイドバー
+body.sc {
+  .content {
+    float: right;
+  }
+  .sidebar {
+    float: left;
+  }
+}
+
+/* For Mobile portrait (iPhone3GS)
+------------------------------------------------------- */
+@media only screen and (min-width: 320px) {
+
+}
+/* For Mobile landscape (iPhone3GS)
+------------------------------------------------------- */
+@media only screen and (min-width: 480px) {
+
+}
+/* For Mobile portrait (iPhone4)
+------------------------------------------------------- */
+@media only screen and (min-width: 640px) {
+
+}
+/* For Tablet (iPad portrait)
+------------------------------------------------------- */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+}
+/* For Mobile
+------------------------------------------------------- */
+@media only screen and (max-width: 767px) {
+
+}

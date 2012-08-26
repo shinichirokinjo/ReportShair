@@ -1,45 +1,38 @@
 <?php
 App::uses('AppController', 'Controller');
-class SettingsController extends AppController 
-{
-    public $name    = 'Settings';
-    public $uses    = array('User');
-    public $helpers = array();
 
-    public function beforeFilter() 
-    {
-        parent::beforeFilter();
-        $this->set('body_class', 'settings');
-    }
+class SettingsController extends AppController {
 
-    /**
-     * 
-     *
-     * @access public
-     */
-    public function index() 
-    {
-        if ( ! SessionComponent::read('loggedin')) {
-            // TODO: 不正なアクセスなので警告を表示するために
-            //       フラッシュメッセージをセットする
-            $this->redirect('/');
-            exit;
-        }
+	public $name = 'Settings';
 
-        if ($this->request->is('post')) {
-            if ($this->User->updateAll($this->request->data)) {
-                $this->redirect('/settings/');
-            } else {
-                
-            }
-        } else {
-            $username = SessionComponent::read('Auth.User.username');
-            
-            $user = $this->User->findByUsername($username);
-            $this->set('user', $user);
-            
-            $this->set('canonical', 'http://reportshair.com/settings/');
-        }
-    }
+	public $uses = array('User');
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+
+		$this->Security->blackHoleCallback = 'blackhole';
+
+		$this->set('body_class', 'settings sc');
+	}
+
+	public function account() {
+		$username = SessionComponent::read('Auth.User.username');
+		$user = $this->User->find('first', array('conditions' => array('username' => $username)));
+
+		if ( ! empty($this->data)) {
+			$this->User->save($this->data);
+
+			$this->Session->setFlash("Saved!");
+
+			$this->redirect('/settings/');
+		}
+
+		$this->set('user', $user);
+
+		$this->set('title', __('Settings').' &lsaquo; ReportShair');
+	}
+
+	public function blackhole($type) {
+		
+	}
 }
-?>
