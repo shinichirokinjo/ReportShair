@@ -19,8 +19,6 @@ class AuthsController extends AppController
      */
     public function fbLogin() 
     {
-pr('しゃーせん、ログインがうまくできないのでいったん止めています: 増井');
-exit;
         $this->Session->write('fblogin.ref', $this->referer());
         return $this->redirect($this->fbLoginUrl);
     }
