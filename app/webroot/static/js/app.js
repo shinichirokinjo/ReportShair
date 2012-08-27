@@ -195,4 +195,18 @@ var RS = RS || {};
       }
     }
   }();
+
+  RS.toolbar = function() {
+    var unload = function() {
+      $(document).off('');
+    }
+
+    // パブリックメソッド
+    return {
+      init: function() {
+      	unload();
+      	add();
+      }
+    }
+  }();
 })(jQuery, RS);

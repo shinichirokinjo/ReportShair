@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 // =======================================================
 // _reports.scss
 //
@@ -5,6 +7,13 @@
 //
 // @author  Tsuyoshi Tokuda
 // =======================================================
+
+.reports {
+  .container,
+  .contentBody {
+    margin-bottom: 0;
+  }
+}
 
 // =======================================================
 // Report Board
@@ -23,17 +32,17 @@
 }
 .coverImage {
   display: block;
-  overflow: hidden;
   width: 851px;
   height: 315px;
-  a {
+  .coverWrap {
     display: block;
+    overflow: hidden;
     width: 851px;
     height: 315px;
     background-position: 0 0;
     background-repeat: no-repeat;
     @include background-size(cover);
-    @include border-radius(3px);
+    @include border-radius(5px);
   }
 }
 .reportHeadline {
@@ -187,7 +196,7 @@
   @include clearfix();
   .spot {
     position: absolute;
-    top: 5px;
+    top: 19px;
     left: 100px;
     width: 8px;
     height: 8px;
@@ -197,10 +206,9 @@
   }
   .datetime {
     position: absolute;
-    top: 3px;
+    top: 15px;
     left: 0;
     width: 95px;
-    height: 30px;
     text-align: right;
     .date,
     .time,
@@ -225,24 +233,42 @@
     }
   }
   .box {
-    margin-left: 120px;
-    padding: 7px;
+    position: relative;
+    margin-left: 131px;
+    padding: 10px;
     background: #FFF;
     border: solid 1px #DDD;
     @include border-radius(5px);
-    @include box-shadow(0 0 5px 1px rgba(0,0,0,.1));
-    @include transition(border-color 0.2s linear);
-    @include transition(box-shadow 0.2s linear);
+    @include transition(border-color 1s linear);
     p {
       margin: 0;
     }
+    .arrow {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 15px;
+      left: -10px;
+      width: 0;
+      height: 0;
+      background: none;
+      border: {
+        top: solid 10px transparent;
+        bottom: solid 10px transparent;
+        left: 0;
+        right: solid 10px #DDD;
+      }
+      @include transition(border-color 1s linear);
+      z-index: 3;
+    }
     &:hover {
-      border-color: #CCC;
-      @include box-shadow(0 0 5px 1px rgba(0,0,0,.2));
+      border-color: #AAA;
+      .arrow {
+        border-right: solid 10px #BBB;
+      }
     }
   }
   footer {
-    margin-left: 120px;
     padding: 3px 0 0;
     font-size: 11px;
     color: #999;
@@ -259,6 +285,10 @@
     }
   }
   &.clock {
+    .spot {
+      top: 7px;
+      background: #000;
+    }
     .datetime {
       top: 0;
     }
@@ -266,68 +296,100 @@
 }
 .box {
   .headline {
-    margin: 0 0 7px;
-    font-weight: bold;
+    margin: 0 0 20px;
+    border-bottom: solid 1px #EEE;
+    h1 {
+      margin: 0;
+      line-height: 32px;
+      text-shadow: 1px 1px 0 rgba(255,255,255,.75);
+      font-size: 21px;
+      font-weight: bold;
+      color: #222;
+    }
   }
   &.composeBox {
     .mentionInput {
       width: 660px;
     }
   }
-  &.eventBox {
-    
-  }
-  &.mapBox {
-    
-  }
-  &.infoBox {
-    
-  }
-  &.photoBox {
-    .photoRow {
-      @include clearfix();
-      .primary,
-      .secondary,
-      .pin,
-      .horizontal {
-        overflow: hidden;
-        float: left;
-        img {
-          float: left;
-          margin: 0;
-        }
-      }
-      .primary {
-        width: 440px;
-        height: 440px;
-      }
-      .secondary {
-        width: 220px;
-        height: 440px;
-      }
-      .pin {
-        width: 660px;
-        height: 440px;
-      }
-      .horizontal {
-        width: 660px;
-        height: 220px;
-      }
+}
+.infoBox,
+.composeBox,
+.photoBox,
+.discussionBox,
+.wentBox {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: dotted 1px #CCC;
+}
+.infoBox {
+  .infoBoxHead {
+    h1 {
+      
     }
   }
-  &.discussionBox {
-    
+  .infoBoxBody {
+    p, li {
+      font-size: 12px;
+    }
   }
-  &.wentBox {
-    ul {
+}
+.composeBox {
+  
+}
+.photoBox {
+  .photoRow {
+    @include clearfix();
+  }
+  .primary,
+  .secondary,
+  .pin,
+  .horizontal {
+    overflow: hidden;
+    float: left;
+    img {
+      float: left;
       margin: 0;
-      list-style: none;
-      li {
-        display: inline-block;
-        margin: 0 2px 2px 0;
-        width: 36px;
-        height: 36px;
-      }
+    }
+  }
+  .primary {
+    width: 440px;
+    height: 440px;
+  }
+  .secondary {
+    width: 220px;
+    height: 440px;
+  }
+  .pin {
+    width: 660px;
+    height: 440px;
+  }
+  .horizontal {
+    width: 660px;
+    height: 220px;
+  }
+}
+.discussionBox {
+  
+}
+.wentBox {
+  @include clearfix();
+}
+
+.wentList,
+.goingList {
+  float: left;
+  margin: 0;
+  padding-left: 0;
+  @include clearfix();
+  li {
+    display: inline-block;
+    float: left;
+    margin: 0 3px 3px 0;
+    list-style: none;
+    a {
+      display: block;
+      height: 30px;
     }
   }
 }

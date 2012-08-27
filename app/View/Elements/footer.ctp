@@ -17,10 +17,6 @@ $(function() {
     RS.overlay.open('/reports/dialog/report', 'ajax');
     return false;
   });
-  $(".createEvent a").click(function() {
-    RS.overlay.open('/reports/dialog/event', 'ajax');
-    return false;
-  });
 });
 </script>
 <?php endif; ?>

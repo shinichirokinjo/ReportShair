@@ -1,18 +1,38 @@
+    <div id="fb-root"></div>
     <nav class="toolbar">
       <dl>
         <dt>Admin Panel</dt>
-        <dd><a href="" title="">イベントを作成する</a></dd>
+        <dd class="createEvent"><a href="" title="">イベントを作成する</a></dd>
         <dd><a href="" title="">告知をする</a></dd>
         <dd><a href="" title="">レポートを設定する</a></dd>
       </dl>
     </nav>
     <aside class="sidebar">
-      <section class="widget adminPanel">
+      <section class="widget adminWidget">
         <header class="widgetHead">
-          <h4>Organizer</h4>
+          <h4>オーガナイザー</h4>
         </header>
         <div class="widgetBody">
           <ul class="avatarList">
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+          </ul>
+        </div>
+      </section><!-- .adminWidget -->
+      <section class="widget wentWidget">
+        <header class="widgetHead">
+          <h4>行った人</h4>
+          <span class="label">50人</span>
+        </header>
+        <div class="widgetBody">
+          <ul class="avatarList">
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
+            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
             <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
             <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
             <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
@@ -20,34 +40,13 @@
           </ul>
         </div>
         <footer class="widgetFoot">
-          <ul class="adminList">
-            <li class="createEvent"><a href="#">Create Event</a></li>
-            <li class=""><a href="#">***</a></li>
-            <li class=""><a href="#">***</a></li>
-          </ul>
+          <p><a href="" title="">全ての人を見る</a></p>
         </footer>
-      </section>
-      <section class="widget wentPanel">
+      </section><!-- .wentWidget -->
+      <section id="pastEvents" class="widget listWidget">
         <header class="widgetHead">
-          <h4>Went</h4>
-        </header>
-        <div class="widgetBody">
-          <ul class="avatarList">
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-          </ul>
-        </div>
-      </section>
-      <section class="widget listPanel">
-        <header class="widgetHead">
-          <h4>Past Events: 5 Events</h4>
+          <h4>終了したイベント</h4>
+          <span class="label">2イベント</span>
         </header>
         <div class="widgetBody">
           <ul class="articleList">
@@ -61,13 +60,15 @@
             </a></li>
           </ul>
         </div>
-      </section>
-    </aside>
+      </section><!-- .listWidget -->
+    </aside><!-- .sidebar -->
     <div class="content">
       <div class="contentBody">
         <section class="reportBoard">
           <div class="coverImage">
-            <a href="/reports/001" title="" style="background-image: url('/media/reports/418625_470710186280461_1321790445_n.jpg');"></a>
+            <a class="coverWrap" href="/reports/001" title="" style="background-image: url('/media/reports/418625_470710186280461_1321790445_n.jpg');">
+              <img src="" width="" height="" alt="" />
+            </a>
           </div>
           <header class="reportInfo">
             <div class="name">
@@ -109,11 +110,17 @@
               <div class="spot"></div>
               <div class="datetime">
                 <p class="date">2012/12/15</p>
-                <p class="time">00:00 - 00:00</p>
+                <p class="time">21:00 - </p>
               </div>
               <div class="box">
+              	<span class="arrow"></span>
                 <div class="infoBox">
-                  <p>WOMB ADVENTURE '12@幕張メッセ 開催決定！<br />記念すべき5回目となる今回、ラインアップ等は随時更新しますが、もちろん今年も皆様が納得の豪華アーティストと、ハイクオリティーなフェスティバルをお約束します。<br />この機会にお得な早割チケットを是非ご購入下さい！</p>
+                  <header class="infoBoxHead">
+                    <h1>WOMB ADVENTURE '12</h1>
+                  </header>
+                  <div class="infoBoxBody">
+                    <p>WOMB ADVENTURE '12@幕張メッセ 開催決定！<br />記念すべき5回目となる今回、ラインアップ等は随時更新しますが、もちろん今年も皆様が納得の豪華アーティストと、ハイクオリティーなフェスティバルをお約束します。<br />この機会にお得な早割チケットを是非ご購入下さい！</p>
+                  </div>
                 </div>
                 <div class="composeBox">
                   <form action="" method="">
@@ -122,8 +129,6 @@
                     </div>
                     <div class="action buttons">
                       <button type="submit">Are you going?</button>
-                      <button>Tweet</button>
-                      <button>Share</button>
                     </div>
                   </form>
                 </div>
@@ -142,11 +147,14 @@
                 <p class="time">00:00 - 00:00</p>
               </div>
               <div class="box">
+                <span class="arrow"></span>
                 <div class="infoBox">
-                  <header>
+                  <header class="infoBoxHead">
                     <h1>RAFT TOKYO 4th ANNIVERSARY</h1>
                   </header>
-                  <p>イベントバナー</p>
+                  <div class="infoBoxBody">
+                    <p>昨年8月の3周年には、Octave One を招聘し記録的な盛り上がりをみせた Raft Tokyo の4周年のパーティーが再びWombで開催される。4周年のゲストに彼らが選んだのはPerlonやHello? Repeat、Circus Company、Trapez等で良質なリリースを続けるAudio Wernerと、現在Luciano率いるCadenzaでの活躍も目覚しく、Vision Questからのリリースも話題のMirko Loko、そして前回のRaft Tokyoに出演したErnesto Ferreyraの盟友Alejandoro Mossoが登場する。国内からは先日のBig Beach Festivalのメインフロアにも出演したSatoshi OtsukiやJSDとRAYMOND兄弟によるユニットMOLDがLIVEにて出演。Middle LoungeとWomb Loungeでは今もっとも勢いのあるアーティスト達のBack to Backでのプレイが行われ、全フロア見逃すことのできない内容となっている。彼らが走り続けた四年間の集大成はどのように表現されるのか。この記念すべき祝祭を最高のエレクトリックミュージックと共に祝おう！</p>
+                  </div>
                 </div>
                 <div class="composeBox">
                   <form action="" method="">
@@ -162,8 +170,6 @@
                     </fieldset>
                     <div class="action buttons">
                       <button type="submit">Did you go?</button>
-                      <button>Tweet</button>
-                      <button>Share</button>
                     </div>
                   </form>
                 </div>
@@ -192,21 +198,6 @@
                     at <p class="date">2012/08/09 hh:mm</p>
                   </footer>
                 </div>
-                <div class="videoBox">
-                  <iframe width="660" height="371" src="http://www.youtube.com/embed/ejiOkjvjiwE" frameborder="0" allowfullscreen></iframe>
-                  <footer>
-                    <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                    at <p class="date">2012/08/09 hh:mm</p>
-                  </footer>
-                </div>
-                <div class="discussionBox">
-                  <section class="comment">
-                    <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                    <div class="body">
-                      <div class="text">Comments...</div>
-                    </div>
-                  </section>
-                </div>
               </div>
             </section><!-- .unit -->
             <section id="event-slug-002" class="unit event">
@@ -216,12 +207,14 @@
                 <p class="time">00:00 - 00:00</p>
               </div>
               <div class="box">
+                <span class="arrow"></span>
                 <div class="infoBox">
-                  <header>
+                  <header class="infoBoxHead">
                     <h1>TRESVIBES</h1>
                   </header>
-                  <p>今回は、昨年のWAのヘッドライナーを務めた Luciano 率いる Cadenza での活躍も目覚しい、MIRKO LOKO が登場☆MIRKOは既に来日済みで、今朝は築地を満喫したとの事。<br />土曜前に、彼のミックス音源を一足先にチェック♪</p>
-                  <p>Did you know, MIRKO LOKO from Cadenza will be performing on this Sat at RAFT TOKYO 4th Anniv.?<br />He has already arrived in Tokyo! (ｏ’∀’pq)ﾟ+｡:.ﾟHello♪<br />Gotta check this mix from him!</p>
+                  <div class="infoBoxBody">
+                    <p>今回は、昨年のWAのヘッドライナーを務めた Luciano 率いる Cadenza での活躍も目覚しい、MIRKO LOKO が登場☆MIRKOは既に来日済みで、今朝は築地を満喫したとの事。<br />土曜前に、彼のミックス音源を一足先にチェック♪</p>
+                  </div>
                 </div>
                 <div class="composeBox">
                   <form action="" method="">
@@ -237,8 +230,6 @@
                     </fieldset>
                     <div class="action buttons">
                       <button type="submit">Did you go?</button>
-                      <button>Tweet</button>
-                      <button>Share</button>
                     </div>
                   </form>
                 </div>
@@ -268,76 +259,12 @@
                     at <p class="date">2012/08/09 hh:mm</p>
                   </footer>
                 </div>
-                <div class="discussionBox">
-                  <section class="comment">
-                  	<div class="commentBody">
-                  	  <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                  	  <div class="body">
-                  	    <div class="text">Comments...</div>
-                  	  </div>
-                  	</div>
-                    <section class="comment">
-                      <div class="commentBody">
-                        <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                        <div class="body">
-                  	      <div class="text">Comments...</div>
-                  	    </div>
-                      </div>
-                    </section>
-                    <section class="comment">
-                      <div class="commentBody">
-                        <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                        <div class="body">
-                  	      <div class="text">Comments...</div>
-                  	    </div>
-                      </div>
-                    </section>
-                  </section>
-                  <section class="comment">
-                  	<div class="commentBody">
-                  	  <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                  	  <div class="body">
-                  	    <div class="text">Comments...</div>
-                  	  </div>
-                  	</div>
-                  </section>
-                  <section class="comment">
-                  	<div class="commentBody">
-                  	  <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                  	  <div class="body">
-                  	    <div class="text">Comments...</div>
-                  	  </div>
-                  	</div>
-                  </section>
-                  <section class="comment">
-                  	<div class="commentBody">
-                  	  <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                  	  <div class="body">
-                  	    <div class="text">Comments...</div>
-                  	  </div>
-                  	</div>
-                    <section class="comment">
-                      <div class="commentBody">
-                        <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                        <div class="body">
-                  	      <div class="text">Comments...</div>
-                  	    </div>
-                      </div>
-                    </section>
-                    <section class="comment">
-                      <div class="commentBody">
-                        <a class="avatar"><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                        <div class="body">
-                  	      <div class="text">Comments...</div>
-                  	    </div>
-                      </div>
-                    </section>
-                  </section>
-                </div>
               </div>
             </section><!-- .unit -->
           </div>
         </section>
+<script type="text/javascript" src="/static/js/jquery/jquery-scrollspy.js"></script>
+<script type="text/javascript" src="/static/js/reports.js"></script>
 <script type="text/javascript">
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 (function() {
@@ -354,4 +281,7 @@
 }(document, 'script', 'facebook-jssdk'));
 </script>
       </div>
+      <footer class="contentFoot">
+        
+      </footer>
     </div><!-- .content -->

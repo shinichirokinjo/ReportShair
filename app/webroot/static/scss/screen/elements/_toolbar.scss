@@ -1,51 +1,49 @@
 .toolbar {
   margin-bottom: 20px;
+  background-color: #EEE;
+  z-index: 5;
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #222;
+    @include box-shadow(0 1px 10px rgba(0,0,0,.2));
+    dl {
+      margin-left: auto;
+      margin-right: auto;
+      width: 1120px;
+      dt {
+        color: #FFF;
+      }
+    }
+  }
   dl {
     @include clearfix();
     dt {
       float: left;
-      margin-right: 29px;
+      padding-right: 29px;
       width: 240px;
+      line-height: 34px;
     }
     dd {
       float: left;
       padding-left: 0;
       a {
         display: inline-block;
-        padding: 3px 12px;
+        padding: 5px 12px;
         line-height: 24px;
         vertical-align: middle;
-        background-image: -webkit-linear-gradient(top, #FFFFFF, #E6E6E6);
-        background-image:    -moz-linear-gradient(top, #FFFFFF, #E6E6E6);
-        background-image:      -o-linear-gradient(top, #FFFFFF, #E6E6E6);
-        background-image:         linear-gradient(top, #FFFFFF, #E6E6E6);
-        background-repeat: repeat-x;
-        border: solid 1px #BBBBBB;
-        @include border-radius(3px);
+        background-color: #CCC;
         text-align: center;
         text-decoration: none;
-        text-shadow: 0 1px 1px rgba(255,255,255,.75);
         font-size: 14px;
         color: #222;
         cursor: pointer;
-        &:first-child {
-          margin-left: 1px;
-          border-right: none;
-          -webkit-border-top-right-radius: 0;
-             -moz-border-top-right-radius: 0;
-                  border-top-right-radius: 0;
-          -webkit-border-bottom-right-radius: 0;
-             -moz-border-bottom-right-radius: 0;
-                  border-bottom-right-radius: 0;
-        }
-        &:last-child {
-          border-left: none;
-          -webkit-border-top-left-radius: 0;
-             -moz-border-top-left-radius: 0;
-                  border-top-left-radius: 0;
-          -webkit-border-bottom-left-radius: 0;
-             -moz-border-bottom-left-radius: 0;
-                  border-bottom-left-radius: 0;
+        &:hover {
+          background-color: #222;
+          color: #FFF;
         }
       }
     }
