@@ -195,18 +195,11 @@ var RS = RS || {};
       }
     }
   }();
-
-  RS.toolbar = function() {
-    var unload = function() {
-      $(document).off('');
-    }
-
-    // パブリックメソッド
-    return {
-      init: function() {
-      	unload();
-      	add();
-      }
-    }
-  }();
 })(jQuery, RS);
+
+$(function() {
+  $(".createNav a").on('click', function(e) {
+    RS.overlay.open('/reports/dialog/report', 'ajax');
+    e.preventDefault();
+  });
+});

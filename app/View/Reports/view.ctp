@@ -1,10 +1,10 @@
     <div id="fb-root"></div>
     <nav class="toolbar">
       <dl>
-        <dt>Admin Panel</dt>
-        <dd class="createEvent"><a href="" title="">イベントを作成する</a></dd>
-        <dd><a href="" title="">告知をする</a></dd>
-        <dd><a href="" title="">レポートを設定する</a></dd>
+        <dt>管理者用ナビ</dt>
+        <dd class="createEvent"><a href="" title="イベントを作成する">イベントを作成する</a></dd>
+        <dd><a href="" title="告知をする">告知をする</a></dd>
+        <dd><a href="" title="レポートを設定する">レポートを設定する</a></dd>
       </dl>
     </nav>
     <aside class="sidebar">
@@ -66,8 +66,8 @@
       <div class="contentBody">
         <section class="reportBoard">
           <div class="coverImage">
-            <a class="coverWrap" href="/reports/001" title="" style="background-image: url('/media/reports/418625_470710186280461_1321790445_n.jpg');">
-              <img src="" width="" height="" alt="" />
+            <a class="coverWrap" href="/reports/001" title="">
+              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="" />
             </a>
           </div>
           <header class="reportInfo">
@@ -81,7 +81,7 @@
               <ul class="buttons">
                 <li><a class="twitter-follow-button" href="https://twitter.com/reportshair" data-count="horizontal" data-show-count="false" data-width="130" data-lang="en">Follow @reportshair</a></li>
                 <li><div class="g-plusone" href="" data-size="medium" annotation="inline" expandTo="top"></div></li>
-                <li><div class="fb-like" data-href="" data-send="true" data-layout="button_count" data-width="80" data-show-faces="false"></div></li>
+                <li><div class="fb-like" data-href="" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div></li>
               </ul>
             </div>
           </header>
@@ -122,16 +122,6 @@
                     <p>WOMB ADVENTURE '12@幕張メッセ 開催決定！<br />記念すべき5回目となる今回、ラインアップ等は随時更新しますが、もちろん今年も皆様が納得の豪華アーティストと、ハイクオリティーなフェスティバルをお約束します。<br />この機会にお得な早割チケットを是非ご購入下さい！</p>
                   </div>
                 </div>
-                <div class="composeBox">
-                  <form action="" method="">
-                    <div style="display: none;">
-                      <input type="hidden" name="" value="" />
-                    </div>
-                    <div class="action buttons">
-                      <button type="submit">Are you going?</button>
-                    </div>
-                  </form>
-                </div>
               </div>
             </section>
             <section class="unit clock">
@@ -156,29 +146,32 @@
                     <p>昨年8月の3周年には、Octave One を招聘し記録的な盛り上がりをみせた Raft Tokyo の4周年のパーティーが再びWombで開催される。4周年のゲストに彼らが選んだのはPerlonやHello? Repeat、Circus Company、Trapez等で良質なリリースを続けるAudio Wernerと、現在Luciano率いるCadenzaでの活躍も目覚しく、Vision Questからのリリースも話題のMirko Loko、そして前回のRaft Tokyoに出演したErnesto Ferreyraの盟友Alejandoro Mossoが登場する。国内からは先日のBig Beach Festivalのメインフロアにも出演したSatoshi OtsukiやJSDとRAYMOND兄弟によるユニットMOLDがLIVEにて出演。Middle LoungeとWomb Loungeでは今もっとも勢いのあるアーティスト達のBack to Backでのプレイが行われ、全フロア見逃すことのできない内容となっている。彼らが走り続けた四年間の集大成はどのように表現されるのか。この記念すべき祝祭を最高のエレクトリックミュージックと共に祝おう！</p>
                   </div>
                 </div>
-                <div class="composeBox">
-                  <form action="" method="">
-                    <div style="display: none;">
-                      <input type="hidden" name="" value="" />
-                    </div>
-                    <fieldset>
-                      <div class="field">
-                        <div class="fieldBody">
-                          <input class="mentionInput" type="text" name="" value="" placeholder="Write something?" />
-                        </div>
-                      </div>
-                    </fieldset>
-                    <div class="action buttons">
-                      <button type="submit">Did you go?</button>
-                    </div>
-                  </form>
+                <div class="composeBox clearfix">
+                  <div class="composer">
+                    <img src="https://graph.facebook.com/tokuda109/picture?large" width="50px" height="50px" alt="" />
+                  </div>
+                  <nav class="typeNav">
+                  	<span class="typeArrow"></span>
+                    <ul class="typeWrap">
+                      <li><a class="typeText" href="" title="Add Text">
+                        <span class="typeIcon text"></span>
+                        <span class="">Text</span>
+                      </a></li>
+                      <li><a class="typePhoto" href="" title="Add Photo">
+                        <span class="typeIcon photo"></span>
+                        <span>Photo</span>
+                      </a></li>
+                    </ul>
+                  </nav>
                 </div>
                 <div class="photoBox">
+<!--
               	  <div class="photoRow">
                     <div class="pin">
                       <img src="/media/reports/539133_475441662473980_358085087_n.jpg" width="660px" height="471px" alt="" />
                     </div>
-                  </div><!-- .photoRow -->
+                  </div>
+-->
                   <div class="photoRow">
                     <div class="horizontal">
                       <img src="/media/reports/226309_475440379140775_1193024508_n.jpg" width="220px" height="220px" alt="" />
@@ -195,7 +188,7 @@
                   </div><!-- .photoRow -->
                   <footer>
                     <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                    at <p class="date">2012/08/09 hh:mm</p>
+                    <p class="date">at <span>2012/08/09 hh:mm</span></p>
                   </footer>
                 </div>
               </div>
@@ -216,22 +209,23 @@
                     <p>今回は、昨年のWAのヘッドライナーを務めた Luciano 率いる Cadenza での活躍も目覚しい、MIRKO LOKO が登場☆MIRKOは既に来日済みで、今朝は築地を満喫したとの事。<br />土曜前に、彼のミックス音源を一足先にチェック♪</p>
                   </div>
                 </div>
-                <div class="composeBox">
-                  <form action="" method="">
-                    <div style="display: none;">
-                      <input type="hidden" name="" value="" />
-                    </div>
-                    <fieldset>
-                      <div class="field">
-                        <div class="fieldBody">
-                          <input class="mentionInput" type="text" name="" value="" placeholder="Write something?" />
-                        </div>
-                      </div>
-                    </fieldset>
-                    <div class="action buttons">
-                      <button type="submit">Did you go?</button>
-                    </div>
-                  </form>
+                <div class="composeBox clearfix">
+                  <div class="composer">
+                    <img src="https://graph.facebook.com/tokuda109/picture?large" width="50px" height="50px" alt="" />
+                  </div>
+                  <nav class="typeNav">
+                  	<span class="typeArrow"></span>
+                    <ul class="typeWrap">
+                      <li><a class="typeText" href="" title="Add Text">
+                        <span class="typeIcon text"></span>
+                        <span class="">Text</span>
+                      </a></li>
+                      <li><a class="typePhoto" href="" title="Add Photo">
+                        <span class="typeIcon photo"></span>
+                        <span>Photo</span>
+                      </a></li>
+                    </ul>
+                  </nav>
                 </div>
                 <div class="photoBox">
                   <div class="photoRow">
@@ -245,7 +239,7 @@
                   </div><!-- .photoRow -->
                   <footer>
                     <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                    at <p class="date">2012/08/09 hh:mm</p>
+                    <p class="date">at <span>2012/08/09 hh:mm</span></p>
                   </footer>
                 </div>
                 <div class="photoBox">
@@ -256,7 +250,7 @@
                   </div><!-- .photoRow -->
                   <footer>
                     <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
-                    at <p class="date">2012/08/09 hh:mm</p>
+                    <p class="date">at <span>2012/08/09 hh:mm</span></p>
                   </footer>
                 </div>
               </div>
