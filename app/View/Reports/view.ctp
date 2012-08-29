@@ -276,6 +276,7 @@
 </script>
       </div>
       <footer class="contentFoot">
-        
+
       </footer>
     </div><!-- .content -->
+    <div id="scrollToTop" class="scrollToTopButton offScreen">Scroll to Top</div>

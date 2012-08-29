@@ -1,8 +1,8 @@
 (function($, RS) {
   RS.reports = function() {
-  	var unload = function() {
-  	  // $(document).off('');
-  	}
+    var unload = function() {
+      // $(document).off('');
+    }
 
     return {
       init: function() {
@@ -45,10 +45,27 @@
       }
     }
   }();
+
+  RS.scrolltop = function() {
+    var windowHeight = $(window).height() / 2;
+
+    return {
+      init: function() {
+        $(window).on('scroll', function() {
+          (window.innerWidth ? window.pageYOffset : document.documentElement.scrollTop) >= windowHeight ? $("#scrollToTop").removeClass("offScreen") : $("#scrollToTop").addClass("offScreen");
+        });
+        $("#scrollToTop").on('click', function() {
+          $("html, body").animate({scrollTop: "0px"}, 400);
+          return false;
+        });
+      }
+    }
+  }();
 }(jQuery, RS));
 
 $(function() {
   RS.reports.init();
+  RS.scrolltop.init();
   $('.toolbar').scrollspy({
     min: $('.toolbar').offset().top,
     max: $('.contentFoot').offset().top,

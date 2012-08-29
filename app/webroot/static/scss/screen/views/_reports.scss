@@ -172,13 +172,13 @@
     }
   }
   .events {
-    
+
   }
   .photos {
-    
+
   }
   .wents {
-    
+
   }
 }
 // =======================================================
@@ -337,7 +337,7 @@
 .infoBox {
   .infoBoxHead {
     h1 {
-      
+
     }
   }
   .infoBoxBody {
@@ -457,7 +457,7 @@
   }
 }
 .discussionBox {
-  
+
 }
 .wentBox {
   @include clearfix();
@@ -478,5 +478,31 @@
       display: block;
       height: 30px;
     }
+  }
+}
+.scrollToTopButton {
+  position: fixed;
+  margin-left: 1130px;
+  padding: 7px;
+  bottom: -3px;
+  background-color: #F1F1F1;
+  border-top: solid 1px #CCC;
+  border-left: solid 1px #CCC;
+  border-right: solid 1px #CCC;
+  -webkit-border-top-left-radius: 3px;
+     -moz-border-top-left-radius: 3px;
+          border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+     -moz-border-top-right-radius: 3px;
+          border-top-right-radius: 3px;
+  text-shadow: 0 1px 0 #FFF;
+  font-size: 11px;
+  @include transition(bottom 250ms ease-in-out);
+  z-index: 4;
+  cursor: pointer;
+  &.offScreen {
+    bottom: -100px;
+    -webkit-transition-duration: 250ms;
+       -moz-transition-duration: 250ms;
   }
 }
