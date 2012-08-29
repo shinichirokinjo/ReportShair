@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 // =======================================================
 // _reports.scss
 //
@@ -5,6 +7,13 @@
 //
 // @author  Tsuyoshi Tokuda
 // =======================================================
+
+.reports {
+  .container,
+  .contentBody {
+    margin-bottom: 0;
+  }
+}
 
 // =======================================================
 // Report Board
@@ -23,17 +32,20 @@
 }
 .coverImage {
   display: block;
-  overflow: hidden;
   width: 851px;
   height: 315px;
-  a {
+  .coverWrap {
     display: block;
+    overflow: hidden;
     width: 851px;
     height: 315px;
     background-position: 0 0;
     background-repeat: no-repeat;
     @include background-size(cover);
-    @include border-radius(3px);
+    @include border-radius(5px);
+    img {
+      width: 851px;
+    }
   }
 }
 .reportHeadline {
@@ -49,13 +61,17 @@
     overflow: hidden;
     float: left;
     .reportThumb {
-      background: rgba(0,0,0,.3);
+      position: absolute;
+      margin-top: -110px;
+      padding: 1px;
+      left: 23px;
+      width: 168px;
+      height: 168px;
+      background: rgba(0,0,0,.2);
+      @include border-radius(3px);
       .reportImage {
-        position: absolute;
         overflow: hidden;
         display: block;
-        margin-top: -104px;
-        left: 23px;
         width: 160px;
         height: 160px;
         background: rgba(0,0,0,.3);
@@ -70,7 +86,7 @@
   }
   .share {
     float: right;
-    padding: 20px 0 0 0;
+    padding: 20px 7px 0 0;
     .buttons {
       margin: 0;
       @include clearfix;
@@ -88,7 +104,7 @@
     }
     .fb-like {
       position: relative;
-      width: 150px;
+      width: 80px;
       height: 21px;
       span {
         position: absolute;
@@ -98,7 +114,7 @@
   }
 }
 .reportMeta {
-  margin-top: 21px;
+  margin-top: 27px;
   padding-bottom: 12px;
   @include clearfix();
   .about,
@@ -151,17 +167,18 @@
       color: #777;
     }
     &:hover {
+      background-color: #F1F1F1;
       border-color: #CCC;
     }
   }
   .events {
-    
+
   }
   .photos {
-    
+
   }
   .wents {
-    
+
   }
 }
 // =======================================================
@@ -187,7 +204,7 @@
   @include clearfix();
   .spot {
     position: absolute;
-    top: 5px;
+    top: 19px;
     left: 100px;
     width: 8px;
     height: 8px;
@@ -197,10 +214,9 @@
   }
   .datetime {
     position: absolute;
-    top: 3px;
+    top: 15px;
     left: 0;
     width: 95px;
-    height: 30px;
     text-align: right;
     .date,
     .time,
@@ -225,40 +241,66 @@
     }
   }
   .box {
-    margin-left: 120px;
-    padding: 7px;
+    position: relative;
+    margin-left: 131px;
+    padding: 10px;
     background: #FFF;
     border: solid 1px #DDD;
     @include border-radius(5px);
-    @include box-shadow(0 0 5px 1px rgba(0,0,0,.1));
-    @include transition(border-color 0.2s linear);
-    @include transition(box-shadow 0.2s linear);
+    @include transition(border-color 1s linear);
     p {
       margin: 0;
     }
+    .arrow {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 15px;
+      left: -10px;
+      width: 0;
+      height: 0;
+      background: none;
+      border: {
+        top: solid 10px transparent;
+        bottom: solid 10px transparent;
+        left: 0;
+        right: solid 10px #DDD;
+      }
+      @include transition(border-color 1s linear);
+      z-index: 3;
+    }
     &:hover {
-      border-color: #CCC;
-      @include box-shadow(0 0 5px 1px rgba(0,0,0,.2));
+      border-color: #AAA;
+      .arrow {
+        border-right: solid 10px #BBB;
+      }
     }
   }
   footer {
-    margin-left: 120px;
     padding: 3px 0 0;
     font-size: 11px;
     color: #999;
-    .avatar {
+    @include clearfix();
+    .avatar,
+    .date {
       display: inline-block;
+      float: left;
+    }
+    .avatar {
       margin-right: 5px;
       width: 24px;
       height: 24px;
     }
     .date {
-      display: inline-block;
       margin: 0;
       line-height: 24px;
     }
   }
   &.clock {
+    .spot {
+      top: 7px;
+      background: #000;
+    }
     .datetime {
       top: 0;
     }
@@ -266,68 +308,220 @@
 }
 .box {
   .headline {
-    margin: 0 0 7px;
-    font-weight: bold;
+    margin: 0 0 20px;
+    border-bottom: solid 1px #EEE;
+    h1 {
+      margin: 0;
+      line-height: 32px;
+      text-shadow: 1px 1px 0 rgba(255,255,255,.75);
+      font-size: 21px;
+      font-weight: bold;
+      color: #222;
+    }
   }
   &.composeBox {
     .mentionInput {
       width: 660px;
     }
   }
-  &.eventBox {
-    
+}
+.infoBox,
+.composeBox,
+.photoBox,
+.discussionBox,
+.wentBox {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: dotted 1px #CCC;
+}
+.infoBox {
+  .infoBoxHead {
+    h1 {
+
+    }
   }
-  &.mapBox {
-    
+  .infoBoxBody {
+    p, li {
+      font-size: 12px;
+    }
   }
-  &.infoBox {
-    
+}
+.composeBox {
+  .composer {
+    float: left;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
   }
-  &.photoBox {
-    .photoRow {
-      @include clearfix();
-      .primary,
-      .secondary,
-      .pin,
-      .horizontal {
-        overflow: hidden;
-        float: left;
-        img {
-          float: left;
-          margin: 0;
+  .typeNav {
+    position: relative;
+    margin-left: 70px;
+    background-color: #F1F1F1;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F6F6F6), to(#F1F1F1));
+    background-image: -webkit-linear-gradient(top, #F6F6F6, #F1F1F1);
+    background-image:    -moz-linear-gradient(top, #F6F6F6, #F1F1F1);
+    background-image:      -o-linear-gradient(top, #F6F6F6, #F1F1F1);
+    background-image:         linear-gradient(to top, #F6F6F6, #F1F1F1);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff6f6f6', endColorstr='#fff1f1f1', GradientType=0);
+    border: solid 1px #E1E1E1;
+    @include border-radius(5px);
+  }
+  .typeArrow {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 15px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    background: none;
+    border: {
+      top: solid 10px transparent;
+      bottom: solid 10px transparent;
+      left: 0;
+      right: solid 10px #E1E1E1;
+    }
+    @include transition(border-color 1s linear);
+    z-index: 3;
+  }
+  .typeWrap {
+    margin: 7px 0;
+    padding-left: 0;
+    @include clearfix();
+    li {
+      display: inline-block;
+      float: left;
+      list-style: none;
+      border-right: solid 1px #DDD;
+      border-left: solid 1px #FFF;
+      a {
+        position: relative;
+        display: block;
+        padding-top: 48px;
+        width: 77px;
+        height: 12px;
+        line-height: 12px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #FFF;
+        font-size: 12px;
+        color: #222;
+        &:hover {
+          color: $default-link-color;
         }
       }
-      .primary {
-        width: 440px;
-        height: 440px;
+      &:first-child {
+        border-left: none;
       }
-      .secondary {
-        width: 220px;
-        height: 440px;
+      &:last-child {
+        border-right: none;
       }
-      .pin {
-        width: 660px;
-        height: 440px;
+    }
+    .typeIcon {
+      position: absolute;
+      top: 6px;
+      left: 22px;
+      width: 36px;
+      height: 36px;
+      background-image: url('../img/icon/typeIcon.png');
+      background-repeat: no-repeat;
+      &.text {
+        background-position: 0 0;
       }
-      .horizontal {
-        width: 660px;
-        height: 220px;
+      &.photo {
+        background-position: -36px 0;
+      }
+      &.video {
+        background-position: -72px 0;
+      }
+      &.file {
+        background-position: -108px 0;
+      }
+      &.link {
+        background-position: -144px 0;
       }
     }
   }
-  &.discussionBox {
-    
+}
+.photoBox {
+  .photoRow {
+    @include clearfix();
   }
-  &.wentBox {
-    ul {
+  .primary,
+  .secondary,
+  .pin,
+  .horizontal {
+    overflow: hidden;
+    float: left;
+    img {
+      float: left;
       margin: 0;
-      list-style: none;
-      li {
-        display: inline-block;
-        margin: 0 2px 2px 0;
-        width: 36px;
-        height: 36px;
-      }
     }
+  }
+  .primary {
+    width: 440px;
+    height: 440px;
+  }
+  .secondary {
+    width: 220px;
+    height: 440px;
+  }
+  .pin {
+    width: 660px;
+    height: 440px;
+  }
+  .horizontal {
+    width: 660px;
+    height: 220px;
+  }
+}
+.discussionBox {
+
+}
+.wentBox {
+  @include clearfix();
+}
+
+.wentList,
+.goingList {
+  float: left;
+  margin: 0;
+  padding-left: 0;
+  @include clearfix();
+  li {
+    display: inline-block;
+    float: left;
+    margin: 0 3px 3px 0;
+    list-style: none;
+    a {
+      display: block;
+      height: 30px;
+    }
+  }
+}
+.scrollToTopButton {
+  position: fixed;
+  margin-left: 1130px;
+  padding: 7px;
+  bottom: -3px;
+  background-color: #F1F1F1;
+  border-top: solid 1px #CCC;
+  border-left: solid 1px #CCC;
+  border-right: solid 1px #CCC;
+  -webkit-border-top-left-radius: 3px;
+     -moz-border-top-left-radius: 3px;
+          border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+     -moz-border-top-right-radius: 3px;
+          border-top-right-radius: 3px;
+  text-shadow: 0 1px 0 #FFF;
+  font-size: 11px;
+  @include transition(bottom 250ms ease-in-out);
+  z-index: 4;
+  cursor: pointer;
+  &.offScreen {
+    bottom: -100px;
+    -webkit-transition-duration: 250ms;
+       -moz-transition-duration: 250ms;
   }
 }
