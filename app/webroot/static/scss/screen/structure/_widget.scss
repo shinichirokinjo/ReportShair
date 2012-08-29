@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 // =======================================================
 // _widget.scss
 //
@@ -16,6 +18,7 @@
   @include border-radius(3px);
   @include box-shadow(0 0 5px 1px rgba(0,0,0,.1));
   .widgetHead {
+    position: relative;
     padding: 7px 7px 5px;
     border-bottom: solid 1px #EEE;
   }
@@ -46,142 +49,44 @@
     font-size: 12px;
     font-weight: bold;
   }
+  .label {
+    position: absolute;
+    padding: 2px 5px;
+    top: 5px;
+    right: 5px;
+    line-height: 14px;
+    background-color: #444;
+    @include border-radius(3px);
+    font-size: 10px;
+    color: #FFF;
+  }
 }
 .widgetBody {
-  ul {
-    li {
-      border-bottom: solid 1px #EEE;
-      a {
-        display: block;
-        padding: 10px 7px;
-        line-height: 12px;
-        text-decoration: none;
-        text-shadow: 0 1px 0 #FFF;
-        font-size: fs(12, 'percent');
-      }
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-  }
-  p {
-    font-size: fs(12, 'percent');
-  }
+  
 }
 .widgetFoot {
   
 }
 // =======================================================
-// panel style
+// widget style
 // =======================================================
-.adminPanel {
-  .widgetFoot {
-    padding: 0;
-    .adminList {
-      padding-left: 0;
-      @include clearfix();
-      li {
-        float: left;
-        overflow: hidden;
-        width: 80px;
-        height: 32px;
-        background-color: #F1F1F1;
-        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F6F6F6), to(#F1F1F1));
-        background-image: -webkit-linear-gradient(top, #F6F6F6, #F1F1F1);
-        background-image:    -moz-linear-gradient(top, #F6F6F6, #F1F1F1);
-        background-image:     -ms-linear-gradient(top, #F6F6F6, #F1F1F1);
-        background-image:      -o-linear-gradient(top, #F6F6F6, #F1F1F1);
-        background-image:         linear-gradient(top, #F6F6F6, #F1F1F1);
-        background-repeat: repeat-x;
-        a {
-          display: block;
-          overflow: hidden;
-          width: 80px;
-          height: 32px;
-          line-height: 32px;
-          background-position: center center;
-          background-repeat: no-repeat;
-          text-align: center;
-          text-decoration: none;
-          text-shadow: 0 1px 0 #FFF;
-          font-size: 11px;
-          color: #222;
-        }
-        &.createEvent {
-          a {
-            background-image: url();
-          }
-        }
-        &.editReport {
-          a {
-            background-image: url();
-          }
-        }
-        &:hover {
-          background-color: #E1E1E1;
-          background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E6E6E6), to(#E1E1E1));
-          background-image: -webkit-linear-gradient(top, #E6E6E6, #E1E1E1);
-          background-image:    -moz-linear-gradient(top, #E6E6E6, #E1E1E1);
-          background-image:     -ms-linear-gradient(top, #E6E6E6, #E1E1E1);
-          background-image:      -o-linear-gradient(top, #E6E6E6, #E1E1E1);
-          background-image:         linear-gradient(top, #E6E6E6, #E1E1E1);
-          background-repeat: repeat-x;
-        }
-      }
-    }
-  }
+.adminWidget,
+.wentWidget {
+  
 }
-.adminPanel,
-.wentPanel {
-  .widgetBody {
-    ul {
-      padding-top: 4px;
-      padding-left: 4px;
-      li {
-        display: inline-block;
-        margin-right: 4px;
-        margin-bottom: 4px;
-        width: 32px;
-        height: 32px;
-        border-bottom: none;
-        a {
-          padding: 0;
-          width: 32px;
-          height: 32px;
-        }
-      }
+.listWidget {
+  .widgetBody ul li {
+    border-bottom: solid 1px #EEE;
+    a {
+      display: block;
+      padding: 3px 7px;
+      text-decoration: none;
+      text-shadow: 0 1px 0 #FFF;
+    }
+    &:last-child {
+      border-bottom: none;
     }
   }
-}
-.listPanel {
-  .widgetBody {
-    ul {
-      li {
-        .date,
-        .title {
-          display: block;
-        }
-        .date {
-          margin-bottom: .3em;
-          font-size: fs(10, 'percent');
-          color: #777;
-        }
-        .title {
-          font-size: fs(11, 'percent');
-          font-weight: bold;
-        }
-      }
-    }
-  }
-  .label {
-          float: right;
-          padding: .3em .6em;
-          line-height: 12px;
-          background: #777;
-          @include border-radius(4px);
-          font-size: 11px;
-          color: #FFF;
-        }
 }
 .userPanel {
   padding-bottom: 5px;
@@ -245,16 +150,42 @@
 // =======================================================
 .articleList {
   li {
-    
+    .date,
+    .title {
+      display: block;
+    }
+    .date {
+      margin-bottom: .3em;
+      font-size: 10px;
+      color: #777;
+    }
+    .title {
+      font-size: 11px;
+      font-weight: bold;
+    }
   }
 }
 .avatarList {
-  
+  padding: 3px 0 0;
+  @include clearfix();
+  li {
+    display: inline-block;
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    a {
+      display: block;
+      overflow: hidden; // 中の画像のサイズが32pxより大きくても隠す
+      padding: 0;
+      width: 32px;
+      height: 32px;
+    }
+  }
 }
 .categoryList {
   li {
     a {
-      padding-left: 36px !important;
+      padding-left: 36px;
     }
     &.music a {
       background: url('../img/icon/music.png') no-repeat 5px center;

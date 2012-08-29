@@ -22,9 +22,9 @@
       </footer>
     </div>
     <aside class="sidebar">
-      <section class="widget">
+      <section class="widget listWidget">
         <header class="widgetHead">
-          <h4>Report Category</h4>
+          <h4>カテゴリからレポートを探す</h4>
         </header>
         <div class="widgetBody">
           <ul class="categoryList">
@@ -34,19 +34,19 @@
           </ul>
         </div>
       </section>
-      <section class="widget listPanel">
+      <section class="widget listWidget">
         <header class="widgetHead">
-          <h4>Blog</h4>
+          <h4>開発ブログ</h4>
         </header>
         <div class="widgetBody">
           <ul class="articleList">
-            <li><a href="http://reportshair.tumblr.com/" title="RAFT TOKYO 4th ANNIVERSARY">
-              <span class="date">2012/08/11</span>
-              <span class="name">Blog Title</span>
+            <li><a href="http://blog.reportshair.com/?p=68" title="野外フェスを映画館で。ファットボーイスリムのライブが生み出す新しい体験" target="_blank">
+              <span class="date">2012/08/28</span>
+              <span class="title">野外フェスを映画館で。ファットボーイスリムのライブが生み出す新しい体験</span>
             </a></li>
-            <li><a href="http://reportshair.tumblr.com/" title="TRESVIBES">
-              <span class="date">2012/07/28</span>
-              <span class="name">Blog Title</span>
+            <li><a href="http://blog.reportshair.com/?p=61" title="ダンスフェスはまだまだ終わらない、XLANDフェスがさがみ湖で開催" target="_blank">
+              <span class="date">2012/08/27</span>
+              <span class="title">ダンスフェスはまだまだ終わらない、XLANDフェスがさがみ湖で開催</span>
             </a></li>
           </ul>
         </div>

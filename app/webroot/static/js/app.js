@@ -196,3 +196,10 @@ var RS = RS || {};
     }
   }();
 })(jQuery, RS);
+
+$(function() {
+  $(".createNav a").on('click', function(e) {
+    RS.overlay.open('/reports/dialog/report', 'ajax');
+    e.preventDefault();
+  });
+});
