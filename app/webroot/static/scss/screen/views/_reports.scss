@@ -356,14 +356,14 @@
   .typeNav {
     position: relative;
     margin-left: 70px;
-    background-color: #FFF;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F9F9F9), to(#F1F1F1));
-    background-image: -webkit-linear-gradient(top, #F9F9F9, #F1F1F1);
-    background-image:    -moz-linear-gradient(top, #F9F9F9, #F1F1F1);
-    background-image:      -o-linear-gradient(top, #F9F9F9, #F1F1F1);
-    background-image:         linear-gradient(to top, #F9F9F9, #F1F1F1);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff9f9f9', endColorstr='#fff1f1f1', GradientType=0);
-    border: solid 1px #EEE;
+    background-color: #F1F1F1;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F6F6F6), to(#F1F1F1));
+    background-image: -webkit-linear-gradient(top, #F6F6F6, #F1F1F1);
+    background-image:    -moz-linear-gradient(top, #F6F6F6, #F1F1F1);
+    background-image:      -o-linear-gradient(top, #F6F6F6, #F1F1F1);
+    background-image:         linear-gradient(to top, #F6F6F6, #F1F1F1);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff6f6f6', endColorstr='#fff1f1f1', GradientType=0);
+    border: solid 1px #E1E1E1;
     @include border-radius(5px);
   }
   .typeArrow {
@@ -379,7 +379,7 @@
       top: solid 10px transparent;
       bottom: solid 10px transparent;
       left: 0;
-      right: solid 10px #EEE;
+      right: solid 10px #E1E1E1;
     }
     @include transition(border-color 1s linear);
     z-index: 3;
@@ -392,7 +392,8 @@
       display: inline-block;
       float: left;
       list-style: none;
-      border-right: solid 1px #EEE;
+      border-right: solid 1px #DDD;
+      border-left: solid 1px #FFF;
       a {
         position: relative;
         display: block;
@@ -405,6 +406,15 @@
         text-shadow: 0 1px 0 #FFF;
         font-size: 12px;
         color: #222;
+        &:hover {
+          color: $default-link-color;
+        }
+      }
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
       }
     }
     .typeIcon {
@@ -420,6 +430,15 @@
       }
       &.photo {
         background-position: -36px 0;
+      }
+      &.video {
+        background-position: -72px 0;
+      }
+      &.file {
+        background-position: -108px 0;
+      }
+      &.link {
+        background-position: -144px 0;
       }
     }
   }

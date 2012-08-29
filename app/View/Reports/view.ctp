@@ -151,7 +151,7 @@
                     <img src="https://graph.facebook.com/tokuda109/picture?large" width="50px" height="50px" alt="" />
                   </div>
                   <nav class="typeNav">
-                  	<span class="typeArrow"></span>
+                    <span class="typeArrow"></span>
                     <ul class="typeWrap">
                       <li><a class="typeText" href="" title="Add Text">
                         <span class="typeIcon text"></span>
@@ -160,6 +160,18 @@
                       <li><a class="typePhoto" href="" title="Add Photo">
                         <span class="typeIcon photo"></span>
                         <span>Photo</span>
+                      </a></li>
+                      <li><a class="typeVideo" href="" title="Add Video">
+                        <span class="typeIcon video"></span>
+                        <span>Video</span>
+                      </a></li>
+                      <li><a class="typeFile" href="" title="Add File">
+                        <span class="typeIcon file"></span>
+                        <span>File</span>
+                      </a></li>
+                      <li><a class="typeLink" href="" title="Add Link">
+                        <span class="typeIcon link"></span>
+                        <span>Link</span>
                       </a></li>
                     </ul>
                   </nav>
@@ -223,6 +235,18 @@
                       <li><a class="typePhoto" href="" title="Add Photo">
                         <span class="typeIcon photo"></span>
                         <span>Photo</span>
+                      </a></li>
+                      <li><a class="typeVideo" href="" title="Add Video">
+                        <span class="typeIcon video"></span>
+                        <span>Video</span>
+                      </a></li>
+                      <li><a class="typeFile" href="" title="Add File">
+                        <span class="typeIcon file"></span>
+                        <span>File</span>
+                      </a></li>
+                      <li><a class="typeLink" href="" title="Add Link">
+                        <span class="typeIcon link"></span>
+                        <span>Link</span>
                       </a></li>
                     </ul>
                   </nav>
