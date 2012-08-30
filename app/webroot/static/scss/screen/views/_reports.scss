@@ -240,43 +240,40 @@
       color: #FFF;
     }
   }
-  .box {
-    position: relative;
-    margin-left: 131px;
-    padding: 10px;
-    background: #FFF;
-    border: solid 1px #DDD;
-    @include border-radius(5px);
-    @include transition(border-color 1s linear);
-    p {
-      margin: 0;
+  &.currentTime {
+    .spot {
+      top: 7px;
+      background: #000;
     }
-    .arrow {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      top: 15px;
-      left: -10px;
-      width: 0;
-      height: 0;
-      background: none;
-      border: {
-        top: solid 10px transparent;
-        bottom: solid 10px transparent;
-        left: 0;
-        right: solid 10px #DDD;
-      }
-      @include transition(border-color 1s linear);
-      z-index: 3;
-    }
-    &:hover {
-      border-color: #AAA;
-      .arrow {
-        border-right: solid 10px #BBB;
-      }
+    .datetime {
+      top: 0;
     }
   }
-  footer {
+}
+.box {
+  position: relative;
+  margin-left: 131px;
+  padding: 10px;
+  background: #FFF;
+  border: solid 1px #DDD;
+  @include border-radius(5px);
+  @include transition(border-color 1s linear);
+  .headline {
+    margin: 0 0 20px;
+    border-bottom: solid 1px #EEE;
+    h1 {
+      margin: 0;
+      line-height: 32px;
+      text-shadow: 1px 1px 0 rgba(255,255,255,.75);
+      font-size: 21px;
+      font-weight: bold;
+      color: #222;
+    }
+  }
+  .boxHead {
+
+  }
+  .boxFoot {
     padding: 3px 0 0;
     font-size: 11px;
     color: #999;
@@ -296,32 +293,40 @@
       line-height: 24px;
     }
   }
-  &.clock {
-    .spot {
-      top: 7px;
-      background: #000;
+  .boxArrow {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 15px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    background: none;
+    border: {
+      top: solid 10px transparent;
+      bottom: solid 10px transparent;
+      left: 0;
+      right: solid 10px #DDD;
     }
-    .datetime {
-      top: 0;
-    }
+    @include transition(border-color 1s linear);
+    z-index: -1;
   }
-}
-.box {
-  .headline {
-    margin: 0 0 20px;
-    border-bottom: solid 1px #EEE;
-    h1 {
-      margin: 0;
-      line-height: 32px;
-      text-shadow: 1px 1px 0 rgba(255,255,255,.75);
-      font-size: 21px;
-      font-weight: bold;
-      color: #222;
-    }
+  .boxControll {
+    position: absolute;
+    display: none;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #EEE;
   }
-  &.composeBox {
-    .mentionInput {
-      width: 660px;
+  &:hover {
+    border-color: #AAA;
+    .boxArrow {
+      border-right: solid 10px #AAA;
+    }
+    .boxControll {
+      display: block;
     }
   }
 }
@@ -335,11 +340,6 @@
   border-bottom: dotted 1px #CCC;
 }
 .infoBox {
-  .infoBoxHead {
-    h1 {
-
-    }
-  }
   .infoBoxBody {
     p, li {
       font-size: 12px;

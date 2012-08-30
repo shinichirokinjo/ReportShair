@@ -113,7 +113,10 @@
                 <p class="time">21:00 - </p>
               </div>
               <div class="box">
-              	<span class="arrow"></span>
+                <span class="boxArrow"></span>
+                <div class="boxControll">
+                  <span class="uiButtonGroup"></span>
+                </div>
                 <div class="infoBox">
                   <header class="infoBoxHead">
                     <h1>WOMB ADVENTURE '12</h1>
@@ -124,7 +127,7 @@
                 </div>
               </div>
             </section>
-            <section class="unit clock">
+            <section class="unit currentTime">
               <div class="spot"></div>
               <div class="datetime">
                 <p class="flag">Current Time</p>
@@ -137,7 +140,10 @@
                 <p class="time">00:00 - 00:00</p>
               </div>
               <div class="box">
-                <span class="arrow"></span>
+                <span class="boxArrow"></span>
+                <div class="boxControll">
+                  <span class="uiButtonGroup"></span>
+                </div>
                 <div class="infoBox">
                   <header class="infoBoxHead">
                     <h1>RAFT TOKYO 4th ANNIVERSARY</h1>
@@ -198,7 +204,7 @@
                       <img src="/media/reports/228594_475441875807292_1900124964_n.jpg" width="220px" height="220px" alt="" />
                     </div>
                   </div><!-- .photoRow -->
-                  <footer>
+                  <footer class="boxFoot">
                     <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
                     <p class="date">at <span>2012/08/09 hh:mm</span></p>
                   </footer>
@@ -212,9 +218,12 @@
                 <p class="time">00:00 - 00:00</p>
               </div>
               <div class="box">
-                <span class="arrow"></span>
+                <span class="boxArrow"></span>
+                <div class="boxControll">
+                  <span class="uiButtonGroup"></span>
+                </div>
                 <div class="infoBox">
-                  <header class="infoBoxHead">
+                  <header class="boxHead">
                     <h1>TRESVIBES</h1>
                   </header>
                   <div class="infoBoxBody">
@@ -261,7 +270,7 @@
                       <img src="/media/reports/190039_475441539140659_1420809382_n.jpg" width="220px" height="220px" alt="" />
                     </div>
                   </div><!-- .photoRow -->
-                  <footer>
+                  <footer class="boxFoot">
                     <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
                     <p class="date">at <span>2012/08/09 hh:mm</span></p>
                   </footer>
@@ -272,7 +281,7 @@
                       <img src="/media/reports/603442_475442295807250_1753067851_n.jpg" width="660px" height="440px" alt="" />
                     </div>
                   </div><!-- .photoRow -->
-                  <footer>
+                  <footer class="boxFoot">
                     <a class="avatar" href=""><img src="https://graph.facebook.com/tokuda109/picture" width="24px" height="24px" /></a>
                     <p class="date">at <span>2012/08/09 hh:mm</span></p>
                   </footer>
