@@ -26,24 +26,43 @@
     </aside>
     <div class="content">
       <header class="contentHead">
-        <h1><?=__('Featured Reports')?></h1>
+        <h1>新着のレポート</h1>
       </header>
       <div class="contentBody">
-<?php if($reports): ?>
-<?php foreach($reports as $report): ?>
-        <article class="reportBoard">
+        <article id="" class="reportBoard">
           <div class="coverImage">
-            <a href="/reports/<?=$report['Report']['slug']?>" title="" style="background-image: url('/media/reports/001.jpg');"></a>
+            <a class="coverWrap" href="/reports/001" title="WOMB (Official)">
+              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="'WOMB (Official)'のバナー" />
+            </a>
           </div>
           <header class="reportHeadline">
-            <h2 class="reportName"><a href="/reports/<?=$report['Report']['slug']?>"><?=$report['Report']['name']?></a></h2>
+            <span class="icon musicIcon"></span>
+            <ul class="stats">
+              <li>2 Events</li>
+              <li>100 Photos</li>
+            </ul>
+            <h2 class="reportName"><a href="/reports/001" title="WOMB (Official)">WOMB (Official)</a></h2>
           </header>
         </article><!-- .reportBoard -->
-<?php endforeach; ?>
-<?php else: ?>
+        <article id="" class="reportBoard">
+          <div class="coverImage">
+            <a class="coverWrap" href="/reports/001" title="WOMB (Official)">
+              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="'WOMB (Official)'のバナー" />
+            </a>
+          </div>
+          <header class="reportHeadline">
+            <span class="icon musicIcon"></span>
+            <ul class="stats">
+              <li>2 Events</li>
+              <li>100 Photos</li>
+            </ul>
+            <h2 class="reportName"><a href="/reports/001" title="WOMB (Official)">WOMB (Official)</a></h2>
+          </header>
+        </article><!-- .reportBoard -->
+<!--
         <section class="alert info">
-          <p><?=__('No Reports')?></p>
+          <p>レポートはありません</p>
         </section>
-<?php endif; ?>
+-->
       </div>
     </div>

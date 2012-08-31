@@ -3,7 +3,7 @@
       <dl>
         <dt>管理者用ナビ</dt>
         <dd class="createEvent"><a href="" title="イベントを作成する">イベントを作成する</a></dd>
-        <dd><a href="" title="告知をする">告知をする</a></dd>
+        <dd class="createNav"><a href="" title="レポートを作成する">レポートを作成する</a></dd>
         <dd><a href="" title="レポートを設定する">レポートを設定する</a></dd>
       </dl>
     </nav>
@@ -40,7 +40,7 @@
           </ul>
         </div>
         <footer class="widgetFoot">
-          <p><a href="" title="">全ての人を見る</a></p>
+          <a href="" title="">全ての人を見る</a>
         </footer>
       </section><!-- .wentWidget -->
       <section id="pastEvents" class="widget listWidget">
@@ -64,7 +64,7 @@
     </aside><!-- .sidebar -->
     <div class="content">
       <div class="contentBody">
-        <section class="reportBoard">
+        <section class="reportBoard hasTimeline">
           <div class="coverImage">
             <a class="coverWrap" href="/reports/001" title="">
               <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="" />

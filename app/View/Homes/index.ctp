@@ -1,19 +1,33 @@
     <div class="content">
       <div class="contentBody">
-        <article class="reportBoard">
+        <article id="" class="reportBoard">
           <div class="coverImage">
-            <a href="/reports/001" title="" style="background-image: url('/media/reports/001.jpg');"></a>
+            <a class="coverWrap" href="/reports/001" title="WOMB (Official)">
+              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="'WOMB (Official)'のバナー" />
+            </a>
           </div>
           <header class="reportHeadline">
-            <h2 class="reportName"><a href="/reports/001">Report Name</a></h2>
+            <span class="icon musicIcon"></span>
+            <ul class="stats">
+              <li>2 Events</li>
+              <li>100 Photos</li>
+            </ul>
+            <h2 class="reportName"><a href="/reports/001" title="WOMB (Official)">WOMB (Official)</a></h2>
           </header>
         </article><!-- .reportBoard -->
-        <article class="reportBoard">
+        <article id="" class="reportBoard">
           <div class="coverImage">
-            <a href="/reports/001" title="" style="background-image: url('/media/reports/001.jpg');"></a>
+            <a class="coverWrap" href="/reports/001" title="WOMB (Official)">
+              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="'WOMB (Official)'のバナー" />
+            </a>
           </div>
           <header class="reportHeadline">
-            <h2 class="reportName"><a href="/reports/001">Report Name</a></h2>
+            <span class="icon musicIcon"></span>
+            <ul class="stats">
+              <li>2 Events</li>
+              <li>100 Photos</li>
+            </ul>
+            <h2 class="reportName"><a href="/reports/001" title="WOMB (Official)">WOMB (Official)</a></h2>
           </header>
         </article><!-- .reportBoard -->
       </div>

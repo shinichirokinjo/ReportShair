@@ -75,7 +75,19 @@
 
 }
 .widgetFoot {
-
+  a {
+    text-decoration: none !important;
+    font-size: 12px;
+    color: #222;
+    &:hover {
+      text-decoration: none;
+      color: #222;
+    }
+    &:visited {
+      text-decoration: none;
+      color: #222;
+    }
+  }
 }
 // =======================================================
 // widget style

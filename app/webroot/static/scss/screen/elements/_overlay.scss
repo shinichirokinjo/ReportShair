@@ -8,6 +8,9 @@
   height: 100%;
   background: rgba(0,0,0,.6);
   z-index: 110;
+  &.typeImage {
+    background: rgba(0,0,0,.8);
+  }
 }
 #overlayLoading {
   position: fixed;
@@ -17,8 +20,20 @@
   height: 30px;
   top: 50%;
   left: 50%;
-  background: #000; // background: url('../img/overlay/loading.gif') no-repeat center;
+  background: url('../img/overlay/loading.gif') no-repeat center;
   z-index: 111;
+}
+#overlayContent {
+  position: fixed;
+  margin-left: -480px;
+  top: 90px;
+  left: 50%;
+  width: 960px;
+  height: 75%;
+  background: #FFF;
+  @include box-shadow(0 3px 10px rgba(0,0,0,.5));
+  @include border-radius(5px);
+  z-index: 112;
 }
 #overlayPopup {
   position: fixed;
