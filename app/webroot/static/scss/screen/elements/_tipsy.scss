@@ -1,0 +1,35 @@
+.tipsy {
+  position: absolute;
+  padding: 5px;
+  font-size: 10px;
+  z-index: 20;
+}
+.tipsy-inner {
+  padding: 5px 8px 4px 8px;
+  max-width: 200px;
+  background-color: #000;
+  @include border-radius(3px);
+  text-align: center;
+  color: #FFF;
+}
+.tipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 5px dashed #000;
+}
+.tipsy-arrow-n {
+  border-bottom-color: #000;
+}
+.tipsy-n {
+  .tipsy-arrow {
+    margin-left: -5px;
+    top: 0px;
+    left: 50%;
+    border-bottom-style: solid;
+    border-top: none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+}

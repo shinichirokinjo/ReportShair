@@ -71,58 +71,66 @@ var RS = RS || {};
 
   RS.overlay = function() {
     // プライベートメソッド、メンバ
-    var container = null,
-        content = null,
-        bg = null,
-        popup = null,
-        loading = null,
-        closeBtn = null;
+    var overlay,
+        content,
+        bg,
+        popup,
+        loading,
+        closeBtn,
+        iframe,
+        iframeOptions = {};
 
     var close = function() {
       destroy();
       return false;
     }
     var create = function(type) {
-      container = $('<div>').attr('id', 'overlay');
+      overlay = $('<div>').attr('id', 'overlay');
 
       attachResizeHandler();
       attachKeydownHandler();
 
-      bg = $('<div>').attr('id', 'overlayBG').appendTo(container);
-      bg.click(function() {
+      bg = $('<div>').attr('id', 'overlayBG').appendTo(overlay);
+      bg.click(function(e) {
         close();
-        return false;
+        e.preventDefault();
       });
 
-      popup = $('<div>').attr('id', 'overlayPopup').hide().appendTo(container);
-      content = $('<div>').addClass('overlayContent').appendTo(popup);
-
       if (type == 'image' || type == 'ajax') {
-        loading = createLoading().appendTo(container);
+        loading = createLoading().appendTo(overlay);
       }
-      closeBtn = createCloseButton().appendTo(popup);
 
-      container.appendTo(document.body);
+      if (type == 'ajax') {
+        console.log("ajax");
+        content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
+        iframe = createIframe().appendTo(content);
+      } else {
+        console.log("other");
+        content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
+      }
+
+      closeBtn = createCloseButton().appendTo(content);
+
+      overlay.appendTo(document.body);
 
       return true;
 
       function createLoading() {
         return $('<div id="overlayLoading"></div>');
       }
+      function createIframe() {
+        return $('<iframe>').attr('frameborder', '0');
+      }
       function createCloseButton() {
-        return $('<a href="#"></a>').addClass('overlayClose').click(function() {
+        return $('<a href=""></a>').addClass('overlayClose').click(function(e) {
           close();
-          return false;
+          e.preventDefault();
         });
       }
     }
     var add = function(blob) {
-      // console.log(blob);
       content.show();
-      popup.show();
-
       blob.appendTo(content);
-
       resize();
     }
     var destroy = function() {
@@ -143,12 +151,11 @@ var RS = RS || {};
     }
     var hideLoading = function() {
       loading.hide();
-      loading = false;
+      loading.remove();
     }
     var resize = function() {
-      var overlayHeight = $("#overlayPopup").height();
-
-      $(".overlayBody").css({height: overlayHeight - 90 + "px"});
+      var overlayBodyHeight = $("#overlayBody").height();
+      $("#overlayBody").css({height: overlayBodyHeight - 90 + "px"});
     }
     var attachResizeHandler = function() {
       function resizeHandler(event) {
@@ -167,10 +174,9 @@ var RS = RS || {};
 
     // パブリックメソッド
     return {
-      open: function(blob, type, options) {
-        var overlay = this;
-
+      open: function(blob, type) {
         if ( ! create(type)) {
+          close();
           return;
         }
 
@@ -178,19 +184,22 @@ var RS = RS || {};
           //
         } else if(type == 'ajax') {
           // Ajaxでコンテンツを取得して表示
-          $('<div>').load(blob, options, function(response, status, xhr) {
-            if (xhr.status == 401) {
-              close();
-            } else {
+          $.ajax({
+            type: "GET",
+            url: blob,
+            success: function(data, dataType) {
               hideLoading();
               add($(this));
+            },
+            error: function() {
+              close();
             }
           });
         } else if(type == 'div') {
           // ドキュメント内のコンテンツを取得して表示
           add($(blob));
         } else {
-          add(blob);
+          close();
         }
       }
     }
@@ -202,4 +211,5 @@ $(function() {
     RS.overlay.open('/reports/dialog/report', 'ajax');
     e.preventDefault();
   });
+  $(".tips").tipsy({html: true});
 });
