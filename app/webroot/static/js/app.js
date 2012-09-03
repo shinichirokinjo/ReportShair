@@ -100,7 +100,14 @@ var RS = RS || {};
         loading = createLoading().appendTo(overlay);
       }
 
-      content = $('<div>').attr('id', 'overlayContent').hide().appendTo(overlay);
+      if (type == 'ajax') {
+        console.log("ajax");
+        content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
+        iframe = createIframe().appendTo(content);
+      } else {
+        console.log("other");
+        content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
+      }
 
       closeBtn = createCloseButton().appendTo(content);
 
@@ -110,6 +117,9 @@ var RS = RS || {};
 
       function createLoading() {
         return $('<div id="overlayLoading"></div>');
+      }
+      function createIframe() {
+        return $('<iframe>').attr('frameborder', '0');
       }
       function createCloseButton() {
         return $('<a href=""></a>').addClass('overlayClose').click(function(e) {
@@ -144,9 +154,8 @@ var RS = RS || {};
       loading.remove();
     }
     var resize = function() {
-      var overlayContentHeight = $("#overlayContent").height();
-
-      $(".overlayBody").css({height: overlayContentHeight - 90 + "px"});
+      var overlayBodyHeight = $("#overlayBody").height();
+      $("#overlayBody").css({height: overlayBodyHeight - 90 + "px"});
     }
     var attachResizeHandler = function() {
       function resizeHandler(event) {
@@ -161,9 +170,6 @@ var RS = RS || {};
         }
       }
       $(document).bind('keydown.overlay', $.proxy(keydownHandler, this));
-    }
-    var generateIframe = function() {
-      return $('<iframe>').attr('frameborder', '0');
     }
 
     // パブリックメソッド
@@ -205,4 +211,5 @@ $(function() {
     RS.overlay.open('/reports/dialog/report', 'ajax');
     e.preventDefault();
   });
+  $(".tips").tipsy({html: true});
 });

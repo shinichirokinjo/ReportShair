@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="/static/css/screen.css" media="screen" />
 <!-- SCRIPT -->
 <script src="/static/js/jquery/jquery.min.js"></script>
+<script src="/static/js/jquery/jquery.tipsy.js"></script>
 <script src="/static/js/app.js"></script>
 </head>
 

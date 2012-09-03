@@ -19,7 +19,7 @@
         </ul>
       </li>
 <? else: ?>
-      <li class="nav"><a href="/fblogin" title="<?= __('Login with Facebook'); ?>">ログイン</a></li>
+      <li class="nav"><a class="tips" href="/fblogin" title="Facebookアカウントでログインする。">ログイン</a></li>
 <? endif; ?>
     </ul><!-- .subNav -->
   </nav><!-- .navs -->
