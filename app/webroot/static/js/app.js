@@ -77,6 +77,7 @@ var RS = RS || {};
         popup,
         loading,
         closeBtn,
+        blob,
         iframe,
         iframeOptions = {};
 
@@ -101,11 +102,11 @@ var RS = RS || {};
       }
 
       if (type == 'ajax') {
-        console.log("ajax");
+        // console.log("ajax");
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
         iframe = createIframe().appendTo(content);
       } else {
-        console.log("other");
+        // console.log("other");
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
       }
 
@@ -119,7 +120,11 @@ var RS = RS || {};
         return $('<div id="overlayLoading"></div>');
       }
       function createIframe() {
-        return $('<iframe>').attr('frameborder', '0');
+        return $('<iframe>').attr({
+          'id': 'eventIframe',
+          'src': '/reports/dialog/report',
+          'frameborder': '0'
+        });
       }
       function createCloseButton() {
         return $('<a href=""></a>').addClass('overlayClose').click(function(e) {
@@ -139,6 +144,7 @@ var RS = RS || {};
       popup = null;
       loading = null;
       closeBtn = null;
+      blob = null;
 
       $(document).unbind('.overlay');
 
@@ -175,26 +181,30 @@ var RS = RS || {};
     // パブリックメソッド
     return {
       open: function(blob, type) {
+        if (type == 'ajax') {
+          blob = blob;
+        }
         if ( ! create(type)) {
           close();
           return;
         }
 
         if (type == 'image') {
-          //
-        } else if(type == 'ajax') {
-          // Ajaxでコンテンツを取得して表示
-          $.ajax({
-            type: "GET",
-            url: blob,
-            success: function(data, dataType) {
-              hideLoading();
-              add($(this));
-            },
-            error: function() {
-              close();
-            }
+          var image = document.createElement('img');
+          var $image = $(image);
+          $image.one('load', function() {
+            $(this).data({
+              unscaledWidth: parseInt(image.width),
+              unscaledHeight: parseInt(image.height)
+            });
+
+            var $container = $('<div>').addClass('image').append($image);
           });
+          hideLoading();
+          add($container);
+        } else if(type == 'ajax') {
+          //
+          add($('#eventIframe'));
         } else if(type == 'div') {
           // ドキュメント内のコンテンツを取得して表示
           add($(blob));
