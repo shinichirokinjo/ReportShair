@@ -2,18 +2,37 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
-  padding: 20px 0;
+  padding: 20px 0 40px;
   width: 100%;
   height: 500px;
-  background-color: #DDD;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#000000));
-  background-image: -webkit-linear-gradient(top, #222222, #000000);
-  background-image:    -moz-linear-gradient(top, #222222, #000000);
-  background-image:     -ms-linear-gradient(top, #222222, #000000);
-  background-image:      -o-linear-gradient(top, #222222, #000000);
-  background-image:         linear-gradient(top, #222222, #000000);
+  background-color: #333333;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#000000));
+  background-image: -webkit-linear-gradient(top, #333333, #000000);
+  background-image:    -moz-linear-gradient(top, #333333, #000000);
+  background-image:     -ms-linear-gradient(top, #333333, #000000);
+  background-image:      -o-linear-gradient(top, #333333, #000000);
+  background-image:         linear-gradient(top, #333333, #000000);
   background-repeat: repeat-x;
-  @include box-shadow(inset 0 1px 10px rgba(0,0,0,.7));
+  @include box-shadow(inset 0 5px 10px rgba(0,0,0,0.7));
+  .controller {
+    position: absolute;
+    margin: 0;
+    right: 0;
+    bottom: -32px;
+    a {
+      display: inline-block;
+      margin-left: 5px;
+      width: 10px;
+      height: 10px;
+      background-color: #CCC;
+      @include border-radius(50%);
+      @include transition(background-color 0.8s ease-in);
+      cursor: pointer;
+      &.selected {
+        background-color: #076BD2;
+      }
+    }
+  }
 }
 .message {
   position: absolute;
@@ -55,6 +74,7 @@
     background-position: center;
     background-repeat: no-repeat;
     @include background-size(cover);
+    @include box-shadow(0 -1px 7px rgba(0,0,0,0.7));
   }
   .panelBox {
     position: absolute;
@@ -70,7 +90,7 @@
       font-weight: bold;
     }
     p {
-      
+
     }
   }
 }
