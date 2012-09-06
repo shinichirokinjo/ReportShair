@@ -1,3 +1,9 @@
+<html>
+<head>
+
+</head>
+
+<body>
 <header class="overlayHead">
   <h2><?=$headline?></h2>
 </header>
@@ -35,3 +41,5 @@
   </footer>
 </form>
 <script src="/static/js/jquery/jquery.min.js"></script>
+</body>
+</html>

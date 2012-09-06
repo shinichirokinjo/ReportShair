@@ -550,8 +550,8 @@
 .scrollToTopButton {
   position: fixed;
   margin-left: 1130px;
-  padding: 7px;
-  bottom: -3px;
+  padding: 7px 10px 18px;
+  bottom: -10px;
   background-color: #F1F1F1;
   border-top: solid 1px #CCC;
   border-left: solid 1px #CCC;
@@ -564,12 +564,19 @@
           border-top-right-radius: 3px;
   text-shadow: 0 1px 0 #FFF;
   font-size: 11px;
-  @include transition(bottom 250ms ease-in-out);
   z-index: 4;
   cursor: pointer;
   &.offScreen {
     bottom: -100px;
     -webkit-transition-duration: 250ms;
        -moz-transition-duration: 250ms;
+  }
+  &:hover {
+    bottom: -5px;
+    background-color: #E1E1E1;
+    -webkit-transition: all 0.2s ease-in-out;
+       -moz-transition: all 0.2s ease-in-out;
+         -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
   }
 }

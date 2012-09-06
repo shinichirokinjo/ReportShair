@@ -3,22 +3,29 @@ var RS = RS || {};
 (function($, RS) {
   RS.carousel = function() {
     // プライベートメソッド、メンバ
-    var index  = 0,
-        length = 0,
-        items  = null,
-        timer  = null;
+    var index = 0,
+        itemLength = 0,
+        controllerArea = null,
+        controls = null,
+        items = null,
+        timer = null;
 
     var go = function(step) {
-      var absoluteIndex = (index + step) % length;
+      var absoluteIndex = (index + step) % itemLength;
       update(absoluteIndex);
     }
     var play = function() {
+      // ローテーションを開始する
       if ( ! timer) {
         timer = setInterval($.proxy(next, this), 7000);
       }
     }
     var pause = function() {
-      // 止めることはないので空で一応メソッド定義だけしておく
+      // ローテーションを止める
+      if (timer) {
+        clearInterval(timer);
+      }
+      timer = null;
     }
     var previous = function() {
       go(-1);
@@ -31,8 +38,10 @@ var RS = RS || {};
 
       if (oldIndex == newIndex) {
         items.eq(oldIndex).show();
+        controls.eq(oldIndex).addClass('selected');
       } else {
         updateItems(items.eq(oldIndex), items.eq(newIndex));
+        updateControls(controls.eq(oldIndex), controls.eq(newIndex));
       }
 
       index = newIndex;
@@ -54,14 +63,50 @@ var RS = RS || {};
       oldItem.fadeOut(1000);
       newItem.fadeIn(1000);
     }
+    var createController = function() {
+      var controller = $('<div>').addClass('controller');
+
+      for (var i = 0; i < itemLength; i++) {
+        console.log("loop");
+        var control = $('<a>');
+
+        control.data('index', i).click($.proxy(function(e) {
+          pause();
+
+          var newIndex = parseInt($(e.target).data('index'));
+          update(newIndex);
+        }, this));
+
+        control.appendTo(controller);
+      }
+
+      return controller;
+    }
+    var updateControls = function(oldControl, newControl) {
+      function animate(control, add) {
+        if (add) {
+          control.addClass('selected');
+        } else {
+          control.removeClass('selected');
+        }
+      }
+
+      controls.stop(true, true);
+      animate(oldControl, false);
+      animate(newControl, true);
+    }
 
     // パブリックメソッド
     return {
       initialize: function() {
         var carousel = $('.carousel');
 
-        items  = carousel.children().hide();
-        length = carousel.children().length;
+        items = carousel.children().hide();
+        itemLength = carousel.children().length;
+
+        // コントローラーを作成してカルーセルボックスに追加する
+        controllerArea = createController().appendTo(carousel);
+        controls = controllerArea.children();
 
         go(0);
         play();
@@ -77,6 +122,7 @@ var RS = RS || {};
         popup,
         loading,
         closeBtn,
+        blobData,
         iframe,
         iframeOptions = {};
 
@@ -101,11 +147,10 @@ var RS = RS || {};
       }
 
       if (type == 'ajax') {
-        console.log("ajax");
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
-        iframe = createIframe().appendTo(content);
+        iframe = createIframe(blobData).appendTo(content);
       } else {
-        console.log("other");
+        // console.log("other");
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
       }
 
@@ -118,8 +163,12 @@ var RS = RS || {};
       function createLoading() {
         return $('<div id="overlayLoading"></div>');
       }
-      function createIframe() {
-        return $('<iframe>').attr('frameborder', '0');
+      function createIframe(blob) {
+        return $('<iframe>').attr({
+          'id': 'eventIframe',
+          'src': blob,
+          'frameborder': '0'
+        });
       }
       function createCloseButton() {
         return $('<a href=""></a>').addClass('overlayClose').click(function(e) {
@@ -139,6 +188,7 @@ var RS = RS || {};
       popup = null;
       loading = null;
       closeBtn = null;
+      blob = null;
 
       $(document).unbind('.overlay');
 
@@ -154,6 +204,11 @@ var RS = RS || {};
       loading.remove();
     }
     var resize = function() {
+      var iframe = $('#eventIframe');
+      if (iframe) {
+        // iframe.css({});
+      }
+
       var overlayBodyHeight = $("#overlayBody").height();
       $("#overlayBody").css({height: overlayBodyHeight - 90 + "px"});
     }
@@ -175,26 +230,30 @@ var RS = RS || {};
     // パブリックメソッド
     return {
       open: function(blob, type) {
+        if (type == 'ajax') {
+          blobData = blob;
+        }
         if ( ! create(type)) {
           close();
           return;
         }
 
         if (type == 'image') {
-          //
-        } else if(type == 'ajax') {
-          // Ajaxでコンテンツを取得して表示
-          $.ajax({
-            type: "GET",
-            url: blob,
-            success: function(data, dataType) {
-              hideLoading();
-              add($(this));
-            },
-            error: function() {
-              close();
-            }
+          var image = document.createElement('img');
+          var $image = $(image);
+          $image.one('load', function() {
+            $(this).data({
+              unscaledWidth: parseInt(image.width),
+              unscaledHeight: parseInt(image.height)
+            });
+
+            var $container = $('<div>').addClass('image').append($image);
           });
+          hideLoading();
+          add($container);
+        } else if(type == 'ajax') {
+          //
+          add($('#eventIframe'));
         } else if(type == 'div') {
           // ドキュメント内のコンテンツを取得して表示
           add($(blob));

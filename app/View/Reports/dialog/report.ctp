@@ -1,3 +1,9 @@
+<html>
+<head>
+
+</head>
+
+<body>
 <header class="overlayHead">
   <h2><?=$headline?></h2>
 </header>
@@ -32,8 +38,10 @@
 <script type="text/javascript">
 $(function() {
   $(".fbpageList li").click(function() {
-  	console.log("Click");
+    console.log("Click");
     return false;
   });
 });
 </script>
+</body>
+</html>
