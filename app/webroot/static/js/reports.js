@@ -8,10 +8,6 @@
       init: function() {
         unload();
 
-        $(".toolbar dd a").each(function() {
-          // console.log(this);
-        });
-
         $(".createEvent a").on('click', function(e) {
           e.preventDefault();
           RS.overlay.open('/reports/dialog/event', 'ajax');

@@ -59,32 +59,24 @@ class ReportsController extends AppController {
 	 * dialog_fbpage()を非同期で取得しに行く。
 	 */
 	public function dialog_report() {
-		$this->layout = 'ajax';
+		$this->layout = 'dialog';
+		$this->set('title', 'ReportShair');
+		$this->set('headline', 'Create Report');
 
-		if ( ! $this->request->is('ajax')) {
-			die();
-		} else {
-			$this->set('headline', 'Create Report');
-
-			$this->render('dialog/report');
-		}
+		$this->render('dialog/report');
 	}
 
 	public function dialog_event() {
-		$this->layout = 'ajax';
+		$this->layout = 'dialog';
+		$this->set('title', 'ReportShair');
+		$this->set('headline', 'Create Event');
 
-		if ( ! $this->request->is('ajax')) {
-			die();
-		} else {
-			$this->set('headline', 'Create Event');
-
-			$this->render('dialog/event');
-		}
+		$this->render('dialog/event');
 	}
 
 	/**
 	 * FBページの一覧を全て取得する。
-	 * 
+	 *
 	 * アプリケーションも入ってくるので、一回でページだけを全て取得できるか分からないので再帰処理をして
 	 * FBページのみ一覧にして返す。
 	 */

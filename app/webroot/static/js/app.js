@@ -122,7 +122,7 @@ var RS = RS || {};
         popup,
         loading,
         closeBtn,
-        blob,
+        blobData,
         iframe,
         iframeOptions = {};
 
@@ -147,9 +147,8 @@ var RS = RS || {};
       }
 
       if (type == 'ajax') {
-        // console.log("ajax");
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
-        iframe = createIframe().appendTo(content);
+        iframe = createIframe(blobData).appendTo(content);
       } else {
         // console.log("other");
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
@@ -164,10 +163,10 @@ var RS = RS || {};
       function createLoading() {
         return $('<div id="overlayLoading"></div>');
       }
-      function createIframe() {
+      function createIframe(blob) {
         return $('<iframe>').attr({
           'id': 'eventIframe',
-          'src': '/reports/dialog/report',
+          'src': blob,
           'frameborder': '0'
         });
       }
@@ -205,6 +204,11 @@ var RS = RS || {};
       loading.remove();
     }
     var resize = function() {
+      var iframe = $('#eventIframe');
+      if (iframe) {
+        // iframe.css({});
+      }
+
       var overlayBodyHeight = $("#overlayBody").height();
       $("#overlayBody").css({height: overlayBodyHeight - 90 + "px"});
     }
@@ -227,7 +231,7 @@ var RS = RS || {};
     return {
       open: function(blob, type) {
         if (type == 'ajax') {
-          blob = blob;
+          blobData = blob;
         }
         if ( ! create(type)) {
           close();
