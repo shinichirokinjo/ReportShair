@@ -3,7 +3,7 @@
         <article id="" class="reportBoard">
           <div class="coverImage">
             <a class="coverWrap" href="/reports/001" title="WOMB (Official)">
-              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="'WOMB (Official)'のバナー" />
+              <img src="/media/reports/418625_470710186280461_1321790445_n.jpg" alt="'WOMB (Official)'のバナー" /e
             </a>
           </div>
           <header class="reportHeadline">

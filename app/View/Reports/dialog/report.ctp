@@ -7,6 +7,11 @@
 <header class="overlayHead">
   <h2><?=$headline?></h2>
 </header>
+<ul>
+  <li><a href="">Facebookページから作成</a></li>
+  <li><a href="">自力で作成</a></li>
+</ul>
+<!--
 <div class="overlayBody">
   <div class="">
     <p>Facebookページを選択してレポートを作成して下さい。</p>
@@ -43,5 +48,6 @@ $(function() {
   });
 });
 </script>
+-->
 </body>
 </html>
