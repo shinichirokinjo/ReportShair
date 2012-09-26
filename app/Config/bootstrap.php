@@ -209,5 +209,3 @@ if (ENV_MODE == 'pro') {
 
 /*** アプリ環境別設定ファイル読み込み ***/
 require 'apps' . DS . ENV_MODE . '.php';
-
-

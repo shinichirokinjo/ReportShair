@@ -69,14 +69,6 @@
             </div><!-- .field -->
             <div class="field">
               <div class="fieldHead">
-                <label for="id_profile"><?=__('Profile')?>:</label>
-              </div>
-              <div class="fieldBody">
-                <textarea id="id_profile" name="data[User][profile]"><?=$user['User']['profile']?></textarea>
-              </div>
-            </div><!-- .field -->
-            <div class="field">
-              <div class="fieldHead">
                 <label for="id_language"><?=__('Language')?>:</label>
               </div>
               <div class="fieldBody">
