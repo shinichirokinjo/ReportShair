@@ -238,26 +238,18 @@ var RS = RS || {};
           return;
         }
 
-        if (type == 'image') {
-          var image = document.createElement('img');
-          var $image = $(image);
-          $image.one('load', function() {
-            $(this).data({
-              unscaledWidth: parseInt(image.width),
-              unscaledHeight: parseInt(image.height)
-            });
-
-            var $container = $('<div>').addClass('image').append($image);
-          });
-          hideLoading();
-          add($container);
-        } else if(type == 'ajax') {
-          //
-          add($('#eventIframe'));
+        if (type == 'ajax') {
+          
         } else if(type == 'div') {
-          // ドキュメント内のコンテンツを取得して表示
+          // ドキュメント内のコンテンツを取得して表示する
           add($(blob));
+        } else if(type == 'iframe') {
+          // iframeをダイアログ内に表示する
+          add($('#eventIframe'));
+        } else if(type == 'image') {
+          // 画像のスライドショーを表示する
         } else {
+          // typeが判定できない場合は処理せずにダイアログを閉じる
           close();
         }
       }
