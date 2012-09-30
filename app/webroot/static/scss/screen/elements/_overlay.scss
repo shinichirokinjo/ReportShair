@@ -68,12 +68,8 @@
     height: 40px;
     background-color: #F1F1F1;
     border-top: solid 1px #DDD;
-    -webkit-border-bottom-left-radius: 5px;
-       -moz-border-bottom-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-       -moz-border-bottom-right-radius: 5px;
-            border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 }
 .fbpageList {

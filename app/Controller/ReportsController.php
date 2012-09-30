@@ -58,12 +58,28 @@ class ReportsController extends AppController {
 	 * Ajaxで呼び出されるがコンテンツはローディングを表示させ、
 	 * dialog_fbpage()を非同期で取得しに行く。
 	 */
-	public function dialog_report() {
+	public function dialog_report_select() {
 		$this->layout = 'dialog';
 		$this->set('title', 'ReportShair');
 		$this->set('headline', 'Create Report');
 
-		$this->render('dialog/report');
+		$this->render('dialog/report/select');
+	}
+
+	public function dialog_report_fbpage() {
+		$this->layout = 'dialog';
+		$this->set('title', 'ReportShair');
+		$this->set('headline', 'Create Report');
+
+		$this->render('dialog/report/fbpage');
+	}
+
+	public function dialog_report_create() {
+		$this->layout = 'dialog';
+		$this->set('title', 'ReportShair');
+		$this->set('headline', 'Create Report');
+
+		$this->render('dialog/report/create');
 	}
 
 	public function dialog_event() {

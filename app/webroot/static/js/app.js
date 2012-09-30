@@ -142,11 +142,11 @@ var RS = RS || {};
         e.preventDefault();
       });
 
-      if (type == 'image' || type == 'ajax') {
+      if (type == 'image' || type == 'ajax' || type == 'iframe') {
         loading = createLoading().appendTo(overlay);
       }
 
-      if (type == 'ajax') {
+      if (type == 'iframe') {
         content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
         iframe = createIframe(blobData).appendTo(content);
       } else {
@@ -229,23 +229,30 @@ var RS = RS || {};
 
     // パブリックメソッド
     return {
-      open: function(blob, type) {
-        if (type == 'ajax') {
-          blobData = blob;
-        }
+      /*!
+       * ダイアログをオープンする
+       *
+       * @param  blob
+       * @param  type
+       * @param  options
+       */
+      open: function(blob, type, options) {
+        blobData = blob;
+
+        // ダイアログのコンテナを作成できてtrueが返ってこなかったらダイアログを閉じる
         if ( ! create(type)) {
           close();
           return;
         }
 
         if (type == 'ajax') {
-          
+          add();
         } else if(type == 'div') {
           // ドキュメント内のコンテンツを取得して表示する
           add($(blob));
         } else if(type == 'iframe') {
           // iframeをダイアログ内に表示する
-          add($('#eventIframe'));
+          add(iframe);
         } else if(type == 'image') {
           // 画像のスライドショーを表示する
         } else {
@@ -259,7 +266,7 @@ var RS = RS || {};
 
 $(function() {
   $(".createNav a").on('click', function(e) {
-    RS.overlay.open('/reports/dialog/report', 'ajax');
+    RS.overlay.open('/reports/dialog/report/select', 'iframe');
     e.preventDefault();
   });
   $(".tips").tipsy({html: true});
