@@ -23,8 +23,9 @@
   background: url('../img/overlay/loading.gif') no-repeat center;
   z-index: 111;
 }
-#overlayBody {
+#overlayContainer {
   position: fixed;
+  overflow: hidden;
   margin-left: -480px;
   top: 90px;
   left: 50%;
@@ -34,6 +35,37 @@
   @include box-shadow(0 3px 10px rgba(0,0,0,.5));
   @include border-radius(5px);
   z-index: 112;
+}
+#overlayHead {
+  height: 36px;
+  background-color: #F9F9F9;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F9F9F9), to(#F1F1F1));
+  background-image: -webkit-linear-gradient(top, #F9F9F9, #F1F1F1);
+  background-image:    -moz-linear-gradient(top, #F9F9F9, #F1F1F1);
+  background-image:      -o-linear-gradient(top, #F9F9F9, #F1F1F1);
+  background-image:         linear-gradient(to top, #F9F9F9, #F1F1F1);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff9f9f9', endColorstr='#fff1f1f1', GradientType=0);
+  border-bottom: solid 1px #CCC;
+  h1, h2 {
+    padding-left: 0.5em;
+    line-height: 36px;
+    text-shadow: 0 -1px 0 rgba(255,255,255,.8);
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+#overlayContent {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#overlayFoot {
+  overflow: hidden;
+  padding: 7px;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: solid 1px #DDD;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 #overlayPopup {
   position: fixed;
@@ -101,11 +133,50 @@
   cursor: pointer;
   z-index: 114;
 }
+.captionForCreateReport {
+  padding: 50px;
+  border-bottom: solid 1px #EEE;
+  p {
+    text-align: center;
+  }
+}
+.selectButtonForCreateReport {
+  width: 100%;
+  height: 100%;
+  background-color: #F1F1F1;
+  li {
+    float: left;
+    display: inline-block;
+    width: 479px;
+    &:first-child {
+      border-right: solid 1px #FFF;
+    }
+    &:last-child {
+      border-left: solid 1px #E1E1E1;
+    }
+  }
+}
+.coverImageField {
+  position: relative;
+  display: block;
+  width: 960px;
+  height: 355px;
+  background-color: #EEE;
+  .coverWrapField {
+    position: absolute;
+    top: 20px;
+    left: 54px;
+    width: 851px;
+    height: 315px;
+    background-color: #AAA;
+  }
+}
 body.dialog {
   background-color: #FFF;
   background-image: none;
 }
-#eventIframe {
+#dialogIframe {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   @include border-radius(5px);

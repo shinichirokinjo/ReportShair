@@ -143,7 +143,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
-CakePlugin::load('DebugKit');
+// CakePlugin::load('DebugKit');
 CakePlugin::load('Facebook');
 CakePlugin::load('Migrations');
 
