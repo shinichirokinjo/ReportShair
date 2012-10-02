@@ -3,8 +3,6 @@
       <dl>
         <dt>管理者用ナビ</dt>
         <dd class="createEvent"><a href="" title="イベントを作成する">イベントを作成する</a></dd>
-        <dd class="createNav"><a href="" title="レポートを作成する">レポートを作成する</a></dd>
-        <dd><a href="" title="レポートを設定する">レポートを設定する</a></dd>
       </dl>
     </nav>
     <aside class="sidebar">
