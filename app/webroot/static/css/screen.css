@@ -639,6 +639,11 @@ button,
   background-image: linear-gradient(to top, #f9f9f9, #f1f1f1);
   filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff9f9f9', endColorstr='#fff1f1f1', GradientType=0);
   border-bottom: solid 1px #CCC; }
+  #overlayHead ul {
+    margin: 0;
+    list-style-type: none; }
+    #overlayHead ul li {
+      display: inline-block; }
   #overlayHead h1, #overlayHead h2 {
     padding-left: 0.5em;
     line-height: 36px;
@@ -726,22 +731,52 @@ button,
 
 .captionForCreateReport {
   padding: 50px;
+  height: 100px;
+  background-color: #111;
   border-bottom: solid 1px #EEE; }
   .captionForCreateReport p {
-    text-align: center; }
+    text-align: center;
+    text-shadow: 0 0 24px #549EF9;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFF; }
 
 .selectButtonForCreateReport {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
   width: 100%;
-  height: 100%;
-  background-color: #F1F1F1; }
+  *zoom: 1; }
+  .selectButtonForCreateReport:before, .selectButtonForCreateReport:after {
+    display: table;
+    content: ""; }
+  .selectButtonForCreateReport:after {
+    clear: both; }
   .selectButtonForCreateReport li {
     float: left;
     display: inline-block;
-    width: 479px; }
+    width: 479px;
+    background-color: #F1F1F1;
+    text-align: center; }
+    .selectButtonForCreateReport li a {
+      display: block; }
+      .selectButtonForCreateReport li a:hover {
+        background-color: #DDDDDD; }
     .selectButtonForCreateReport li:first-child {
       border-right: solid 1px #FFF; }
     .selectButtonForCreateReport li:last-child {
       border-left: solid 1px #E1E1E1; }
+
+.fbpagesList {
+  margin: 0;
+  padding: 0; }
+  .fbpagesList li {
+    list-style-type: none;
+    border-bottom: solid 1px #EEE; }
+    .fbpagesList li a {
+      display: block;
+      padding: .7em 1em;
+      line-height: 16px; }
 
 .coverImageField {
   position: relative;

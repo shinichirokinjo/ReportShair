@@ -1,5 +1,8 @@
 <header id="overlayHead">
-  <h1>レポートの新規作成</h1>
+  <ul>
+    <li><h1><a href="/reports/dialog/report/select">ステップ1</a></h1></li>
+    <li>レポートの新規作成</li>
+  </ul>
 </header>
 <form action="" method="">
 <div id="overlayContent">
@@ -11,7 +14,6 @@
         </div>
       </div>
     </div>
-    <p class="runtime"></p>
     <div class="field">
       <div class="fieldHead">レポートのアイコン</div>
       <div class="fieldBody">
@@ -59,7 +61,7 @@ $(function() {
     uploader = new plupload.Uploader(pluploadConfig);
 
     uploader.bind('Init', function(up, params) {
-      $('.runtime').html("Current runtime: " + params.runtime);
+      //
     });
 
     uploader.init();
