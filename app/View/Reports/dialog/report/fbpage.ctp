@@ -5,7 +5,19 @@
   </ul>
 </header>
 <div id="overlayContent">
-  <ul class="fbpagesList">
-    <li><a href="" title="">Facebook名</a></li>
-  </ul>
+  <form id="fbpagesForm" action="" method="POST">
+    <ul class="fbpagesList">
+      <li><a href="" title="">Facebook名</a></li>
+      <li><a href="" title="">Facebook名</a></li>
+      <li><a href="" title="">Facebook名</a></li>
+    </ul>
+  </form>
 </div>
+<script type="text/javascript">
+$(function() {
+  $(".fbpagesList li a").click(function() {
+    $("#fbpagesForm").submit();
+    return false;
+  })
+});
+</script>
