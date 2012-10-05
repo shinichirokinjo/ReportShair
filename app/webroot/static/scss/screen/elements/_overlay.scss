@@ -35,6 +35,12 @@
   @include box-shadow(0 3px 10px rgba(0,0,0,.5));
   @include border-radius(5px);
   z-index: 112;
+  .selectDialog & {
+    margin-left: -240px;
+    top: 180px;
+    width: 480px;
+    height: 320px;
+  }
 }
 #overlayHead {
   height: 36px;
@@ -141,14 +147,14 @@
   z-index: 114;
 }
 .captionForCreateReport {
-  padding: 50px;
+  padding: 10px 16px;
   height: 100px;
   background-color: #111;
   border-bottom: solid 1px #EEE;
   p {
     text-align: center;
     text-shadow: 0 0 24px #549EF9;
-    font-size: 24px;
+    font-size: 15px;
     font-weight: bold;
     color: #FFF;
   }
@@ -158,24 +164,33 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 162px;
   @include clearfix();
   li {
     float: left;
     display: inline-block;
-    width: 479px;
+    width: 239px;
     background-color: #F1F1F1;
     text-align: center;
     a {
       display: block;
+      width: 239px;
+      height: 162px;
       &:hover {
         background-color: #DDDDDD;
       }
     }
-    &:first-child {
+    &.newSelectButton {
       border-right: solid 1px #FFF;
+      a {
+        
+      }
     }
-    &:last-child {
+    &.fbSelectButton {
       border-left: solid 1px #E1E1E1;
+      a {
+        
+      }
     }
   }
 }

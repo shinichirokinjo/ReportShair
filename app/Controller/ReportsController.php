@@ -17,7 +17,8 @@ class ReportsController extends AppController {
 	}
 
 	public function index() {
-		$reports = $this->Report->find('all', array('conditions' => array('Report.status' => 'publish')));
+		// $reports = $this->Report->find('all', array('conditions' => array('Report.status' => 'publish')));
+		$reports = array();
 
 		$this->set('reports', $reports);
 		$this->set('title', __('Latest Reports').' &lsaquo; ReportShair');

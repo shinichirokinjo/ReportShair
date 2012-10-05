@@ -123,7 +123,7 @@ var RS = RS || {};
         loading,
         blobData,
         iframe,
-        iframeOptions = {};
+        dialogOptions = {};
 
     var close = function() {
       destroy();
@@ -132,6 +132,9 @@ var RS = RS || {};
     var create = function(type) {
       // コンテナを作成
       overlay = $('<div>').attr('id', 'overlay');
+      if ('class' in dialogOptions) {
+        overlay.attr('class', dialogOptions['class']);
+      }
 
       // 各種イベントハンドラーを登録
       attachResizeHandler();
@@ -150,7 +153,6 @@ var RS = RS || {};
         loading = createLoading().appendTo(overlay);
       }
 
-      //
       container = $('<div>').attr('id', 'overlayContainer').hide().appendTo(overlay);
 
       if (type == 'iframe') {
@@ -199,6 +201,7 @@ var RS = RS || {};
       popup = null;
       loading = null;
       blobData = null;
+      dialogOptions = {};
 
       $(document).unbind('.overlay');
 
@@ -223,16 +226,14 @@ var RS = RS || {};
     }
     var attachResizeHandler = function() {
       function resizeHandler(event) {
-        // ダイアログをリサイズする
-        resize();
+        resize(); // ダイアログをリサイズする
       }
       $(window).bind('resize.overlay', $.proxy(resizeHandler, this));
     }
     var attachKeydownHandler = function() {
       function keydownHandler(event) {
-        // Escでダイアログを閉じる
         if (event.keyCode == 27) {
-          close();
+          close(); // Escでダイアログを閉じる
         }
       }
       $(document).bind('keydown.overlay', $.proxy(keydownHandler, this));
@@ -250,7 +251,7 @@ var RS = RS || {};
       open: function(blob, type, options) {
         // create()で操作する場合もあるので一度変数に入れておく
         blobData = blob;
-        console.log(blobData);
+        dialogOptions = options;
 
         // ダイアログのコンテナを作成できてtrueが返ってこなかったらダイアログを閉じる
         if ( ! create(type)) {
@@ -271,7 +272,6 @@ var RS = RS || {};
           add($(blobData));
         } else if(type == 'iframe') {
           // iframeをダイアログ内に表示する
-          console.log(iframe);
           add(iframe);
         } else if(type == 'image') {
           // 画像のスライドショーを表示する
@@ -286,7 +286,7 @@ var RS = RS || {};
 
 $(function() {
   $(".createNav a").on('click', function() {
-    RS.overlay.open('/reports/dialog/report/select', 'iframe');
+    RS.overlay.open('/reports/dialog/report/select', 'iframe', {class: 'selectDialog'});
     return false;
   });
   $(".tips").tipsy({html: true});

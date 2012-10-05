@@ -1,5 +1,5 @@
     <aside class="sidebar">
-      <section class="widget">
+      <section class="widget listWidget">
         <div class="widgetBody">
           <ul>
             <li><a href="/users/<?=$user['User']['username']?>"><?=__('View Profile')?></a></li>
@@ -41,30 +41,6 @@
               </div>
               <div class="fieldBody">
                 <input id="id_email" type="email" name="data[User][email]" value="<?=$user['User']['email']?>" />
-              </div>
-            </div><!-- .field -->
-            <div class="field">
-              <div class="fieldHead">
-                <label for="id_facebook_link"><?=__('Facebook Link')?>:</label>
-              </div>
-              <div class="fieldBody">
-                <input id="id_facebook_link" type="text" name="data[User][facebook_link]" value="<?=$user['User']['facebook_link']?>" disabled="disabled" />
-              </div>
-            </div><!-- .field -->
-            <div class="field">
-              <div class="fieldHead">
-                <label for="id_twitter_id"><?=__('Twitter ID')?>:</label>
-              </div>
-              <div class="fieldBody">
-                <input id="id_twitter_id" type="text" name="data[User][twitter_id]" value="<?=$user['User']['twitter_id']?>" />
-              </div>
-            </div><!-- .field -->
-            <div class="field">
-              <div class="fieldHead">
-                <label for="id_website_link"><?=__('Website')?>:</label>
-              </div>
-              <div class="fieldBody">
-                <input id="id_website_link" type="text" name="data[User][website_link]" value="<?=$user['User']['website_link']?>" />
               </div>
             </div><!-- .field -->
             <div class="field">
