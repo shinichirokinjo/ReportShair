@@ -1,6 +1,6 @@
 <header id="overlayHead">
   <ul>
-    <li><h1>ステップ1</h1></li>
+    <li>ステップ1</li>
   </ul>
 </header>
 <div id="overlayContent">

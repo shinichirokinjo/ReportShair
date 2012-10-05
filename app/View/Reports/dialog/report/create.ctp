@@ -1,6 +1,6 @@
 <header id="overlayHead">
   <ul>
-    <li><h1><a href="/reports/dialog/report/select">ステップ1</a></h1></li>
+    <li><a href="/reports/dialog/report/select">ステップ1</a></li>
     <li>レポートの新規作成</li>
   </ul>
 </header>
@@ -98,7 +98,6 @@ $(function() {
   }
 
   if (typeof(pluploadConfig) == 'object') {
-    console.log("init");
     plupload_init();
   }
 });

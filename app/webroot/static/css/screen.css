@@ -322,15 +322,15 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-bottom: 30px;
-  font-size: 153.84615%; }
+  font-size: 153.846%; }
 
 h2 {
   margin: 1.5em 0 .75em;
-  font-size: 123.07692%; }
+  font-size: 123.077%; }
 
 h3 {
   margin: 1em 0 .5em;
-  font-size: 107.69231%; }
+  font-size: 107.692%; }
 
 h4, h5, h6 {
   font-size: 100%; }
@@ -411,7 +411,7 @@ li, dt, dd {
     text-transform: uppercase;
     text-shadow: 0 1px 0 #FFF;
     font-family: Helvetica, Verdana, Arial, sans-serif;
-    font-size: 107.69231%;
+    font-size: 107.692%;
     font-weight: bold;
     color: #222; }
   .nav > ul {
@@ -479,7 +479,7 @@ li, dt, dd {
     margin-right: .5em; }
     .footerNav > ul > li a {
       text-shadow: 0 1px 0 rbga(255, 255, 255, 0.8);
-      font-size: 84.61538%; }
+      font-size: 84.615%; }
 
 .copright {
   float: right;
@@ -487,7 +487,7 @@ li, dt, dd {
   text-shadow: 0 1px 0 rbga(255, 255, 255, 0.8);
   text-align: right; }
   .copright small {
-    font-size: 84.61538%; }
+    font-size: 84.615%; }
 
 form {
   margin: 0 0 10px; }
@@ -577,7 +577,7 @@ button,
   text-align: center;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(59, 155, 15, 0.5);
-  font-size: 107.69231%;
+  font-size: 107.692%;
   font-weight: bold;
   color: #FFF;
   cursor: pointer;
