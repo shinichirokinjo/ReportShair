@@ -322,15 +322,15 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-bottom: 30px;
-  font-size: 153.846%; }
+  font-size: 153.84615%; }
 
 h2 {
   margin: 1.5em 0 .75em;
-  font-size: 123.077%; }
+  font-size: 123.07692%; }
 
 h3 {
   margin: 1em 0 .5em;
-  font-size: 107.692%; }
+  font-size: 107.69231%; }
 
 h4, h5, h6 {
   font-size: 100%; }
@@ -411,7 +411,7 @@ li, dt, dd {
     text-transform: uppercase;
     text-shadow: 0 1px 0 #FFF;
     font-family: Helvetica, Verdana, Arial, sans-serif;
-    font-size: 107.692%;
+    font-size: 107.69231%;
     font-weight: bold;
     color: #222; }
   .nav > ul {
@@ -479,7 +479,7 @@ li, dt, dd {
     margin-right: .5em; }
     .footerNav > ul > li a {
       text-shadow: 0 1px 0 rbga(255, 255, 255, 0.8);
-      font-size: 84.615%; }
+      font-size: 84.61538%; }
 
 .copright {
   float: right;
@@ -487,7 +487,7 @@ li, dt, dd {
   text-shadow: 0 1px 0 rbga(255, 255, 255, 0.8);
   text-align: right; }
   .copright small {
-    font-size: 84.615%; }
+    font-size: 84.61538%; }
 
 form {
   margin: 0 0 10px; }
@@ -577,7 +577,7 @@ button,
   text-align: center;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(59, 155, 15, 0.5);
-  font-size: 107.692%;
+  font-size: 107.69231%;
   font-weight: bold;
   color: #FFF;
   cursor: pointer;
@@ -618,6 +618,7 @@ button,
   left: 50%;
   width: 960px;
   height: 75%;
+  max-height: 75%;
   background: #FFF;
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
@@ -636,25 +637,21 @@ button,
 
 #overlayHead {
   height: 36px;
-  background-color: #F9F9F9;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9), to(#f1f1f1));
-  background-image: -webkit-linear-gradient(top, #f9f9f9, #f1f1f1);
-  background-image: -moz-linear-gradient(top, #f9f9f9, #f1f1f1);
-  background-image: -o-linear-gradient(top, #f9f9f9, #f1f1f1);
-  background-image: linear-gradient(to top, #f9f9f9, #f1f1f1);
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#fff9f9f9', endColorstr='#fff1f1f1', GradientType=0);
+  background-color: #EFEFEF;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#efefef), to(#cacaca));
+  background-image: -webkit-linear-gradient(top, #efefef, #cacaca);
+  background-image: -moz-linear-gradient(top, #efefef, #cacaca);
+  background-image: -o-linear-gradient(top, #efefef, #cacaca);
+  background-image: linear-gradient(to top, #efefef, #cacaca);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EFEFEF', endColorstr='#CACACA');
   border-bottom: solid 1px #CCC; }
-  #overlayHead ul {
-    margin: 0;
-    list-style-type: none; }
-    #overlayHead ul li {
-      display: inline-block; }
   #overlayHead h1, #overlayHead h2 {
     padding-left: 0.5em;
-    line-height: 36px;
-    text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.8);
+    line-height: 38px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
     font-size: 16px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #222; }
 
 #overlayContent {
   overflow-x: hidden;
@@ -726,7 +723,7 @@ button,
 .overlayClose {
   position: absolute;
   display: block;
-  top: 7px;
+  top: 9px;
   right: 7px;
   width: 21px;
   height: 21px;
@@ -738,7 +735,10 @@ button,
   padding: 10px 16px;
   height: 100px;
   background-color: #111;
-  border-bottom: solid 1px #EEE; }
+  border-bottom: solid 1px #EEE;
+  -webkit-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.7); }
   .captionForCreateReport p {
     text-align: center;
     text-shadow: 0 0 24px #549EF9;
@@ -762,18 +762,28 @@ button,
     float: left;
     display: inline-block;
     width: 239px;
-    background-color: #F1F1F1;
     text-align: center; }
     .selectButtonForCreateReport li a {
       display: block;
+      padding-top: 122px;
       width: 239px;
-      height: 162px; }
+      height: 40px;
+      text-decoration: none;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+      font-size: 16px;
+      font-weight: bold;
+      color: #222; }
       .selectButtonForCreateReport li a:hover {
-        background-color: #DDDDDD; }
+        background-color: #DDDDDD;
+        color: #000; }
     .selectButtonForCreateReport li.newSelectButton {
       border-right: solid 1px #FFF; }
+      .selectButtonForCreateReport li.newSelectButton a {
+        background: #f1f1f1 url("/static/img/overlay/newSelectButton.png") 0 0 no-repeat; }
     .selectButtonForCreateReport li.fbSelectButton {
       border-left: solid 1px #E1E1E1; }
+      .selectButtonForCreateReport li.fbSelectButton a {
+        background: #f1f1f1 url("/static/img/overlay/fbSelectButton.png") 0 0 no-repeat; }
 
 .fbpagesList {
   margin: 0;
@@ -786,19 +796,73 @@ button,
       padding: .7em 1em;
       line-height: 16px; }
 
-.coverImageField {
+.dialogReportBoard {
+  height: 355px; }
+
+.dialogCoverImage {
   position: relative;
   display: block;
   width: 960px;
   height: 355px;
   background-color: #EEE; }
-  .coverImageField .coverWrapField {
+  .dialogCoverImage .dialogCoverWrap {
     position: absolute;
     top: 20px;
     left: 54px;
     width: 851px;
     height: 315px;
     background-color: #AAA; }
+  .dialogCoverImage #uploadCoverPhotoHandler {
+    display: block;
+    width: 851px;
+    height: 315px;
+    line-height: 315px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+    font-size: 36px;
+    font-weight: bold;
+    color: #444; }
+
+.dialogReportInfo {
+  position: relative;
+  *zoom: 1; }
+  .dialogReportInfo:before, .dialogReportInfo:after {
+    display: table;
+    content: ""; }
+  .dialogReportInfo:after {
+    clear: both; }
+  .dialogReportInfo .dialogName {
+    overflow: hidden;
+    float: left; }
+    .dialogReportInfo .dialogName .dialogReportThumb {
+      position: absolute;
+      margin-top: -130px;
+      padding: 1px;
+      left: 100px;
+      width: 168px;
+      height: 168px;
+      background: rgba(0, 0, 0, 0.2);
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px; }
+      .dialogReportInfo .dialogName .dialogReportThumb .dialogReportImage {
+        overflow: hidden;
+        display: block;
+        width: 160px;
+        height: 160px;
+        background: rgba(0, 0, 0, 0.3);
+        border: solid 4px #FFF;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px; }
+    .dialogReportInfo .dialogName .dialogReportName {
+      margin: 0 0 0 290px;
+      font-size: 20px; }
 
 body.dialog {
   background-color: #FFF;

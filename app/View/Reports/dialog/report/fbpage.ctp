@@ -1,8 +1,5 @@
 <header id="overlayHead">
-  <ul>
-    <li><a href="/reports/dialog/report/select">ステップ1</a></li>
-    <li>Facebookページから作成</li>
-  </ul>
+  <h1>Facebookページからレポートを作成する</h1>
 </header>
 <div id="overlayContent">
   <form id="fbpagesForm" action="" method="POST">

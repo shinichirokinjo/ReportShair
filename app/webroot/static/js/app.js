@@ -216,13 +216,13 @@ var RS = RS || {};
       loading.remove();
     }
     var resize = function() {
-      var overlayContainerMargin = 0;
+      var overlayContentMargin = 37;
       if ($("#overlayFoot")) {
-        overlayContainerMargin = 76;
+        overlayContentMargin = 92;
       }
 
       var dialogIframeHeight = $("#dialogIframe").height();
-      $("#overlayContent").css({height: dialogIframeHeight - overlayContainerMargin + "px"});
+      $("#overlayContent").css({height: dialogIframeHeight - overlayContentMargin + "px"});
     }
     var attachResizeHandler = function() {
       function resizeHandler(event) {

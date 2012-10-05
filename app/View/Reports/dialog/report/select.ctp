@@ -1,7 +1,5 @@
 <header id="overlayHead">
-  <ul>
-    <li>ステップ1</li>
-  </ul>
+  <h1>レポートの作成</h1>
 </header>
 <div id="overlayContent">
   <div class="captionForCreateReport">
