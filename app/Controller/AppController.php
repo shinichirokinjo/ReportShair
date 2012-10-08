@@ -2,14 +2,14 @@
 App::uses('Controller',   'Controller');
 App::uses('FB',           'Facebook.Lib');
 App::uses('FacebookInfo', 'Facebook.Lib');
-class AppController extends Controller 
-{
+class AppController extends Controller {
     public $helpers = array(
         'Facebook.Facebook',
         'Form',
         'Html',
         'Session'
     );
+
     public $components = array(
         'Auth' => array(
             'authenticate' => array(
@@ -20,7 +20,7 @@ class AppController extends Controller
             'authorize' => 'Controller'
         ),
         'Facebook.Connect' => array('model' => 'User'),
-        'DebugKit.Toolbar',
+        // 'DebugKit.Toolbar',
         'Security',
         'Session'
     );

@@ -3,20 +3,15 @@
       <dl>
         <dt>管理者用ナビ</dt>
         <dd class="createEvent"><a href="" title="イベントを作成する">イベントを作成する</a></dd>
-        <dd class="createNav"><a href="" title="レポートを作成する">レポートを作成する</a></dd>
-        <dd><a href="" title="レポートを設定する">レポートを設定する</a></dd>
       </dl>
     </nav>
     <aside class="sidebar">
       <section class="widget adminWidget">
         <header class="widgetHead">
-          <h4>オーガナイザー</h4>
+          <h4>レポートの管理者</h4>
         </header>
         <div class="widgetBody">
           <ul class="avatarList">
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
             <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
           </ul>
         </div>
@@ -28,14 +23,6 @@
         </header>
         <div class="widgetBody">
           <ul class="avatarList">
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
-            <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
             <li><a href="" title=""><img src="https://graph.facebook.com/tokuda109/picture" width="32px" height="32px" alt="" /></a></li>
           </ul>
         </div>
