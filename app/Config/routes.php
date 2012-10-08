@@ -37,11 +37,12 @@
     Router::connect('/users/:username', array('controller' => 'users', 'action' => 'view'), array('pass' => array('username'), 'username' => '[A-z0-9-]+'));
 
     // Reports
-    Router::connect('/reports/',              array('controller' => 'reports', 'action' => 'index'));
-    Router::connect('/reports/dialog/report', array('controller' => 'reports', 'action' => 'dialog_report'));
-    Router::connect('/reports/dialog/event',  array('controller' => 'reports', 'action' => 'dialog_event'));
-    Router::connect('/reports/dialog/fbpage', array('controller' => 'reports', 'action' => 'dialog_fbpage'));
-    Router::connect('/reports/:slug',         array('controller' => 'reports', 'action' => 'view'), array('pass' => array('slug'), 'slug' => '[A-z0-9-]+'));
+    Router::connect('/reports/',                     array('controller' => 'reports', 'action' => 'index'));
+    Router::connect('/reports/dialog/report/select', array('controller' => 'reports', 'action' => 'dialog_report_select'));
+    Router::connect('/reports/dialog/report/fbpage', array('controller' => 'reports', 'action' => 'dialog_report_fbpage'));
+    Router::connect('/reports/dialog/report/create', array('controller' => 'reports', 'action' => 'dialog_report_create'));
+    Router::connect('/reports/dialog/event',         array('controller' => 'reports', 'action' => 'dialog_event'));
+    Router::connect('/reports/:slug',                array('controller' => 'reports', 'action' => 'view'), array('pass' => array('slug'), 'slug' => '[A-z0-9-]+'));
 
     // Settings
     Router::connect('/settings/account',       array('controller' => 'settings', 'action' => 'account'));
