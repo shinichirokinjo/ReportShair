@@ -36,7 +36,7 @@ var pluploadConfig = {
   runtimes: "html5,flash,html4",
   browse_button: "uploadCoverPhotoHandler",
   container: "uploader",
-  url: "",
+  url: "/reports/dialog/upload/cover",
   flash_swf_url: "/static/js/plupload/plupload.flash.swf",
   filters: [
     {title: "Image files", extensions: "jpg,gif,png"}
@@ -77,6 +77,8 @@ $(function() {
       // console.log("Added files");
       // console.log(up);
       // console.log(files);
+      up.refresh();
+      up.start();
     });
 
     uploader.bind('BeforeUpload', function(up, file) {
@@ -97,6 +99,8 @@ $(function() {
 
     uploader.bind('FileUploaded', function(up, file, response) {
       // ファイルのアップロードが完了した時に呼び出される
+      var parsedData = $.parseJSON(response.response);
+      console.log(parsedData);
     });
 
     uploader.bind('UploadComplete', function(up, files) {

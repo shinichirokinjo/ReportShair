@@ -102,28 +102,30 @@ body.sc .sidebar {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1); }
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15); }
   .widget .widgetHead {
     position: relative;
     padding: 7px 7px 5px;
-    background-color: #5E5B5C;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5e5b5c), to(#323232));
-    background-image: -webkit-linear-gradient(top, #5e5b5c, #323232);
-    background-image: -moz-linear-gradient(top, #5e5b5c, #323232);
-    background-image: -o-linear-gradient(top, #5e5b5c, #323232);
-    background-image: linear-gradient(to top, #5e5b5c, #323232);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff5e5b5c', endColorstr='#ff323232', GradientType=0);
+    background-color: #FEFEFE;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fefefe), to(#e4e4e4));
+    background-image: -webkit-linear-gradient(top, #fefefe, #e4e4e4);
+    background-image: -moz-linear-gradient(top, #fefefe, #e4e4e4);
+    background-image: -o-linear-gradient(top, #fefefe, #e4e4e4);
+    background-image: linear-gradient(to top, #fefefe, #e4e4e4);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#E4E4E4', GradientType=0);
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     -ms-border-radius: 5px 5px 0 0;
     -o-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
-    border-bottom: solid 1px #111;
+    border-bottom: solid 1px #DDD;
     -webkit-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
     -moz-box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2); }
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #444; }
   .widget .widgetFoot {
     padding: .3em .7em;
     border-top: solid 1px #EEE; }
@@ -136,10 +138,8 @@ body.sc .sidebar {
 
 .widgetHead h4 {
   line-height: 16px;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
   font-size: 12px;
-  font-weight: bold;
-  color: #FFF; }
+  font-weight: bold; }
 .widgetHead .label {
   position: absolute;
   padding: 2px 5px;
@@ -322,15 +322,15 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-bottom: 30px;
-  font-size: 153.84615%; }
+  font-size: 153.846%; }
 
 h2 {
   margin: 1.5em 0 .75em;
-  font-size: 123.07692%; }
+  font-size: 123.077%; }
 
 h3 {
   margin: 1em 0 .5em;
-  font-size: 107.69231%; }
+  font-size: 107.692%; }
 
 h4, h5, h6 {
   font-size: 100%; }
@@ -411,7 +411,7 @@ li, dt, dd {
     text-transform: uppercase;
     text-shadow: 0 1px 0 #FFF;
     font-family: Helvetica, Verdana, Arial, sans-serif;
-    font-size: 107.69231%;
+    font-size: 107.692%;
     font-weight: bold;
     color: #222; }
   .nav > ul {
@@ -479,7 +479,7 @@ li, dt, dd {
     margin-right: .5em; }
     .footerNav > ul > li a {
       text-shadow: 0 1px 0 rbga(255, 255, 255, 0.8);
-      font-size: 84.61538%; }
+      font-size: 84.615%; }
 
 .copright {
   float: right;
@@ -487,7 +487,7 @@ li, dt, dd {
   text-shadow: 0 1px 0 rbga(255, 255, 255, 0.8);
   text-align: right; }
   .copright small {
-    font-size: 84.61538%; }
+    font-size: 84.615%; }
 
 form {
   margin: 0 0 10px; }
@@ -577,7 +577,7 @@ button,
   text-align: center;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(59, 155, 15, 0.5);
-  font-size: 107.69231%;
+  font-size: 107.692%;
   font-weight: bold;
   color: #FFF;
   cursor: pointer;
@@ -1115,20 +1115,13 @@ body.dialog {
     text-decoration: none; }
 
 .coverImage {
-  display: block;
-  width: 851px;
-  height: 315px; }
+  display: block; }
   .coverImage .coverWrap {
+    position: relative;
     display: block;
     overflow: hidden;
     width: 851px;
     height: 315px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;

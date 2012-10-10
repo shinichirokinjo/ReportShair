@@ -41,6 +41,7 @@
     Router::connect('/reports/dialog/report/select', array('controller' => 'reports', 'action' => 'dialog_report_select'));
     Router::connect('/reports/dialog/report/fbpage', array('controller' => 'reports', 'action' => 'dialog_report_fbpage'));
     Router::connect('/reports/dialog/report/create', array('controller' => 'reports', 'action' => 'dialog_report_create'));
+    Router::connect('/reports/dialog/upload/cover',  array('controller' => 'reports', 'action' => 'dialog_upload_cover'));
     Router::connect('/reports/dialog/event',         array('controller' => 'reports', 'action' => 'dialog_event'));
     Router::connect('/reports/:slug',                array('controller' => 'reports', 'action' => 'view'), array('pass' => array('slug'), 'slug' => '[A-z0-9-]+'));
 

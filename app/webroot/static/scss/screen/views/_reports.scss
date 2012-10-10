@@ -29,16 +29,12 @@
 }
 .coverImage {
   display: block;
-  width: 851px;
-  height: 315px;
   .coverWrap {
+    position: relative;
     display: block;
     overflow: hidden;
     width: 851px;
     height: 315px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    @include background-size(cover);
     @include border-radius(5px);
     img {
       width: 851px;
