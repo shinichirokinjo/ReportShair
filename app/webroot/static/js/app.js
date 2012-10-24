@@ -67,7 +67,6 @@ var RS = RS || {};
       var controller = $('<div>').addClass('controller');
 
       for (var i = 0; i < itemLength; i++) {
-        console.log("loop");
         var control = $('<a>');
 
         control.data('index', i).click($.proxy(function(e) {
@@ -117,47 +116,55 @@ var RS = RS || {};
   RS.overlay = function() {
     // プライベートメソッド、メンバ
     var overlay,
+        container,
         content,
         bg,
         popup,
         loading,
-        closeBtn,
         blobData,
         iframe,
-        iframeOptions = {};
+        dialogOptions = {};
 
     var close = function() {
       destroy();
       return false;
     }
     var create = function(type) {
+      // コンテナを作成
       overlay = $('<div>').attr('id', 'overlay');
+      if ('class' in dialogOptions) {
+        overlay.attr('class', dialogOptions['class']);
+      }
 
+      // 各種イベントハンドラーを登録
       attachResizeHandler();
       attachKeydownHandler();
 
+      // 背景を追加してクリックするとダイアログが閉じるようにする
       bg = $('<div>').attr('id', 'overlayBG').appendTo(overlay);
       bg.click(function(e) {
         close();
-        e.preventDefault();
+        return false;
       });
 
-      if (type == 'image' || type == 'ajax') {
+      // 何らかの通信が発生するタイプの場合は通信に時間がかかる場合もあるので
+      // ローディング中を表示しておく。add()するタイミングでhideLoading()で非表示にする。
+      if (type == 'image' || type == 'ajax' || type == 'iframe') {
         loading = createLoading().appendTo(overlay);
       }
 
-      if (type == 'ajax') {
-        content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
-        iframe = createIframe(blobData).appendTo(content);
-      } else {
-        // console.log("other");
-        content = $('<div>').attr('id', 'overlayBody').hide().appendTo(overlay);
+      container = $('<div>').attr('id', 'overlayContainer').hide().appendTo(overlay);
+
+      if (type == 'iframe') {
+        iframe = createIframe(blobData).appendTo(container);
       }
 
-      closeBtn = createCloseButton().appendTo(content);
+      // 右上の閉じるボタンを作成してコンテンツに追加する
+      createCloseButton().appendTo(container);
 
       overlay.appendTo(document.body);
 
+      // trueを返すと、open()で以降の処理に進む
       return true;
 
       function createLoading() {
@@ -165,36 +172,41 @@ var RS = RS || {};
       }
       function createIframe(blob) {
         return $('<iframe>').attr({
-          'id': 'eventIframe',
+          'id': 'dialogIframe',
           'src': blob,
           'frameborder': '0'
         });
       }
       function createCloseButton() {
-        return $('<a href=""></a>').addClass('overlayClose').click(function(e) {
+        return $('<a href=""></a>').addClass('overlayClose').click(function() {
           close();
-          e.preventDefault();
+          return false;
         });
       }
     }
     var add = function(blob) {
-      content.show();
-      blob.appendTo(content);
+      // ローディング中を非表示にする
+      hideLoading();
+      // ダイアログのコンテナを表示する
+      container.show();
+
+      blob.appendTo(container);
       resize();
     }
     var destroy = function() {
+      // 全て空にする
+      container = null;
       content = null;
       bg = null;
       popup = null;
       loading = null;
-      closeBtn = null;
-      blob = null;
+      blobData = null;
+      dialogOptions = {};
 
       $(document).unbind('.overlay');
 
       $('#overlay').remove();
-
-      container = null;
+      overlay = null;
     }
     var showLoading = function() {
       loading.show();
@@ -204,24 +216,24 @@ var RS = RS || {};
       loading.remove();
     }
     var resize = function() {
-      var iframe = $('#eventIframe');
-      if (iframe) {
-        // iframe.css({});
+      var overlayContentMargin = 37;
+      if ($("#overlayFoot")) {
+        overlayContentMargin = 92;
       }
 
-      var overlayBodyHeight = $("#overlayBody").height();
-      $("#overlayBody").css({height: overlayBodyHeight - 90 + "px"});
+      var dialogIframeHeight = $("#dialogIframe").height();
+      $("#overlayContent").css({height: dialogIframeHeight - overlayContentMargin + "px"});
     }
     var attachResizeHandler = function() {
       function resizeHandler(event) {
-        resize();
+        resize(); // ダイアログをリサイズする
       }
       $(window).bind('resize.overlay', $.proxy(resizeHandler, this));
     }
     var attachKeydownHandler = function() {
       function keydownHandler(event) {
-        if (event.keyCode == 27) { // Esc
-          close();
+        if (event.keyCode == 27) {
+          close(); // Escでダイアログを閉じる
         }
       }
       $(document).bind('keydown.overlay', $.proxy(keydownHandler, this));
@@ -229,35 +241,42 @@ var RS = RS || {};
 
     // パブリックメソッド
     return {
-      open: function(blob, type) {
-        if (type == 'ajax') {
-          blobData = blob;
-        }
+      /*!
+       * ダイアログをオープンする
+       *
+       * @param  blob    ダイアログ内に表示するデータ
+       * @param  type    ダイアログのタイプ
+       * @param  options オプション(任意)
+       */
+      open: function(blob, type, options) {
+        // create()で操作する場合もあるので一度変数に入れておく
+        blobData = blob;
+        dialogOptions = options;
+
+        // ダイアログのコンテナを作成できてtrueが返ってこなかったらダイアログを閉じる
         if ( ! create(type)) {
           close();
           return;
         }
 
-        if (type == 'image') {
-          var image = document.createElement('img');
-          var $image = $(image);
-          $image.one('load', function() {
-            $(this).data({
-              unscaledWidth: parseInt(image.width),
-              unscaledHeight: parseInt(image.height)
-            });
-
-            var $container = $('<div>').addClass('image').append($image);
+        if (type == 'ajax') {
+          $('<div>').load(blobData, options, function(response, status, xhr) {
+            if (xhr.status == 401) {
+              close();
+            } else {
+              add($(this));
+            }
           });
-          hideLoading();
-          add($container);
-        } else if(type == 'ajax') {
-          //
-          add($('#eventIframe'));
         } else if(type == 'div') {
-          // ドキュメント内のコンテンツを取得して表示
-          add($(blob));
+          // ドキュメント内のコンテンツを取得して表示する
+          add($(blobData));
+        } else if(type == 'iframe') {
+          // iframeをダイアログ内に表示する
+          add(iframe);
+        } else if(type == 'image') {
+          // 画像のスライドショーを表示する
         } else {
+          // typeが判定できない場合は処理せずにダイアログを閉じる
           close();
         }
       }
@@ -266,9 +285,9 @@ var RS = RS || {};
 })(jQuery, RS);
 
 $(function() {
-  $(".createNav a").on('click', function(e) {
-    RS.overlay.open('/reports/dialog/report', 'ajax');
-    e.preventDefault();
+  $(".createNav a").on('click', function() {
+    RS.overlay.open('/reports/dialog/report/select', 'iframe', {class: 'selectDialog'});
+    return false;
   });
   $(".tips").tipsy({html: true});
 });
