@@ -14,6 +14,8 @@ class ReportsController extends AppController {
         // HTMLのbody要素のクラスに'reports'と'sc'(左にsidebar、右にcontent)
         // 'sc'はクラス名が判別しにくいのでCSSを修正します。
         $this->set('body_class', 'reports sc');
+
+        $this->Security->validatePost = false;
     }
 
     public function index() {

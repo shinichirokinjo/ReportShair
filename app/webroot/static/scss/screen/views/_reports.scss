@@ -19,6 +19,7 @@
 // Report Board
 // =======================================================
 .reportBoard {
+  position: relative;
   margin-bottom: 10px;
   background-color: #FCFCFC;
   @include border-radius(5px);
@@ -43,6 +44,8 @@
 }
 .reportHeadline {
   position: relative;
+  left: 0;
+  bottom: 0;
   padding: 5px 7px;
   .reportName {
     margin: 0 0 0 32px;

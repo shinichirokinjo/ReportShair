@@ -14,7 +14,9 @@
     <div class="dialogReportInfo">
       <div class="dialogName">
         <div class="dialogReportThumb">
-          <span class="dialogReportImage"></span>
+          <span class="dialogReportImage">
+            <a id="uploadIconPhotoHandler" href=""></a>
+          </span>
         </div>
         <h2 class="dialogReportName">WOMB (Official)</h2>
       </div>
@@ -74,7 +76,7 @@ $(function() {
 
     uploader.bind('FilesAdded', function(up, files) {
       // ファイルを追加した後に呼び出される
-      // console.log("Added files");
+      console.log("Added files");
       // console.log(up);
       // console.log(files);
       up.refresh();
@@ -86,11 +88,13 @@ $(function() {
     });
 
     uploader.bind('UploadFile', function(up, file) {
-      //
+      console.log(up);
+      console.log(file);
     });
 
     uploader.bind('UploadProgress', function(up, file) {
       // アップロード中のプログレス処理
+      console.log('Now uploading...');
     });
 
     uploader.bind('Error', function(up, err) {

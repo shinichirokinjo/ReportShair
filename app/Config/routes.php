@@ -56,6 +56,8 @@
     Router::connect('/terms',  array('controller' => 'pages', 'action' => 'terms'));
     Router::connect('/policy', array('controller' => 'pages', 'action' => 'policy'));
 
+    Router::parseExtensions('json');
+
 /**
  * Load all plugin routes.  See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
