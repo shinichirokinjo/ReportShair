@@ -14,7 +14,9 @@
     <div class="dialogReportInfo">
       <div class="dialogName">
         <div class="dialogReportThumb">
-          <span class="dialogReportImage"></span>
+          <span class="dialogReportImage">
+            <a id="uploadIconPhotoHandler" href=""></a>
+          </span>
         </div>
         <h2 class="dialogReportName">WOMB (Official)</h2>
       </div>
@@ -36,7 +38,7 @@ var pluploadConfig = {
   runtimes: "html5,flash,html4",
   browse_button: "uploadCoverPhotoHandler",
   container: "uploader",
-  url: "",
+  url: "/reports/dialog/upload/cover",
   flash_swf_url: "/static/js/plupload/plupload.flash.swf",
   filters: [
     {title: "Image files", extensions: "jpg,gif,png"}
@@ -74,9 +76,11 @@ $(function() {
 
     uploader.bind('FilesAdded', function(up, files) {
       // ファイルを追加した後に呼び出される
-      // console.log("Added files");
+      console.log("Added files");
       // console.log(up);
       // console.log(files);
+      up.refresh();
+      up.start();
     });
 
     uploader.bind('BeforeUpload', function(up, file) {
@@ -84,11 +88,13 @@ $(function() {
     });
 
     uploader.bind('UploadFile', function(up, file) {
-      //
+      console.log(up);
+      console.log(file);
     });
 
     uploader.bind('UploadProgress', function(up, file) {
       // アップロード中のプログレス処理
+      console.log('Now uploading...');
     });
 
     uploader.bind('Error', function(up, err) {
@@ -97,6 +103,8 @@ $(function() {
 
     uploader.bind('FileUploaded', function(up, file, response) {
       // ファイルのアップロードが完了した時に呼び出される
+      var parsedData = $.parseJSON(response.response);
+      console.log(parsedData);
     });
 
     uploader.bind('UploadComplete', function(up, files) {

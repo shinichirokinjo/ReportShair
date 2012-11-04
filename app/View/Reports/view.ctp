@@ -66,8 +66,6 @@
             </div>
             <div class="share">
               <ul class="buttons">
-                <li><a class="twitter-follow-button" href="https://twitter.com/reportshair" data-count="horizontal" data-show-count="false" data-width="130" data-lang="en">Follow @reportshair</a></li>
-                <li><div class="g-plusone" href="" data-size="medium" annotation="inline" expandTo="top"></div></li>
                 <li><div class="fb-like" data-href="" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false"></div></li>
               </ul>
             </div>
@@ -171,7 +169,7 @@
                 </div>
                 <div class="photoBox">
 <!--
-              	  <div class="photoRow">
+                 <div class="photoRow">
                     <div class="pin">
                       <img src="/media/reports/539133_475441662473980_358085087_n.jpg" width="660px" height="471px" alt="" />
                     </div>
@@ -222,7 +220,7 @@
                     <img src="https://graph.facebook.com/tokuda109/picture?large" width="50px" height="50px" alt="" />
                   </div>
                   <nav class="typeNav">
-                  	<span class="typeArrow"></span>
+                   <span class="typeArrow"></span>
                     <ul class="typeWrap">
                       <li><a class="typeText" href="" title="Add Text">
                         <span class="typeIcon text"></span>
