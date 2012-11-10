@@ -65,10 +65,15 @@ class ReportsController extends AppController {
     }
 
     public function dialog_upload_cover() {
-
+        $this->set('cover_url','/media/reports/418625_470710186280461_1321790445_n.jpg');
+        $this->viewClass = 'Json';
+        $this->set('_serialize', array('cover_url'));
     }
 
     public function dialog_upload_icon() {
+        $this->set('icon_url','/media/reports/158038_196424980375651_569949477_n.jpg');
+        $this->viewClass = 'Json';
+        $this->set('_serialize', array('icon_url'));
 
     }
 
