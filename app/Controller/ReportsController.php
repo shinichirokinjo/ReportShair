@@ -64,7 +64,8 @@ class ReportsController extends AppController {
         $this->render('dialog/report/create');
     }
 
-    public function dialog_upload_cover() {
+
+	public function dialog_upload_cover() {
 
     }
 
