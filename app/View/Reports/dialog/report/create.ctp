@@ -107,6 +107,10 @@ $(function() {
       // ファイルのアップロードが完了した時に呼び出される
       var parsedData = $.parseJSON(response.response);
       console.log(parsedData);
+
+      console.log($('#uploadCoverPhotoHandler').text());
+      $('#uploadCoverPhotoHandler').text("");
+      $('#uploadCoverPhotoHandler').append('<img src="' + parsedData.cover_url +'" width="" height="" alt="" />');
     });
 
     uploader.bind('UploadComplete', function(up, files) {
@@ -189,7 +193,6 @@ $(function() {
 
   if (typeof(pluploadIconConfig) == 'object') {
     plupload_icon_init();
-    resizeOverlayContent();
   }
 });
 </script>
