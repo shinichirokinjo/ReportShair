@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-</div>
+</div><!-- .visual -->
 <script type="text/javascript">
 $(function() {
   RS.carousel.initialize();

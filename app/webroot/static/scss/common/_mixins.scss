@@ -16,6 +16,29 @@
   *zoom: 1;
 }
 
+@mixin background-image($direction: "horizontal", $baseColor: #444, $startColor: #555, $endColor: #333) {
+  @if $direction == "horizontal" {
+    background-color: $baseColor;
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+    background-image:    -moz-linear-gradient(left, $startColor, $endColor);
+    background-image:     -ms-linear-gradient(left, $startColor, $endColor);
+    background-image:      -o-linear-gradient(left, $startColor, $endColor);
+    background-image:         linear-gradient(to right, $startColor, $endColor);
+    background-repeat: repeat-x;
+  }
+  @elseif $direction == "vertical" {
+    background-color: $baseColor;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+    background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+    background-image:     -ms-linear-gradient(top, $startColor, $endColor);
+    background-image:      -o-linear-gradient(top, $startColor, $endColor);
+    background-image:         linear-gradient(to bottom, $startColor, $endColor);
+    background-repeat: repeat-x;
+  }
+}
+
 @mixin background-size($property) {
   -webkit-background-size: $property;
      -moz-background-size: $property;

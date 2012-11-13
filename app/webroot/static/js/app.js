@@ -283,11 +283,3 @@ var RS = RS || {};
     }
   }();
 })(jQuery, RS);
-
-$(function() {
-  $(".createNav a").on('click', function() {
-    RS.overlay.open('/reports/dialog/report/select', 'iframe', {class: 'selectDialog'});
-    return false;
-  });
-  $(".tips").tipsy({html: true});
-});

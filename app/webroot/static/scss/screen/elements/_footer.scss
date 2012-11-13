@@ -33,7 +33,7 @@
       margin-right: .5em;
       a {
         text-shadow: 0 1px 0 rbga(255,255,255,.8);
-        font-size: fs(11, 'percent');
+        font-size: fs(10, 'percent');
       }
     }
   }
@@ -44,6 +44,6 @@
   text-shadow: 0 1px 0 rbga(255,255,255,.8);
   text-align: right;
   small {
-    font-size: fs(11, 'percent');
+    font-size: fs(10, 'percent');
   }
 }
