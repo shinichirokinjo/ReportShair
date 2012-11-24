@@ -2,7 +2,7 @@
   <h1>レポートの新規作成</h1>
 </header>
 <form action="" method="POST" accept-charset="utf-8">
-<div id="overlayContent">
+<div id="overlayContent" style="overflow: hidden; display: block;">
   <fieldset class="dialogReportBoard">
     <div class="dialogCoverImage">
       <div class="dialogCoverWrap">
@@ -52,6 +52,14 @@ var pluploadCoverConfig = {
 };
 
 $(function() {
+  var containerHeight,
+      contentHeight;
+
+  containerHeight = $("body").height();
+  contentHeight = containerHeight - 37;
+
+  $("#overlayContent").css({height: contentHeight + "px"});
+
   var resizeOverlayContent = function() {
     var containerHeight,
         contentHeight;
@@ -78,9 +86,6 @@ $(function() {
 
     uploader.bind('FilesAdded', function(up, files) {
       // ファイルを追加した後に呼び出される
-      console.log("Added files");
-      // console.log(up);
-      // console.log(files);
       up.refresh();
       up.start();
     });

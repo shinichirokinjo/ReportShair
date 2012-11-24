@@ -625,6 +625,8 @@ button,
     top: 180px;
     width: 480px;
     height: 320px; }
+  .createDialog #overlayContainer {
+    height: 520px; }
 
 #overlayHead {
   height: 36px;
@@ -794,8 +796,7 @@ button,
   position: relative;
   display: block;
   width: 960px;
-  height: 355px;
-  background-color: #EEE; }
+  height: 355px; }
   .dialogCoverImage .dialogCoverWrap {
     position: absolute;
     top: 20px;
@@ -803,6 +804,8 @@ button,
     width: 851px;
     height: 315px;
     background-color: #AAA; }
+    .dialogCoverImage .dialogCoverWrap:hover {
+      background-color: #BBB; }
   .dialogCoverImage #uploadCoverPhotoHandler {
     display: block;
     width: 851px;
@@ -810,7 +813,7 @@ button,
     line-height: 315px;
     text-align: center;
     text-decoration: none;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+    text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.75);
     font-size: 36px;
     font-weight: bold;
     color: #444; }
@@ -833,12 +836,17 @@ button,
       left: 100px;
       width: 168px;
       height: 168px;
-      background: rgba(0, 0, 0, 0.2);
+      background-color: #EEE;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       -o-border-radius: 3px;
-      border-radius: 3px; }
+      border-radius: 3px;
+      -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3); }
+      .dialogReportInfo .dialogName .dialogReportThumb:hover {
+        background-color: #F1F1F1; }
       .dialogReportInfo .dialogName .dialogReportThumb .dialogReportImage {
         overflow: hidden;
         display: block;
@@ -851,6 +859,16 @@ button,
         -ms-border-radius: 3px;
         -o-border-radius: 3px;
         border-radius: 3px; }
+      .dialogReportInfo .dialogName .dialogReportThumb #uploadIconPhotoHandler {
+        display: block;
+        width: 160px;
+        height: 160px;
+        line-height: 160px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+        font-size: 10px;
+        color: #444; }
     .dialogReportInfo .dialogName .dialogReportName {
       margin: 0 0 0 290px;
       font-size: 20px; }

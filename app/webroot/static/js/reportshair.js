@@ -94,7 +94,11 @@ define(["jquery/jquery"], function($) {
     }
 
     return {
-      // パブリックメソッド
+      /*!
+       * カルーセルを開始する
+       *
+       * @access public
+       */
       init: function() {
         var carousel = $('.carousel');
 
@@ -170,9 +174,10 @@ define(["jquery/jquery"], function($) {
       }
       function createIframe(blob) {
         return $('<iframe>').attr({
-          'id': 'dialogIframe',
-          'src': blob,
-          'frameborder': '0'
+          id: 'dialogIframe',
+          src: blob,
+          scrolling: 0,
+          frameborder: 0
         });
       }
       function createCloseButton() {
@@ -183,16 +188,20 @@ define(["jquery/jquery"], function($) {
       }
     }
     var add = function(blob) {
-      // ローディング中を非表示にする
-      hideLoading();
-
       blob.appendTo(container);
 
       // ダイアログのコンテナを表示する
       container.show();
 
       resize();
+
+      // ローディング中を非表示にする
+      hideLoading();
     }
+
+    /*!
+     * ダイアログを閉じた時に破棄する
+     */
     var destroy = function() {
       // 全て空にする
       container = null;
@@ -208,13 +217,26 @@ define(["jquery/jquery"], function($) {
       $('#overlay').remove();
       overlay = null;
     }
+
+    /*!
+     * ダイアログのコンテンツをロード中に表示する
+     * ローダーを表示する
+     */
     var showLoading = function() {
       loading.show();
     }
+    /*!
+     * ダイアログのコンテンツをロードが終わった時に
+     * ローダーを非表示にする
+     */
     var hideLoading = function() {
       loading.hide();
       loading.remove();
     }
+
+    /*!
+     * ダイアログのサイズをリサイズする
+     */
     var resize = function() {
       var overlayContentMargin = 37;
       if ($("#overlayFoot")) {
@@ -239,11 +261,11 @@ define(["jquery/jquery"], function($) {
       $(document).bind('keydown.overlay', $.proxy(keydownHandler, this));
     }
 
-    // パブリックメソッド
     return {
       /*!
        * ダイアログをオープンする
        *
+       * @access public
        * @param  blob    ダイアログ内に表示するデータ
        * @param  type    ダイアログのタイプ
        * @param  options オプション(任意)

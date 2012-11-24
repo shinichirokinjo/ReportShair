@@ -29,6 +29,7 @@ $(function() {
 
   $(".selectButtonForCreateReport li a").click(function() {
     $("#overlay", parent.document).removeClass('selectDialog');
+    $("#overlay", parent.document).addClass('createDialog');
   });
 });
 </script>
