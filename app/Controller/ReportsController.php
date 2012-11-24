@@ -60,17 +60,24 @@ class ReportsController extends AppController {
         $this->layout = 'dialog';
         $this->set('title', 'ReportShair');
         $this->set('headline', 'Create Report');
-
         $this->render('dialog/report/create');
     }
 
     public function dialog_upload_cover() {
-        $this->set('cover_url','/media/reports/418625_470710186280461_1321790445_n.jpg');
-        $this->viewClass = 'Json';
-        $this->set('_serialize', array('cover_url'));
+		if (isset($_FILES['file']['tmp_name'])) {
+			$this->set('cover_url','/media/reports/'.$this->_imageSave($_FILES['file']['tmp_name']));
+			$this->viewClass = 'Json';
+			$this->set('_serialize', array('cover_url'));
+		} else {
+	        $this->set('cover_url','error');
+			$this->viewClass = 'Json';
+			$this->set('_serialize', array('error'));
+		}	
     }
 
     public function dialog_upload_icon() {
+		$iconImage = $_FILES['icon']['tmp_name'];
+		$this->_imageSave($iconImage);
         $this->set('icon_url','/media/reports/158038_196424980375651_569949477_n.jpg');
         $this->viewClass = 'Json';
         $this->set('_serialize', array('icon_url'));
@@ -84,4 +91,17 @@ class ReportsController extends AppController {
 
         $this->render('dialog/event');
     }
+
+	private function _imageSave($fileTmpName) {
+		// validateを実行(sizeと拡張子,content-type?)
+		if (!$fileTmpName) {
+			return false;
+		}
+		// 保存するpathを生成
+		$mediaPath = '../webroot/media/reports/';
+		$mediaFileName = hash('md5',strtotime(date("Y-m-d h:i:s"))) .'.jpg';
+		if(!move_uploaded_file($fileTmpName, $mediaPath . $mediaFileName)){
+		}
+		return $mediaFileName;
+	}
 }
