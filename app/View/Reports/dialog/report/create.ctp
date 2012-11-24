@@ -106,11 +106,10 @@ $(function() {
     uploader.bind('FileUploaded', function(up, file, response) {
       // ファイルのアップロードが完了した時に呼び出される
       var parsedData = $.parseJSON(response.response);
-      console.log(parsedData);
 
-      console.log($('#uploadCoverPhotoHandler').text());
       $('#uploadCoverPhotoHandler').text("");
       $('#uploadCoverPhotoHandler').append('<img src="' + parsedData.cover_url +'" width="" height="" alt="" />');
+      $('#uploadCoverPhotoHandler').append('<input type="hidden" name="cover" value="' + parsedData.cover_url + '" />');
     });
 
     uploader.bind('UploadComplete', function(up, files) {
@@ -155,9 +154,6 @@ $(function() {
 
     uploader.bind('FilesAdded', function(up, files) {
       // ファイルを追加した後に呼び出される
-      console.log("Added files");
-      // console.log(up);
-      // console.log(files);
       up.refresh();
       up.start();
     });
@@ -184,6 +180,10 @@ $(function() {
       // ファイルのアップロードが完了した時に呼び出される
       var parsedData = $.parseJSON(response.response);
       console.log(parsedData);
+
+      $('#uploadIconPhotoHandler').text("");
+      $('#uploadIconPhotoHandler').append('<img src="' + parsedData.icon_url + '" width="" height="" alt="" />');
+      $('#uploadIconPhotoHandler').append('<input type="hidden" name="icon" value="' + parsedData.icon_url + '" />');
     });
 
     uploader.bind('UploadComplete', function(up, files) {

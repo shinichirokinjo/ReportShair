@@ -8,6 +8,7 @@
 <meta name="robots" content="index,follow" />
 <meta name="language" content="" />
 <?=$this->element('og_meta')?>
+
 <!-- LINK -->
 <link rel="canonical" href="" />
 <link rel="shortcut icon" href="/favicon.ico" />
@@ -25,6 +26,6 @@
 </div><!-- .container -->
 
 <?= $this->element('footer'); ?>
-<script data-main="static/js/main.js" src="/static/js/vendor/require.js"></script>
+<script data-main="/static/js/main.js" src="/static/js/vendor/require.js"></script>
 </body>
 </html>
