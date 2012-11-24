@@ -871,6 +871,7 @@ button,
         color: #444; }
     .dialogReportInfo .dialogName .dialogReportName {
       margin: 0 0 0 290px;
+      width: 450px;
       font-size: 20px; }
 
 body.dialog {

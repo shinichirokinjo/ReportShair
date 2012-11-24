@@ -301,6 +301,9 @@ define(["jquery/jquery"], function($) {
           // typeが判定できない場合は処理せずにダイアログを閉じる
           close();
         }
+      },
+      closeDialog: function() {
+        close();
       }
     }
   }

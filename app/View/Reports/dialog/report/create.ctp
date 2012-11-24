@@ -18,14 +18,13 @@
             <a id="uploadIconPhotoHandler" href="#">アイコンをアップロードする</a>
           </span>
         </div>
-        <h2 class="dialogReportName">WOMB (Official)</h2>
+        <input class="dialogReportName" type="text" name="name" value="" placeholder="レポート名を入力してください" />
       </div>
     </div>
   </fieldset>
 </div>
 <footer id="overlayFoot">
   <button type="submit">作成</button>
-  <button type="cancel">キャンセル</button>
 </footer>
 </form>
 <script type="text/javascript" src="/static/js/plupload/plupload.js"></script>
