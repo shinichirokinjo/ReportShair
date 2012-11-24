@@ -8,15 +8,12 @@
 <meta name="robots" content="index,follow" />
 <meta name="language" content="" />
 <?=$this->element('og_meta')?>
+
 <!-- LINK -->
 <link rel="canonical" href="" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <!-- STYLE -->
 <link rel="stylesheet" href="/static/css/screen.css" media="screen" />
-<!-- SCRIPT -->
-<script src="/static/js/jquery/jquery.min.js"></script>
-<script src="/static/js/jquery/jquery.tipsy.js"></script>
-<script src="/static/js/app.js"></script>
 </head>
 
 <body class="<?= h($body_class) ?><?= ($loggedin) ? " loggedin" : ''; ?>">
@@ -29,5 +26,6 @@
 </div><!-- .container -->
 
 <?= $this->element('footer'); ?>
+<script data-main="/static/js/main.js" src="/static/js/vendor/require.js"></script>
 </body>
 </html>

@@ -42,6 +42,9 @@
     width: 480px;
     height: 320px;
   }
+  .createDialog & {
+    height: 520px;
+  }
 }
 #overlayHead {
   height: 36px;
@@ -217,7 +220,6 @@
   display: block;
   width: 960px;
   height: 355px;
-  background-color: #EEE;
   .dialogCoverWrap {
     position: absolute;
     top: 20px;
@@ -225,6 +227,9 @@
     width: 851px;
     height: 315px;
     background-color: #AAA;
+    &:hover {
+      background-color: #BBB;
+    }
   }
   #uploadCoverPhotoHandler {
     display: block;
@@ -233,7 +238,7 @@
     line-height: 315px;
     text-align: center;
     text-decoration: none;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.75);
+    text-shadow: 0 -1px 0 rgba(255,255,255,.75);
     font-size: 36px;
     font-weight: bold;
     color: #444;
@@ -252,8 +257,12 @@
       left: 100px;
       width: 168px;
       height: 168px;
-      background: rgba(0,0,0,.2);
+      background-color: #EEE;
       @include border-radius(3px);
+      @include box-shadow(0 2px 7px rgba(0,0,0,.3));
+      &:hover {
+        background-color: #F1F1F1;
+      }
       .dialogReportImage {
         overflow: hidden;
         display: block;
@@ -262,6 +271,17 @@
         background: rgba(0,0,0,.3);
         border: solid 4px #FFF;
         @include border-radius(3px);
+      }
+      #uploadIconPhotoHandler {
+        display: block;
+        width: 160px;
+        height: 160px;
+        line-height: 160px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0 1px 0 rgba(255,255,255,.75);
+        font-size: 10px;
+        color: #444;
       }
     }
     .dialogReportName {

@@ -70,9 +70,9 @@
 
 @function fs($size, $type: 'percent') {
   @if ($type == 'percent') {
-    @return pixel-to-percent($size);
+    @return ceil(pixel-to-percent($size));
   } @else if ($type == 'pixel') {
-    @return $size + 0px;
+    @return ceil($size) + 0px;
   } @else if ($type == 'em') {
     @return pixel-to-em($size);
   }

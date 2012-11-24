@@ -13,7 +13,7 @@
 <!-- STYLE -->
 <link rel="stylesheet" href="/static/css/screen.css" media="screen" />
 <!-- SCRIPT -->
-<script src="/static/js/jquery/jquery.min.js"></script>
+<script src="/static/js/jquery/jquery.js"></script>
 </head>
 
 <body class="dialog <?= h($body_class) ?><?= ($loggedin) ? " loggedin" : ''; ?>">

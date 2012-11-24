@@ -2,7 +2,7 @@
   <h1>レポートの新規作成</h1>
 </header>
 <form action="" method="POST" accept-charset="utf-8">
-<div id="overlayContent">
+<div id="overlayContent" style="overflow: hidden; display: block;">
   <fieldset class="dialogReportBoard">
     <div class="dialogCoverImage">
       <div class="dialogCoverWrap">
@@ -52,6 +52,14 @@ var pluploadCoverConfig = {
 };
 
 $(function() {
+  var containerHeight,
+      contentHeight;
+
+  containerHeight = $("body").height();
+  contentHeight = containerHeight - 37;
+
+  $("#overlayContent").css({height: contentHeight + "px"});
+
   var resizeOverlayContent = function() {
     var containerHeight,
         contentHeight;
@@ -78,9 +86,6 @@ $(function() {
 
     uploader.bind('FilesAdded', function(up, files) {
       // ファイルを追加した後に呼び出される
-      console.log("Added files");
-      // console.log(up);
-      // console.log(files);
       up.refresh();
       up.start();
     });
@@ -106,7 +111,10 @@ $(function() {
     uploader.bind('FileUploaded', function(up, file, response) {
       // ファイルのアップロードが完了した時に呼び出される
       var parsedData = $.parseJSON(response.response);
-      console.log(parsedData);
+
+      $('#uploadCoverPhotoHandler').text("");
+      $('#uploadCoverPhotoHandler').append('<img src="' + parsedData.cover_url +'" width="" height="" alt="" />');
+      $('#uploadCoverPhotoHandler').append('<input type="hidden" name="cover" value="' + parsedData.cover_url + '" />');
     });
 
     uploader.bind('UploadComplete', function(up, files) {
@@ -151,9 +159,6 @@ $(function() {
 
     uploader.bind('FilesAdded', function(up, files) {
       // ファイルを追加した後に呼び出される
-      console.log("Added files");
-      // console.log(up);
-      // console.log(files);
       up.refresh();
       up.start();
     });
@@ -180,6 +185,10 @@ $(function() {
       // ファイルのアップロードが完了した時に呼び出される
       var parsedData = $.parseJSON(response.response);
       console.log(parsedData);
+
+      $('#uploadIconPhotoHandler').text("");
+      $('#uploadIconPhotoHandler').append('<img src="' + parsedData.icon_url + '" width="" height="" alt="" />');
+      $('#uploadIconPhotoHandler').append('<input type="hidden" name="icon" value="' + parsedData.icon_url + '" />');
     });
 
     uploader.bind('UploadComplete', function(up, files) {
@@ -189,7 +198,6 @@ $(function() {
 
   if (typeof(pluploadIconConfig) == 'object') {
     plupload_icon_init();
-    resizeOverlayContent();
   }
 });
 </script>
