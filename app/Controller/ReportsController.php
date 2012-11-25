@@ -57,6 +57,14 @@ class ReportsController extends AppController {
     }
 
     public function dialog_report_create() {
+		// registerReport：レポートの登録処理
+		if (!$this->_registerReport()) {
+			// error処理
+			$this->layout = 'dialog';
+			$this->set('title', 'ReportShair');
+			$this->set('headline', 'Create Report');
+			$this->render('dialog/report/create/error');
+		}
         $this->layout = 'dialog';
         $this->set('title', 'ReportShair');
         $this->set('headline', 'Create Report');
@@ -76,21 +84,25 @@ class ReportsController extends AppController {
     }
 
     public function dialog_upload_icon() {
-		$iconImage = $_FILES['icon']['tmp_name'];
-		$this->_imageSave($iconImage);
-        $this->set('icon_url','/media/reports/158038_196424980375651_569949477_n.jpg');
-        $this->viewClass = 'Json';
-        $this->set('_serialize', array('icon_url'));
-
+		if (isset($_FILES['file']['tmp_name'])) {
+			$this->set('icon_url','/media/reports/'.$this->_imageSave($_FILES['file']['tmp_name']));
+			$this->viewClass = 'Json';
+			$this->set('_serialize', array('icon_url'));
+		} else {
+	        $this->set('cover_url','error');
+			$this->viewClass = 'Json';
+			$this->set('_serialize', array('error'));
+		}	
     }
 
-    public function dialog_event() {
-        $this->layout = 'dialog';
-        $this->set('title', 'ReportShair');
-        $this->set('headline', 'Create Event');
+	public function dialog_event() {
+		$this->layout = 'dialog';
+		$this->set('title', 'ReportShair');
+		$this->set('headline', 'Create Event');
 
-        $this->render('dialog/event');
-    }
+		$this->render('dialog/event');
+	}
+
 
 	private function _imageSave($fileTmpName) {
 		// validateを実行(sizeと拡張子,content-type?)
@@ -103,5 +115,9 @@ class ReportsController extends AppController {
 		if(!move_uploaded_file($fileTmpName, $mediaPath . $mediaFileName)){
 		}
 		return $mediaFileName;
+	}
+
+	private function _registerReport () {
+		return true;
 	}
 }
