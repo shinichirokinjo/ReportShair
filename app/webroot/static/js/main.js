@@ -1,12 +1,9 @@
 requirejs.config({
   baseUrl: "/static/js",
   paths: {
-    jquery: [
-      'jquery'
-    ],
-    vendor: [
-      'vendor'
-    ]
+    jquery: 'jquery',
+    vendor: 'vendor',
+    reportshair: 'reportshair'
   },
   shim: {
     'jquery/jquery': {
@@ -28,7 +25,7 @@ requirejs.config({
       deps: ['jquery/jquery'],
       exports: 'jQuery.fn.tipsy'
     },
-    'reportshair': {
+    'reportshair/rs': {
       deps: ['jquery/jquery', 'vendor/backbone'],
       exports: 'RS'
     }
@@ -40,7 +37,7 @@ requirejs(
     "jquery/jquery",
     "vendor/underscore",
     "vendor/backbone",
-    "reportshair",
+    "reportshair/rs",
     "jquery/scrollspy",
     "jquery/tipsy"
   ],
