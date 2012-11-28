@@ -15,9 +15,6 @@
 
 Thumbs.db
 
-app/Config/core.php
-app/Config/database.php
-app/Config/email.php
 app/tmp/
 
 node_modules
